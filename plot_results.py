@@ -11,22 +11,29 @@ import matplotlib.pyplot as plt
 import os
 from pathlib import Path
 
+# 从 experiment_runner 导入实验参数
+from experiment_runner import POP_SIZE, N_GEN
+
 # 设置中文字体
 plt.rcParams['font.sans-serif'] = ['SimHei', 'DejaVu Sans']  # 用来正常显示中文标签
 plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
 
 # 结果目录
-RESULTS_DIR = Path(__file__).parent / "results"
+RESULTS_DIR = Path(__file__).parent / "experiment_results"
+
+# 最大函数评估次数
+MAX_FES = POP_SIZE * N_GEN
 
 # 测试函数列表
-TEST_FUNCTIONS = ["F2", "F3", "F4"]
+TEST_FUNCTIONS = ["F2", "F3", "F4","Ackley","Griewank"]
 
 # 方法列表及其显示名称和颜色
 METHODS = {
     "GA": {"name": "GA", "color": "blue", "linestyle": "-"},
     "HA_kmeans": {"name": "HA_kmeans", "color": "red", "linestyle": "-"},
     "HA_meanshift": {"name": "HA_meanshift", "color": "green", "linestyle": "-"},
-    "HA_dbscan": {"name": "HA_dbscan", "color": "orange", "linestyle": "-"}
+    "HA_dbscan": {"name": "HA_dbscan", "color": "orange", "linestyle": "-"},
+    # "HA_original": {"name": "HA_original", "color": "purple", "linestyle": "-"}
 }
 
 def plot_function_comparison(function_name):
@@ -76,6 +83,7 @@ def plot_function_comparison(function_name):
     ax.legend(loc="best", fontsize=10)
     ax.grid(True, alpha=0.3)
     ax.set_yscale("log")  # 使用对数坐标，因为best_f_mean通常是很小的值
+    ax.set_xlim(left=0, right=MAX_FES)  # 设置 x 轴最大值为 POP_SIZE * N_GEN
     
     # 保存图表
     output_file = RESULTS_DIR / f"{function_name}_comparison.png"

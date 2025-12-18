@@ -36,10 +36,12 @@ ArrayLike = NDArray[np.floating]
 
 class F2Problem(Problem):
     """
-    单目标基准函数 f2 的 `pymoo` 问题定义。
+    单目标基准函数 f2 (Michalewicz) 的 `pymoo` 问题定义。
 
     目标函数：
-        f2(x) = sum_{i=1}^D sin(x_i) * sin^{2m}(i * x_i^2 / pi)
+        f2(x) = -sum_{i=1}^D sin(x_i) * sin^{2m}(i * x_i^2 / pi)
+    
+    注意：加负号使其成为标准 Michalewicz 函数，全局最小值约为 -9.66 (D=10, m=10)
 
     参数
     ----
@@ -56,9 +58,9 @@ class F2Problem(Problem):
     def __init__(
         self,
         n_var: int = 10,
-        m: int = 5,
-        xl: float | ArrayLike = -10.0,
-        xu: float | ArrayLike = 10.0,
+        m: int = 10,
+        xl: float | ArrayLike = 0.0,
+        xu: float | ArrayLike = np.pi,
     ) -> None:
         self.m: int = int(m)
         # 记录函数评估次数（function evaluations）
@@ -114,8 +116,8 @@ class F2Problem(Problem):
         inner = i[None, :] * (X ** 2) / np.pi  # (N, D)
         term2 = np.sin(inner) ** (2 * self.m)  # (N, D)
 
-        # 按维度求和：sum_{i=1}^D term1 * term2
-        f = np.sum(term1 * term2, axis=1)  # (N,)
+        # 按维度求和：-sum_{i=1}^D term1 * term2 (Michalewicz 函数需要负号)
+        f = -np.sum(term1 * term2, axis=1)  # (N,)
 
         # 与 HA 中 evaluate_fitness_cv_batch 的接口兼容：
         # 该函数会对 out["F"] 调用 reshape(-1, 1)，
@@ -429,6 +431,124 @@ class F4Problem(Problem):
         out["F"] = f
 
 
-__all__ = ["F2Problem", "F3Problem", "F4Problem"]
+class AckleyProblem(Problem):
+    """
+    Ackley 函数的 `pymoo` 问题定义（经典多峰函数）。
+
+    标准形式（D 维）：
+        f(x) = -20 * exp( -0.2 * sqrt( 1/D * sum_{i=1}^D x_i^2 ) )
+               - exp( 1/D * sum_{i=1}^D cos( 2*pi*x_i ) )
+               + 20 + e
+
+    常用定义域：x ∈ [-32.768, 32.768]^D
+    全局最优：f(x*) = 0, x* = 0^D
+    """
+
+    def __init__(
+        self,
+        n_var: int = 10,
+        xl: float | ArrayLike = -32.768,
+        xu: float | ArrayLike = 32.768,
+    ) -> None:
+        # 记录函数评估次数
+        self.fes: int = 0
+
+        super().__init__(
+            n_var=n_var,
+            n_obj=1,
+            n_ieq_constr=0,
+            n_eq_constr=0,
+            xl=xl,
+            xu=xu,
+        )
+
+    def _evaluate(
+        self,
+        X: ArrayLike,
+        out: dict,
+        *args,
+        **kwargs,
+    ) -> None:
+        """
+        批量评估 Ackley 目标函数值。
+        """
+        X = np.atleast_2d(X).astype(float)
+        n_samples, D = X.shape
+
+        # 更新函数评估次数
+        self.fes += int(n_samples)
+
+        # 1/D * sum(x_i^2)
+        sq_term = np.sum(X ** 2, axis=1) / D
+        # 1/D * sum(cos(2*pi*x_i))
+        cos_term = np.sum(np.cos(2 * np.pi * X), axis=1) / D
+
+        f = -20.0 * np.exp(-0.2 * np.sqrt(sq_term)) - np.exp(cos_term) + 20.0 + np.e
+        out["F"] = f
+
+
+class GriewankProblem(Problem):
+    """
+    Griewank 函数的 `pymoo` 问题定义（经典多峰函数）。
+
+    标准形式（D 维）：
+        f(x) = 1 + 1/4000 * sum_{i=1}^D x_i^2 - prod_{i=1}^D cos( x_i / sqrt(i) )
+
+    常用定义域：x ∈ [-600, 600]^D
+    全局最优：f(x*) = 0, x* = 0^D
+    """
+
+    def __init__(
+        self,
+        n_var: int = 10,
+        xl: float | ArrayLike = -600.0,
+        xu: float | ArrayLike = 600.0,
+    ) -> None:
+        # 记录函数评估次数
+        self.fes: int = 0
+
+        super().__init__(
+            n_var=n_var,
+            n_obj=1,
+            n_ieq_constr=0,
+            n_eq_constr=0,
+            xl=xl,
+            xu=xu,
+        )
+
+    def _evaluate(
+        self,
+        X: ArrayLike,
+        out: dict,
+        *args,
+        **kwargs,
+    ) -> None:
+        """
+        批量评估 Griewank 目标函数值。
+        """
+        X = np.atleast_2d(X).astype(float)
+        n_samples, D = X.shape
+
+        # 更新函数评估次数
+        self.fes += int(n_samples)
+
+        # sum(x_i^2) / 4000
+        sum_term = np.sum(X ** 2, axis=1) / 4000.0
+
+        # prod(cos(x_i / sqrt(i)))
+        i = np.arange(1, D + 1, dtype=float)
+        cos_term = np.prod(np.cos(X / np.sqrt(i[None, :])), axis=1)
+
+        f = 1.0 + sum_term - cos_term
+        out["F"] = f
+
+
+__all__ = [
+    "F2Problem",
+    "F3Problem",
+    "F4Problem",
+    "AckleyProblem",
+    "GriewankProblem",
+]
 
 

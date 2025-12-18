@@ -22,6 +22,43 @@ from typing import Any, Dict, List, Tuple, Optional
 from dataclasses import dataclass, field
 from pathlib import Path
 
+
+# ============================================================================
+# 同时输出到文件和控制台的类
+# ============================================================================
+
+class TeeOutput:
+    """
+    将输出写入文件的类（正常运行时不输出到控制台）。
+    支持同时处理 stdout 和 stderr 的重定向。
+    """
+    def __init__(self, file_path, mode='w'):
+        self.file = open(file_path, mode, encoding='utf-8')
+    
+    def write(self, text):
+        """
+        写入方法：仅写入文件，保持控制台清洁。
+        """
+        # 写入文件
+        self.file.write(text)
+        self.file.flush()
+    
+    def flush(self):
+        """刷新缓冲区"""
+        self.file.flush()
+        self.stdout.flush()
+    
+    def close(self):
+        """关闭文件"""
+        if self.file and not self.file.closed:
+            self.file.close()
+    
+    def __enter__(self):
+        return self
+    
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.close()
+
 # ============================================================================
 # 线程数/并行设置，避免 OpenBLAS 和多进程创建过多线程
 # ============================================================================
@@ -46,6 +83,7 @@ from pymoo.core.population import Population
 # 本地模块导入
 from problem import F2Problem, F3Problem, F4Problem
 from ha import HA
+from ha_original import HA as HA_Original
 
 # ============================================================================
 # 配置参数
@@ -53,27 +91,32 @@ from ha import HA
 
 # 实验参数
 POP_SIZE = 100
-N_GEN = 30
+N_GEN = 50
 N_RUNS = 30
 RANDOM_SEEDS = list(range(42, 42 + N_RUNS))  # 30 个不同的随机种子
 
 # 问题配置
+from problem import F2Problem, F3Problem, F4Problem, AckleyProblem, GriewankProblem
+
 PROBLEMS = {
     "F2": lambda: F2Problem(n_var=10, m=5, xl=0.0, xu=np.pi),
     "F3": lambda: F3Problem(n_var=10, xl=-100.0, xu=100.0),
     "F4": lambda: F4Problem(n_var=10, xl=-100.0, xu=100.0),
+    "Ackley": lambda: AckleyProblem(n_var=10, xl=-32.768, xu=32.768),
+    "Griewank": lambda: GriewankProblem(n_var=10, xl=-600.0, xu=600.0),
 }
 
 # 算法配置
 METHODS = {
     "GA": "standard",
     "HA_kmeans": "kmeans",
+    # "HA_original": "original",
     "HA_meanshift": "meanshift",
     "HA_dbscan": "dbscan",
 }
 
 # 输出目录
-RESULTS_DIR = Path(__file__).parent / "results"
+RESULTS_DIR = Path(__file__).parent / "experiment_results"
 
 
 # ============================================================================
@@ -113,12 +156,19 @@ class DataCollectorCallback(Callback):
     回调类，用于在每一代结束时收集种群数据。
     """
     
-    def __init__(self):
+    def __init__(self, skip_first=False):
         super().__init__()
         self.data: List[GenerationData] = []
+        self.skip_first = skip_first
+        self.first_call = True
     
     def notify(self, algorithm):
         """每代结束时调用"""
+        # 如果设置了skip_first，跳过第一次调用（因为初始种群已手动记录）
+        if self.skip_first and self.first_call:
+            self.first_call = False
+            return
+        
         pop = algorithm.pop
         
         X = pop.get("X").copy()
@@ -154,6 +204,8 @@ def generate_initial_population(
     """
     生成初始种群。
     
+    使用固定的随机种子确保可重复性，同一种子下所有方法使用相同的初始种群。
+    
     Args:
         problem: pymoo 问题对象
         pop_size: 种群大小
@@ -165,7 +217,39 @@ def generate_initial_population(
     rng = np.random.default_rng(seed)
     xl = np.array(problem.xl)
     xu = np.array(problem.xu)
-    return rng.uniform(xl, xu, (pop_size, problem.n_var))
+    initial_pop = rng.uniform(xl, xu, (pop_size, problem.n_var))
+    
+    # 检查并处理重复个体（连续优化中概率极低，但为了确保一致性）
+    # GA 的 eliminate_duplicates=True 会在初始化时去重并填充，导致初始种群不一致
+    # 因此我们确保初始种群没有重复
+    unique_pop = []
+    for individual in initial_pop:
+        is_duplicate = False
+        for existing in unique_pop:
+            if np.allclose(individual, existing, rtol=1e-10, atol=1e-10):
+                is_duplicate = True
+                break
+        
+        if is_duplicate:
+            # 如果重复，生成新的个体，直到不重复
+            max_attempts = 100
+            for _ in range(max_attempts):
+                new_individual = rng.uniform(xl, xu, problem.n_var)
+                is_new_duplicate = False
+                for existing in unique_pop:
+                    if np.allclose(new_individual, existing, rtol=1e-10, atol=1e-10):
+                        is_new_duplicate = True
+                        break
+                if not is_new_duplicate:
+                    unique_pop.append(new_individual)
+                    break
+            else:
+                # 如果100次尝试后仍然重复，直接添加（这种情况几乎不可能）
+                unique_pop.append(individual)
+        else:
+            unique_pop.append(individual)
+    
+    return np.array(unique_pop)
 
 
 # ============================================================================
@@ -174,22 +258,30 @@ def generate_initial_population(
 
 def run_standard_ga(
     problem,
-    initial_pop: NDArray,
+    pop_size: int,
     n_gen: int,
-    seed: int
+    seed: int,
+    initial_pop: Optional[NDArray] = None
 ) -> Tuple[Any, List[GenerationData]]:
     """
     运行标准 GA 算法。
-    """
-    callback = DataCollectorCallback()
     
-    # 创建初始 Population 对象
-    pop = Population.new("X", initial_pop)
+    使用统一的初始种群生成函数，确保与其他方法完全一致。
+    
+    Args:
+        initial_pop: 预生成的初始种群（可选），如果为None则使用seed生成
+    """
+    callback = DataCollectorCallback(skip_first=False)
+    
+    # 如果没有提供初始种群，使用统一函数生成
+    if initial_pop is None:
+        initial_pop = generate_initial_population(problem, pop_size, seed)
+    print(f"GA使用的初始种群: initial_pop[0,0]={initial_pop[0,0]:.6f}")
     
     algorithm = GA(
-        pop_size=len(initial_pop),
-        sampling=pop,
+        pop_size=pop_size,
         eliminate_duplicates=True,
+        sampling=initial_pop,  # 使用预生成的初始种群
     )
     
     result = minimize(
@@ -200,31 +292,48 @@ def run_standard_ga(
         callback=callback,
         verbose=False
     )
+    
+    # 调试：打印第一代的信息
+    if len(callback.data) > 0:
+        gen1 = callback.data[0]
+        print(f"GA seed={seed}: gen1 best_F={gen1.best_F:.10e}, best_X[0]={gen1.best_X[0]:.6f}")
     
     return result, callback.data
 
 
 def run_ha(
     problem,
-    initial_pop: NDArray,
+    pop_size: int,
     n_gen: int,
     seed: int,
-    cluster_method: str
+    cluster_method: str,
+    initial_pop: Optional[NDArray] = None
 ) -> Tuple[Any, List[GenerationData]]:
     """
     运行 HA 算法。
+    
+    使用统一的初始种群生成函数，确保与其他方法完全一致。
+    
+    Args:
+        initial_pop: 预生成的初始种群（可选），如果为None则使用seed生成
     """
-    callback = DataCollectorCallback()
+    callback = DataCollectorCallback(skip_first=False)
+    
+    # 如果没有提供初始种群，使用统一函数生成
+    if initial_pop is None:
+        initial_pop = generate_initial_population(problem, pop_size, seed)
+    print(f"HA_{cluster_method}使用的初始种群: initial_pop[0,0]={initial_pop[0,0]:.6f}")
     
     algorithm = HA(
         method="L-BFGS-B",
-        pop_size=len(initial_pop),
+        pop_size=pop_size,
         niche_num=3,
-        mutation_rate=0.8,
-        inherit_rate=0.5,
+        mutation_rate=1.0,
+        inherit_rate=1.0,
         activate_method=True,
         cluster_method=cluster_method,
-        X=initial_pop.copy(),
+        X=initial_pop,  # 传入统一的初始种群
+        seed=seed,  # 保留seed用于后续随机操作
     )
     
     result = minimize(
@@ -235,6 +344,61 @@ def run_ha(
         callback=callback,
         verbose=False
     )
+    
+    # 调试：打印第一代的信息
+    if len(callback.data) > 0:
+        gen1 = callback.data[0]
+        print(f"HA_{cluster_method} seed={seed}: gen1 best_F={gen1.best_F:.10e}, best_X[0]={gen1.best_X[0]:.6f}")
+    
+    return result, callback.data
+
+
+def run_ha_original(
+    problem,
+    pop_size: int,
+    n_gen: int,
+    seed: int,
+    initial_pop: Optional[NDArray] = None
+) -> Tuple[Any, List[GenerationData]]:
+    """
+    运行原始 HA 算法（ha_original.py）。
+    
+    使用统一的初始种群生成函数，确保与其他方法完全一致。
+    
+    Args:
+        initial_pop: 预生成的初始种群（可选），如果为None则使用seed生成
+    """
+    callback = DataCollectorCallback(skip_first=False)
+    
+    # 如果没有提供初始种群，使用统一函数生成
+    if initial_pop is None:
+        initial_pop = generate_initial_population(problem, pop_size, seed)
+    print(f"HA_original使用的初始种群: initial_pop[0,0]={initial_pop[0,0]:.6f}")
+    
+    algorithm = HA_Original(
+        method="L-BFGS-B",
+        pop_size=pop_size,
+        niche_num=3,
+        mutation_rate=1.0,
+        inherit_rate=1.0,
+        activate_method=True,
+        X=initial_pop,  # 传入统一的初始种群
+        seed=seed,  # 保留seed用于后续随机操作
+    )
+    
+    result = minimize(
+        problem,
+        algorithm,
+        termination=get_termination("n_gen", n_gen),
+        seed=seed,
+        callback=callback,
+        verbose=False
+    )
+    
+    # 调试：打印第一代的信息
+    if len(callback.data) > 0:
+        gen1 = callback.data[0]
+        print(f"HA_original seed={seed}: gen1 best_F={gen1.best_F:.10e}, best_X[0]={gen1.best_X[0]:.6f}")
     
     return result, callback.data
 
@@ -260,9 +424,9 @@ def run_single_experiment(args: Tuple) -> RunResult:
     log_dir.mkdir(parents=True, exist_ok=True)
     log_file = log_dir / f"{problem_name}_{method_name}_run{run_id:02d}.log"
     
-    # 重定向 stdout 和 stderr 到日志文件
-    with open(log_file, 'w') as f:
-        with contextlib.redirect_stdout(f), contextlib.redirect_stderr(f):
+    # 使用 TeeOutput 同时输出到日志文件和控制台
+    with TeeOutput(log_file, 'w') as tee:
+        with contextlib.redirect_stdout(tee), contextlib.redirect_stderr(tee):
             return _run_experiment_internal(problem_name, method_name, run_id, seed)
 
 
@@ -285,17 +449,19 @@ def _run_experiment_internal(
     # 创建问题
     problem = PROBLEMS[problem_name]()
     
-    # 生成初始种群（同一种子下所有方法使用相同初始种群）
-    initial_pop = generate_initial_population(problem, POP_SIZE, seed)
-    
     start_time = time.time()
     
     try:
+        # 统一生成初始种群，确保三个方法使用完全相同的初始种群
+        initial_pop = generate_initial_population(problem, POP_SIZE, seed)
+        
         if method_name == "GA":
-            result, gen_data = run_standard_ga(problem, initial_pop, N_GEN, seed)
+            result, gen_data = run_standard_ga(problem, POP_SIZE, N_GEN, seed, initial_pop)
+        elif method_name == "HA_original":
+            result, gen_data = run_ha_original(problem, POP_SIZE, N_GEN, seed, initial_pop)
         else:
             cluster_method = METHODS[method_name]
-            result, gen_data = run_ha(problem, initial_pop, N_GEN, seed, cluster_method)
+            result, gen_data = run_ha(problem, POP_SIZE, N_GEN, seed, cluster_method, initial_pop)
         
         runtime = time.time() - start_time
         
@@ -315,10 +481,19 @@ def _run_experiment_internal(
         print(f"  运行时间: {runtime:.2f}s")
         
     except Exception as e:
-        print(f"[{datetime.now()}] 错误: {problem_name} - {method_name} - Run {run_id}")
-        print(f"  异常: {e}")
+        # 记录到日志文件（通过重定向的 stdout）
+        error_msg = f"[{datetime.now()}] 错误: {problem_name} - {method_name} - Run {run_id}\n"
+        error_detail = f"  异常: {e}\n"
+        print(error_msg + error_detail)
         import traceback
         traceback.print_exc()
+        
+        # 同时强制输出到原始控制台，以便用户及时发现错误
+        sys.__stdout__.write("\n" + "!"*60 + "\n")
+        sys.__stdout__.write(error_msg + error_detail)
+        sys.__stdout__.write(traceback.format_exc())
+        sys.__stdout__.write("!"*60 + "\n")
+        sys.__stdout__.flush()
         
         run_result = RunResult(
             problem_name=problem_name,
@@ -521,7 +696,7 @@ def main():
     print(f"方法: {list(METHODS.keys())}")
     cpu_count = mp.cpu_count()
     # 为了避免线程/进程数过多导致资源错误，限制实际 worker 数量
-    n_workers = min(8, cpu_count)
+    n_workers = min(32, cpu_count)
     print(f"CPU 核心数: {cpu_count}")
     print(f"实际使用的并行进程数: {n_workers}")
     print(f"结果目录: {RESULTS_DIR}")
@@ -600,8 +775,9 @@ def example_load_and_plot():
         colors = {
             "GA": "blue",
             "HA_kmeans": "red",
-            "HA_meanshift": "green",
-            "HA_dbscan": "orange"
+            "HA_original": "green",
+            "HA_meanshift": "orange",
+            "HA_dbscan": "purple"
         }
         
         for method_name, results in results_by_method.items():
