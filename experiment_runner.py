@@ -84,39 +84,50 @@ from pymoo.core.population import Population
 from problem import F2Problem, F3Problem, F4Problem
 from ha import HA
 from ha_original import HA as HA_Original
+from ha_Nelder_Mead import HA as HA_Nelder_Mead
 
 # ============================================================================
 # 配置参数
 # ============================================================================
 
 # 实验参数
-POP_SIZE = 100
-N_GEN = 50
-N_RUNS = 30
-RANDOM_SEEDS = list(range(42, 42 + N_RUNS))  # 30 个不同的随机种子
+POP_SIZE = 50
+N_GEN = 30
+N_RUNS = 10
+RANDOM_SEEDS = list(range(42, 42 + N_RUNS))  # 10 个不同的随机种子
 
 # 问题配置
-from problem import F2Problem, F3Problem, F4Problem, AckleyProblem, GriewankProblem
+from problem import (
+    F2Problem, F3Problem, F4Problem,
+    RastriginProblem, GriewankProblem, AckleyProblem
+)
 
 PROBLEMS = {
-    "F2": lambda: F2Problem(n_var=10, m=5, xl=0.0, xu=np.pi),
+    "F2": lambda: F2Problem(n_var=10, m=10, xl=0.0, xu=np.pi),
     "F3": lambda: F3Problem(n_var=10, xl=-100.0, xu=100.0),
     "F4": lambda: F4Problem(n_var=10, xl=-100.0, xu=100.0),
-    "Ackley": lambda: AckleyProblem(n_var=10, xl=-32.768, xu=32.768),
+    "Rastrigin": lambda: RastriginProblem(n_var=10, xl=-5.12, xu=5.12),
     "Griewank": lambda: GriewankProblem(n_var=10, xl=-600.0, xu=600.0),
+    "Ackley": lambda: AckleyProblem(n_var=10, xl=-32.768, xu=32.768),
 }
 
-# 算法配置
+# 算法配置 - 包含标准 GA 和 HA_Nelder_Mead 的不同方法
 METHODS = {
-    "GA": "standard",
-    "HA_kmeans": "kmeans",
-    # "HA_original": "original",
-    "HA_meanshift": "meanshift",
-    "HA_dbscan": "dbscan",
+    "GA": "GA",  # 标准 GA
+    "Nelder-Mead": "Nelder-Mead",
+    "rbf": "rbf",
+    "gp": "gp",  # 高斯过程代理模型
+    "history-ladder": "history-ladder",  # 历史阶梯跳跃局部搜索
+    "Adam": "Adam",
+    "Sophia": "Sophia",
+    "Lion": "Lion",
+    "AdamW": "AdamW",
+    "L-BFGS-B": "L-BFGS-B",
 }
 
-# 输出目录
-RESULTS_DIR = Path(__file__).parent / "experiment_results"
+# 输出目录 - 使用当前日期时间命名
+timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+RESULTS_DIR = Path(__file__).parent / "experiments_results" / f"result_{timestamp}"
 
 
 # ============================================================================
@@ -403,6 +414,118 @@ def run_ha_original(
     return result, callback.data
 
 
+def run_ha_nelder_mead(
+    problem,
+    pop_size: int,
+    n_gen: int,
+    seed: int,
+    cluster_method: str,
+    initial_pop: Optional[NDArray] = None
+) -> Tuple[Any, List[GenerationData]]:
+    """
+    运行 HA_Nelder_Mead 算法。
+    
+    使用统一的初始种群生成函数，确保与其他方法完全一致。
+    
+    Args:
+        initial_pop: 预生成的初始种群（可选），如果为None则使用seed生成
+    """
+    callback = DataCollectorCallback(skip_first=False)
+    
+    # 如果没有提供初始种群，使用统一函数生成
+    if initial_pop is None:
+        initial_pop = generate_initial_population(problem, pop_size, seed)
+    print(f"HA_Nelder_Mead_{cluster_method}使用的初始种群: initial_pop[0,0]={initial_pop[0,0]:.6f}")
+    
+    algorithm = HA_Nelder_Mead(
+        method="Nelder-Mead",
+        pop_size=pop_size,
+        niche_num=3,
+        mutation_rate=1.0,
+        inherit_rate=1.0,
+        activate_method=True,
+        cluster_method=cluster_method,
+        X=initial_pop,  # 传入统一的初始种群
+        seed=seed,  # 保留seed用于后续随机操作
+    )
+    
+    result = minimize(
+        problem,
+        algorithm,
+        termination=get_termination("n_gen", n_gen),
+        seed=seed,
+        callback=callback,
+        verbose=False
+    )
+    
+    # 调试：打印第一代的信息
+    if len(callback.data) > 0:
+        gen1 = callback.data[0]
+        print(f"HA_Nelder_Mead_{cluster_method} seed={seed}: gen1 best_F={gen1.best_F:.10e}, best_X[0]={gen1.best_X[0]:.6f}")
+    
+    return result, callback.data
+
+
+def run_ha_nelder_mead_method(
+    problem,
+    pop_size: int,
+    n_gen: int,
+    seed: int,
+    method: str,
+    initial_pop: Optional[NDArray] = None
+) -> Tuple[Any, List[GenerationData]]:
+    """
+    运行 HA_Nelder_Mead 算法的指定方法。
+    
+    支持的方法：Nelder-Mead, rbf, Adam, Sophia, Lion, AdamW, L-BFGS-B
+    
+    Args:
+        problem: 优化问题
+        pop_size: 种群大小
+        n_gen: 代数
+        seed: 随机种子
+        method: 局部搜索方法名称
+        initial_pop: 预生成的初始种群（可选）
+        
+    Returns:
+        Tuple: (优化结果, 代数据列表)
+    """
+    callback = DataCollectorCallback(skip_first=False)
+    
+    # 如果没有提供初始种群，使用统一函数生成
+    if initial_pop is None:
+        initial_pop = generate_initial_population(problem, pop_size, seed)
+    print(f"HA_Nelder_Mead_{method}使用的初始种群: initial_pop[0,0]={initial_pop[0,0]:.6f}")
+    
+    algorithm = HA_Nelder_Mead(
+        method=method,
+        pop_size=pop_size,
+        niche_num=3,
+        mutation_rate=1.0,
+        inherit_rate=1.0,
+        activate_method=True,
+        cluster_method="kmeans",  # 使用 kmeans 作为默认聚类方法
+        X=initial_pop,  # 传入统一的初始种群
+        seed=seed,  # 保留seed用于后续随机操作
+    )
+    
+    result = minimize(
+        problem,
+        algorithm,
+        termination=get_termination("n_gen", n_gen),
+        seed=seed,
+        callback=callback,
+        verbose=False
+    )
+    
+    # 调试：打印第一代的信息
+    if len(callback.data) > 0:
+        gen1 = callback.data[0]
+        print(f"HA_Nelder_Mead_{method} seed={seed}: gen1 best_F={gen1.best_F:.10e}, best_X[0]={gen1.best_X[0]:.6f}")
+    
+    return result, callback.data
+
+
 # ============================================================================
 # 单次实验运行
 # ============================================================================
@@ -456,11 +579,19 @@ def _run_experiment_internal(
         initial_pop = generate_initial_population(problem, POP_SIZE, seed)
         
         if method_name == "GA":
+            # 标准 GA 算法
             result, gen_data = run_standard_ga(problem, POP_SIZE, N_GEN, seed, initial_pop)
         elif method_name == "HA_original":
             result, gen_data = run_ha_original(problem, POP_SIZE, N_GEN, seed, initial_pop)
-        else:
+        elif method_name.startswith("HA_Nelder_Mead_"):
             cluster_method = METHODS[method_name]
+            result, gen_data = run_ha_nelder_mead(problem, POP_SIZE, N_GEN, seed, cluster_method, initial_pop)
+        elif method_name in METHODS and method_name != "GA":
+            # 使用 HA_Nelder_Mead 的不同方法（排除 GA，因为 GA 已经单独处理）
+            method = METHODS[method_name]
+            result, gen_data = run_ha_nelder_mead_method(problem, POP_SIZE, N_GEN, seed, method, initial_pop)
+        else:
+            cluster_method = METHODS.get(method_name, "kmeans")
             result, gen_data = run_ha(problem, POP_SIZE, N_GEN, seed, cluster_method, initial_pop)
         
         runtime = time.time() - start_time
@@ -696,7 +827,7 @@ def main():
     print(f"方法: {list(METHODS.keys())}")
     cpu_count = mp.cpu_count()
     # 为了避免线程/进程数过多导致资源错误，限制实际 worker 数量
-    n_workers = min(32, cpu_count)
+    n_workers = min(48, cpu_count)
     print(f"CPU 核心数: {cpu_count}")
     print(f"实际使用的并行进程数: {n_workers}")
     print(f"结果目录: {RESULTS_DIR}")
@@ -777,7 +908,10 @@ def example_load_and_plot():
             "HA_kmeans": "red",
             "HA_original": "green",
             "HA_meanshift": "orange",
-            "HA_dbscan": "purple"
+            "HA_dbscan": "purple",
+            "HA_Nelder_Mead_kmeans": "cyan",
+            "HA_Nelder_Mead_meanshift": "magenta",
+            "HA_Nelder_Mead_dbscan": "yellow"
         }
         
         for method_name, results in results_by_method.items():

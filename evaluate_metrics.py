@@ -20,7 +20,10 @@ from typing import Dict, List, Tuple, Optional, Type
 from dataclasses import dataclass
 
 # 导入问题类用于数值评估 Sensitivity
-from problem import F2Problem, F3Problem, F4Problem, AckleyProblem, GriewankProblem
+from problem import (
+    F2Problem, F3Problem, F4Problem,
+    RastriginProblem, GriewankProblem, AckleyProblem
+)
 
 # ============================================================================
 # 问题定义：理论最优值和搜索边界
@@ -45,37 +48,36 @@ PROBLEM_INFO = {
         n_var=10,
         xl=0.0,
         xu=np.pi,
-        optimal_f=-9.66,
-        optimal_x=np.array([2.20, 1.57, 1.28, 1.11, 0.99, 
-                           0.90, 0.83, 0.77, 0.72, 0.68]),
+        optimal_f=-9.66,  # F2 (Michalewicz) 的理论最优值（D=10, m=10）
+        optimal_x=np.array([2.2029, 1.5708, 1.2850, 1.9231, 1.7205, 1.5708, 1.4544, 1.7561, 1.6557, 1.5708]),  # 近似最优解
         problem_class=F2Problem
     ),
     "F3": ProblemInfo(
-        name="F3 (Schaffer)",
+        name="F3",
         n_var=10,
         xl=-100.0,
         xu=100.0,
-        optimal_f=0.0,
+        optimal_f=0.0,  # F3 在原点处达到最小值
         optimal_x=np.zeros(10),
         problem_class=F3Problem
     ),
     "F4": ProblemInfo(
-        name="F4 (Hybrid)",
+        name="F4 (Mixed)",
         n_var=10,
         xl=-100.0,
         xu=100.0,
-        optimal_f=0.0,
+        optimal_f=0.0,  # F4 在原点处达到最小值（近似）
         optimal_x=np.zeros(10),
         problem_class=F4Problem
     ),
-    "Ackley": ProblemInfo(
-        name="Ackley",
+    "Rastrigin": ProblemInfo(
+        name="Rastrigin",
         n_var=10,
-        xl=-32.768,
-        xu=32.768,
+        xl=-5.12,
+        xu=5.12,
         optimal_f=0.0,
         optimal_x=np.zeros(10),
-        problem_class=AckleyProblem
+        problem_class=RastriginProblem
     ),
     "Griewank": ProblemInfo(
         name="Griewank",
@@ -86,46 +88,106 @@ PROBLEM_INFO = {
         optimal_x=np.zeros(10),
         problem_class=GriewankProblem
     ),
+    "Ackley": ProblemInfo(
+        name="Ackley",
+        n_var=10,
+        xl=-32.768,
+        xu=32.768,
+        optimal_f=0.0,
+        optimal_x=np.zeros(10),
+        problem_class=AckleyProblem
+    ),
 }
 
 # 方法列表和颜色：使用高对比度调色板，增加线宽和标志区分度
 METHODS = {
     "GA": {
-        "color": "#000000",      # 黑色 (基准)
+        "color": "#0000FF",      # 蓝色
         "linestyle": "-", 
         "marker": "o", 
-        "linewidth": 2.5,
-        "label": "Standard GA"
+        "markersize": 6,
+        "linewidth": 2.0,
+        "label": "GA"
     },
-    "HA_kmeans": {
-        "color": "#E31A1C",      # 鲜红色
+    "Nelder-Mead": {
+        "color": "#1F77B4",      # 深蓝色
         "linestyle": "-", 
-        "marker": "s", 
-        "linewidth": 2.5,
-        "label": "HA (K-Means)"
+        "marker": "o", 
+        "markersize": 6,
+        "linewidth": 2.0,
+        "label": "Nelder-Mead"
     },
-    "HA_meanshift": {
-        "color": "#1F78B4",      # 鲜蓝色
+    "rbf": {
+        "color": "#FF7F0E",      # 橙色
         "linestyle": "--", 
-        "marker": "^", 
-        "linewidth": 2.5,
-        "label": "HA (MeanShift)"
+        "marker": "s", 
+        "markersize": 6,
+        "linewidth": 2.0,
+        "label": "RBF"
     },
-    "HA_dbscan": {
-        "color": "#33A02C",      # 鲜绿色
+    "gp": {
+        "color": "#E377C2",      # 粉红色
+        "linestyle": "--", 
+        "marker": "X", 
+        "markersize": 6,
+        "linewidth": 2.0,
+        "label": "GP"
+    },
+    "history-ladder": {
+        "color": "#17BECF",      # 青色
+        "linestyle": "-.", 
+        "marker": "+", 
+        "markersize": 7,
+        "linewidth": 2.0,
+        "label": "History-Ladder"
+    },
+    "Adam": {
+        "color": "#2CA02C",      # 绿色
+        "linestyle": "-", 
+        "marker": "^", 
+        "markersize": 7,
+        "linewidth": 2.0,
+        "label": "Adam"
+    },
+    "Sophia": {
+        "color": "#D62728",      # 红色
         "linestyle": "-.", 
         "marker": "D", 
-        "linewidth": 2.5,
-        "label": "HA (DBSCAN)"
+        "markersize": 6,
+        "linewidth": 2.0,
+        "label": "Sophia"
+    },
+    "Lion": {
+        "color": "#9467BD",      # 紫色
+        "linestyle": "-", 
+        "marker": "v", 
+        "markersize": 6,
+        "linewidth": 2.0,
+        "label": "Lion"
+    },
+    "AdamW": {
+        "color": "#8C564B",      # 棕色
+        "linestyle": "--", 
+        "marker": "p", 
+        "markersize": 6,
+        "linewidth": 2.0,
+        "label": "AdamW"
+    },
+    "L-BFGS-B": {
+        "color": "#000000",      # 黑色
+        "linestyle": "-", 
+        "marker": "*", 
+        "markersize": 7,
+        "linewidth": 2.0,
+        "label": "L-BFGS-B"
     },
 }
 
 # FEs 截止值
-MAX_FES = 5500
+MAX_FES = 1500
 
-# 结果目录
-RESULTS_DIR = Path(__file__).parent / "experiment_results"
-
+# 结果目录 - 指向指定的实验结果目录
+RESULTS_DIR = Path(__file__).parent / "experiments_results" / "result_20260115_224425"
 
 # ============================================================================
 # 数据读取
@@ -263,7 +325,7 @@ def compute_metrics_over_generations(data: Dict, problem_info: ProblemInfo) -> D
 
 def plot_metrics_for_problem(problem_name: str, problem_info: ProblemInfo):
     """
-    为单个问题绘制三个指标的收敛曲线。
+    为单个问题绘制 Optimality 指标的收敛曲线。
     """
     # 收集所有方法的数据
     all_metrics = {}
@@ -278,53 +340,57 @@ def plot_metrics_for_problem(problem_name: str, problem_info: ProblemInfo):
         print(f"警告: {problem_name} 没有可用数据")
         return
     
-    # 创建图表
-    fig, axes = plt.subplots(1, 3, figsize=(15, 4.5))
-    fig.suptitle(f'{problem_info.name} - Performance Metrics vs FEs', fontsize=14, fontweight='bold')
+    # 创建图表 - 只绘制 Optimality
+    fig, ax = plt.subplots(1, 1, figsize=(10, 6))
+    fig.suptitle(f'{problem_info.name} - Optimality vs FEs', fontsize=14, fontweight='bold')
     
-    metric_names = ["Optimality", "Accuracy", "Sensitivity"]
-    metric_keys = ["optimality", "accuracy", "sensitivity"]
+    for method_name, style in METHODS.items():
+        if method_name in all_metrics:
+            metrics = all_metrics[method_name]
+            # 过滤 FEs <= MAX_FES 的数据
+            fes = metrics["fes"]
+            mask = fes <= MAX_FES
+            fes_filtered = fes[mask]
+            n_points = len(fes_filtered)
+            
+            # 根据数据点数量调整标记密度
+            # GA方法通常有30个点（每50 FEs一个），应该显示更多标记
+            # 其他方法数据点更密集，可以显示较少标记
+            if method_name == "GA":
+                # GA方法：每2个点显示一个标记（约15个标记）
+                markevery_val = max(1, 2)
+            elif n_points <= 30:
+                # 数据点较少的方法：每2个点显示一个标记
+                markevery_val = max(1, 2)
+            else:
+                # 数据点较多的方法：每8个点显示一个标记
+                markevery_val = max(1, n_points // 8)
+            
+            ax.plot(
+                fes_filtered,
+                metrics["optimality"][mask],
+                color=style["color"],
+                linestyle=style.get("linestyle", "-"),
+                marker=style.get("marker", "o"),
+                markersize=style.get("markersize", 6),
+                markevery=markevery_val,
+                linewidth=style.get("linewidth", 2.0),
+                label=style.get("label", method_name),
+                alpha=0.8
+            )
     
-    for ax_idx, (ax, metric_name, metric_key) in enumerate(zip(axes, metric_names, metric_keys)):
-        for method_name, style in METHODS.items():
-            if method_name in all_metrics:
-                metrics = all_metrics[method_name]
-                # 过滤 FEs <= MAX_FES 的数据
-                fes = metrics["fes"]
-                mask = fes <= MAX_FES
-                ax.plot(
-                    fes[mask],
-                    metrics[metric_key][mask],
-                    color=style["color"],
-                    linestyle=style.get("linestyle", "-"),
-                    marker=style.get("marker", "o"),
-                    markersize=6,
-                    markevery=max(1, len(fes[mask]) // 8),  # 调整标记密度
-                    linewidth=style.get("linewidth", 2.0),
-                    label=style.get("label", method_name),
-                    alpha=0.8
-                )
-        
-        ax.set_xlabel("FEs (Function Evaluations)", fontsize=11)
-        ax.set_ylabel(metric_name, fontsize=11)
-        ax.set_title(metric_name, fontsize=12)
-        ax.grid(True, alpha=0.3, linestyle='--')
-        ax.legend(loc='best', fontsize=9)
-        ax.set_xlim(0, MAX_FES)  # 设置 x 轴范围
-        
-        # Optimality 和 Accuracy 范围 [0, 1]
-        if metric_key in ["optimality", "accuracy"]:
-            ax.set_ylim(-0.05, 1.05)
-            ax.set_ylabel(f"Relative {metric_name}", fontsize=11)
-        
-        # Sensitivity 使用对数坐标（如果值范围较大）
-        if metric_key == "sensitivity":
-            ax.set_ylabel("Sensitivity (log scale)", fontsize=11)
+    ax.set_xlabel("FEs (Function Evaluations)", fontsize=12)
+    ax.set_ylabel("Relative Optimality", fontsize=12)
+    ax.set_title("Optimality", fontsize=13)
+    ax.grid(True, alpha=0.3, linestyle='--')
+    ax.legend(loc='best', fontsize=10)
+    ax.set_xlim(0, MAX_FES)  # 设置 x 轴范围
+    ax.set_ylim(-0.05, 1.05)  # Optimality 范围 [0, 1]
     
     plt.tight_layout()
     
     # 保存图表
-    output_path = RESULTS_DIR / f"{problem_name}_metrics.png"
+    output_path = RESULTS_DIR / f"{problem_name}_optimality.png"
     plt.savefig(output_path, dpi=150, bbox_inches='tight')
     plt.close()
     
@@ -350,69 +416,72 @@ def plot_all_problems():
 
 def plot_combined_metrics():
     """
-    绘制所有问题的综合对比图（每个指标一张大图）。
+    绘制所有问题的 Optimality 综合对比图。
     """
     print("\n绘制综合对比图...")
     
-    metric_names = ["Optimality", "Accuracy", "Sensitivity"]
-    metric_keys = ["optimality", "accuracy", "sensitivity"]
+    n_problems = len(PROBLEM_INFO)
+    # 使用 2x3 布局，因为有6个问题（F2, F3, F4, Rastrigin, Griewank, Ackley）
+    fig, axes = plt.subplots(2, 3, figsize=(18, 10))
+    axes = axes.flatten()  # 展平为1D数组便于索引
     
-    for metric_name, metric_key in zip(metric_names, metric_keys):
-        n_problems = len(PROBLEM_INFO)
-        fig, axes = plt.subplots(2, 3, figsize=(15, 9))
-        axes = axes.flatten()
+    fig.suptitle(f'Optimality Comparison Across All Benchmarks', fontsize=14, fontweight='bold')
+    
+    for idx, (problem_name, problem_info) in enumerate(PROBLEM_INFO.items()):
+        if idx >= len(axes):
+            break
+            
+        ax = axes[idx]
         
-        fig.suptitle(f'{metric_name} Comparison Across All Benchmarks', fontsize=14, fontweight='bold')
-        
-        for idx, (problem_name, problem_info) in enumerate(PROBLEM_INFO.items()):
-            if idx >= len(axes):
-                break
+        for method_name, style in METHODS.items():
+            data = read_summary_csv(problem_name, method_name)
+            if data is not None:
+                metrics = compute_metrics_over_generations(data, problem_info)
+                # 过滤 FEs <= MAX_FES 的数据
+                fes = metrics["fes"]
+                mask = fes <= MAX_FES
+                fes_filtered = fes[mask]
+                n_points = len(fes_filtered)
                 
-            ax = axes[idx]
-            
-            for method_name, style in METHODS.items():
-                data = read_summary_csv(problem_name, method_name)
-                if data is not None:
-                    metrics = compute_metrics_over_generations(data, problem_info)
-                    # 过滤 FEs <= MAX_FES 的数据
-                    fes = metrics["fes"]
-                    mask = fes <= MAX_FES
-                    ax.plot(
-                        fes[mask],
-                        metrics[metric_key][mask],
-                        color=style["color"],
-                        linestyle=style.get("linestyle", "-"),
-                        linewidth=style.get("linewidth", 2.0),
-                        label=style.get("label", method_name),
-                        alpha=0.8
-                    )
-            
-            ax.set_xlabel("FEs", fontsize=10)
-            ax.set_ylabel(metric_name, fontsize=10)
-            ax.set_title(problem_info.name, fontsize=11)
-            ax.grid(True, alpha=0.3, linestyle='--')
-            ax.legend(loc='best', fontsize=8)
-            ax.set_xlim(0, MAX_FES)  # 设置 x 轴范围
-            
-            if metric_key in ["optimality", "accuracy"]:
-                ax.set_ylim(-0.05, 1.05)
-                ax.set_ylabel(f"Relative {metric_name}", fontsize=10)
-            
-            if metric_key == "sensitivity":
-                ax.set_yscale('log')
-                ax.set_ylabel("Sensitivity (log scale)", fontsize=10)
+                # 根据数据点数量调整标记密度
+                if method_name == "GA":
+                    # GA方法：每2个点显示一个标记
+                    markevery_val = max(1, 2)
+                elif n_points <= 30:
+                    # 数据点较少的方法：每2个点显示一个标记
+                    markevery_val = max(1, 2)
+                else:
+                    # 数据点较多的方法：每10个点显示一个标记
+                    markevery_val = max(1, n_points // 10)
+                
+                ax.plot(
+                    fes_filtered,
+                    metrics["optimality"][mask],
+                    color=style["color"],
+                    linestyle=style.get("linestyle", "-"),
+                    marker=style.get("marker", "o"),
+                    markersize=style.get("markersize", 4),
+                    markevery=markevery_val,
+                    linewidth=style.get("linewidth", 2.0),
+                    label=style.get("label", method_name),
+                    alpha=0.8
+                )
         
-        # 隐藏多余的子图
-        for idx in range(len(PROBLEM_INFO), len(axes)):
-            axes[idx].set_visible(False)
-        
-        plt.tight_layout()
-        
-        output_path = RESULTS_DIR / f"all_{metric_key}_comparison.png"
-        plt.savefig(output_path, dpi=150, bbox_inches='tight')
-        plt.close()
-        
-        print(f"已保存: {output_path}")
+        ax.set_xlabel("FEs", fontsize=11)
+        ax.set_ylabel("Relative Optimality", fontsize=11)
+        ax.set_title(problem_info.name, fontsize=12)
+        ax.grid(True, alpha=0.3, linestyle='--')
+        ax.legend(loc='best', fontsize=9)
+        ax.set_xlim(0, MAX_FES)  # 设置 x 轴范围
+        ax.set_ylim(-0.05, 1.05)  # Optimality 范围 [0, 1]
+    
+    plt.tight_layout()
+    
+    output_path = RESULTS_DIR / f"all_optimality_comparison.png"
+    plt.savefig(output_path, dpi=150, bbox_inches='tight')
+    plt.close()
+    
+    print(f"已保存: {output_path}")
 
 
 # ============================================================================
@@ -424,7 +493,7 @@ if __name__ == "__main__":
     plt.rcParams['font.family'] = 'DejaVu Sans'
     plt.rcParams['axes.unicode_minus'] = False
     
-    # 绘制每个问题的单独图表
+    # 绘制每个问题的 Optimality 图表
     plot_all_problems()
     
     # 绘制综合对比图

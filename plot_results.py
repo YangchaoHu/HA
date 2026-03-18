@@ -8,6 +8,7 @@
 
 import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
 import os
 from pathlib import Path
 
@@ -19,7 +20,7 @@ plt.rcParams['font.sans-serif'] = ['SimHei', 'DejaVu Sans']  # 用来正常显�
 plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
 
 # 结果目录
-RESULTS_DIR = Path(__file__).parent / "experiment_results"
+RESULTS_DIR = Path(__file__).parent / "experiment_results_nelder_mead"
 
 # 最大函数评估次数
 MAX_FES = POP_SIZE * N_GEN
@@ -30,10 +31,10 @@ TEST_FUNCTIONS = ["F2", "F3", "F4","Ackley","Griewank"]
 # 方法列表及其显示名称和颜色
 METHODS = {
     "GA": {"name": "GA", "color": "blue", "linestyle": "-"},
-    "HA_kmeans": {"name": "HA_kmeans", "color": "red", "linestyle": "-"},
-    "HA_meanshift": {"name": "HA_meanshift", "color": "green", "linestyle": "-"},
-    "HA_dbscan": {"name": "HA_dbscan", "color": "orange", "linestyle": "-"},
-    # "HA_original": {"name": "HA_original", "color": "purple", "linestyle": "-"}
+    "HA_kmeans": {"name": "HA_L-BFGS-B", "color": "red", "linestyle": "-"},
+    # "HA_meanshift": {"name": "HA_meanshift", "color": "green", "linestyle": "-"},
+    "HA_Nelder_Mead_kmeans": {"name": "HA_Nelder-Mead", "color": "purple", "linestyle": "--"},
+    # "HA_Nelder_Mead_meanshift": {"name": "HA_Nelder_Mead_meanshift", "color": "orange", "linestyle": "--"},
 }
 
 def plot_function_comparison(function_name):
@@ -82,7 +83,26 @@ def plot_function_comparison(function_name):
     ax.set_title(f"对比图 - {function_name}", fontsize=14, fontweight='bold')
     ax.legend(loc="best", fontsize=10)
     ax.grid(True, alpha=0.3)
-    ax.set_yscale("log")  # 使用对数坐标，因为best_f_mean通常是很小的值
+    
+    # 检查数据是否包含负数或零，如果有则不使用对数坐标
+    use_log_scale = True
+    for method_key in METHODS.keys():
+        csv_file = RESULTS_DIR / f"{function_name}_{method_key}_summary.csv"
+        if csv_file.exists():
+            try:
+                df = pd.read_csv(csv_file)
+                best_f_values = df['best_f_mean'].values
+                if np.any(best_f_values <= 0):
+                    use_log_scale = False
+                    break
+            except:
+                pass
+    
+    if use_log_scale:
+        ax.set_yscale("log")  # 使用对数坐标，因为best_f_mean通常是很小的正值
+    else:
+        ax.set_yscale("linear")  # 对于包含负数的情况使用线性坐标
+    
     ax.set_xlim(left=0, right=MAX_FES)  # 设置 x 轴最大值为 POP_SIZE * N_GEN
     
     # 保存图表

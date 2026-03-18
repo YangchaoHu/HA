@@ -543,12 +543,67 @@ class GriewankProblem(Problem):
         out["F"] = f
 
 
+class RastriginProblem(Problem):
+    """
+    Rastrigin 函数的 `pymoo` 问题定义（经典多峰函数）。
+
+    标准形式（D 维）：
+        f(x) = sum_{i=1}^D (x_i^2 - 10*cos(2*pi*x_i) + 10)
+
+    常用定义域：x ∈ [-5.12, 5.12]^D
+    全局最优：f(x*) = 0, x* = 0^D
+    """
+
+    def __init__(
+        self,
+        n_var: int = 10,
+        xl: float | ArrayLike = -5.12,
+        xu: float | ArrayLike = 5.12,
+    ) -> None:
+        # 记录函数评估次数
+        self.fes: int = 0
+
+        super().__init__(
+            n_var=n_var,
+            n_obj=1,
+            n_ieq_constr=0,
+            n_eq_constr=0,
+            xl=xl,
+            xu=xu,
+        )
+
+    def _evaluate(
+        self,
+        X: ArrayLike,
+        out: dict,
+        *args,
+        **kwargs,
+    ) -> None:
+        """
+        批量评估 Rastrigin 目标函数值。
+        """
+        X = np.atleast_2d(X).astype(float)
+        n_samples, D = X.shape
+
+        # 更新函数评估次数
+        self.fes += int(n_samples)
+
+        # 计算每一项：x_i^2 - 10*cos(2*pi*x_i) + 10
+        term = X ** 2 - 10 * np.cos(2 * np.pi * X) + 10
+
+        # 按维度求和
+        f = np.sum(term, axis=1)
+
+        out["F"] = f
+
+
 __all__ = [
     "F2Problem",
     "F3Problem",
     "F4Problem",
     "AckleyProblem",
     "GriewankProblem",
+    "RastriginProblem",
 ]
 
 
