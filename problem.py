@@ -25,6 +25,10 @@ f4(x) 公式（混合函数）：
 
 from __future__ import annotations
 
+import importlib.util
+import os
+import traceback
+from pathlib import Path
 import numpy as np
 from numpy.typing import NDArray
 
@@ -32,6 +36,52 @@ from pymoo.core.problem import Problem
 
 
 ArrayLike = NDArray[np.floating]
+
+
+def _quick_simu_debug_enabled() -> bool:
+    v = os.environ.get("QUICK_SIMU_DEBUG", "").strip().lower()
+    return v not in ("", "0", "false", "no", "off")
+
+
+def _clear_ansys_cache_from_model(model: object) -> None:
+    """
+    清理单次个体评估后的 MAPDL 缓存，避免长时间运行后仿真变慢。
+
+    参考 proxy_models_jsons/generate_lhs_jsons.py 的策略：
+    1) finish
+    2) clear
+    3) 删除工作目录常见临时结果文件
+    """
+    if model is None:
+        return
+    mapdl = getattr(model, "mapdl", None)
+    if mapdl is None:
+        # quick_simu(1)/(2) 中 mapdl 是模块级全局变量，不在实例属性里。
+        # 这里直接从类方法的全局命名空间提取，避免对动态模块名再次 import 失败。
+        mapping_func = getattr(model.__class__, "mapping_func", None)
+        method_globals = getattr(mapping_func, "__globals__", {}) if mapping_func else {}
+        mapdl = method_globals.get("mapdl", None)
+    if mapdl is None:
+        return
+
+    try:
+        mapdl.finish()
+    except Exception:
+        pass
+    try:
+        mapdl.clear()
+    except Exception:
+        pass
+    try:
+        work_dir = Path(mapdl.directory)
+        for pattern in ("*.rst", "*.esav", "*.emat", "*.mntr", "*.stat", "*.err"):
+            for fp in work_dir.glob(pattern):
+                try:
+                    fp.unlink()
+                except OSError:
+                    pass
+    except Exception:
+        pass
 
 
 class F2Problem(Problem):
@@ -597,6 +647,162 @@ class RastriginProblem(Problem):
         out["F"] = f
 
 
+class QuickSimu1Problem(Problem):
+    """
+    基于 `simulation_models/quick_simu(1).py` 的 ANSYS 仿真问题。
+
+    变量：
+        x = [len1, width1, width2]
+
+    目标：
+        最小化体积 volume（脚本返回值的第二项）。
+
+    约束：
+        X 向最大位移 abs(max_disp_x) <= 0.027867728805696976
+    """
+
+    def __init__(self) -> None:
+        self.fes: int = 0
+        self._model_cls = self._load_model_class("quick_simu(1).py", "CAEModel")
+        super().__init__(
+            n_var=3,
+            n_obj=1,
+            n_ieq_constr=1,
+            n_eq_constr=0,
+            xl=np.array([0.4, 0.01, 0.01], dtype=float),
+            xu=np.array([1.6, 0.08, 0.08], dtype=float),
+        )
+
+    @staticmethod
+    def _load_model_class(filename: str, class_name: str):
+        file_path = Path(__file__).parent / "simulation_models" / filename
+        spec = importlib.util.spec_from_file_location(f"_sim_{filename}", file_path)
+        if spec is None or spec.loader is None:
+            raise ImportError(f"无法加载仿真脚本: {file_path}")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        if not hasattr(module, class_name):
+            raise AttributeError(f"{filename} 中未找到类 {class_name}")
+        return getattr(module, class_name)
+
+    def _evaluate(self, X: ArrayLike, out: dict, *args, **kwargs) -> None:
+        X = np.atleast_2d(X).astype(float)
+        n_samples = X.shape[0]
+        fes_before = self.fes
+        self.fes += int(n_samples)
+        print(f"[QuickSimu1] start evaluate: batch={n_samples}, fes={fes_before}->{self.fes}")
+
+        # 目标: volume（越小越好）
+        f = np.full(n_samples, 1e12, dtype=float)
+        # 约束: abs(disp_x) <= DISP_LIMIT  等价于 g = abs(disp_x) - DISP_LIMIT <= 0
+        disp_limit = 0.027867728805696976
+        g = np.full(n_samples, 1e12, dtype=float)
+        for i, x in enumerate(X):
+            model = None
+            if i == 0 or (i + 1) % 5 == 0 or i == n_samples - 1:
+                print(f"[QuickSimu1] sample {i+1}/{n_samples} ...")
+            try:
+                model = self._model_cls((float(x[0]), float(x[1]), float(x[2])))
+                result = model.mapping_func()
+                # quick_simu(1).py 返回 (max_disp_x, volume)
+                if isinstance(result, tuple):
+                    disp_x = float(result[0])
+                    volume = float(result[1])
+                else:
+                    # 兜底：若返回形态异常，按失败处理
+                    raise ValueError(f"quick_simu(1) 返回值异常: {result!r}")
+                f[i] = volume
+                g[i] = abs(disp_x) - disp_limit
+            except Exception as exc:
+                # 仿真失败给大惩罚，保证优化过程不中断
+                if _quick_simu_debug_enabled():
+                    print(f"[QuickSimu1] sample {i + 1}/{n_samples} 异常: {exc!r}")
+                    traceback.print_exc()
+                f[i] = 1e12
+                g[i] = 1e12
+            finally:
+                _clear_ansys_cache_from_model(model)
+        print(f"[QuickSimu1] done evaluate: batch={n_samples}")
+
+        out["F"] = f
+        out["G"] = g
+
+
+class QuickSimu2Problem(Problem):
+    """
+    基于 `simulation_models/quick_simu(2).py` 的 ANSYS 仿真问题。
+
+    变量：
+        x = [len1, len2]
+
+    目标：
+        最小化体积 volume，其中
+            volume = 0.4^2 * len1 + 0.2^2 * len2 + 0.1^2 * (2 - len1 - len2)
+
+    约束：
+        Y 向最大位移 abs(max_disp_y) <= 3.6164872159562756e-07
+    """
+
+    def __init__(self) -> None:
+        self.fes: int = 0
+        self._model_cls = QuickSimu1Problem._load_model_class("quick_simu(2).py", "CAE")
+        super().__init__(
+            n_var=2,
+            n_obj=1,
+            n_ieq_constr=1,
+            n_eq_constr=0,
+            xl=np.array([0.2, 0.2], dtype=float),
+            xu=np.array([1.6, 1.6], dtype=float),
+        )
+
+    def _evaluate(self, X: ArrayLike, out: dict, *args, **kwargs) -> None:
+        X = np.atleast_2d(X).astype(float)
+        n_samples = X.shape[0]
+        fes_before = self.fes
+        self.fes += int(n_samples)
+        print(f"[QuickSimu2] start evaluate: batch={n_samples}, fes={fes_before}->{self.fes}")
+
+        # 目标: volume（越小越好）
+        f = np.full(n_samples, 1e12, dtype=float)
+        # 约束: abs(disp_y) <= DISP_LIMIT  等价于 g = abs(disp_y) - DISP_LIMIT <= 0
+        disp_limit = 3.6164872159562756e-07
+        g = np.full(n_samples, 1e12, dtype=float)
+        for i, x in enumerate(X):
+            model = None
+            if i == 0 or (i + 1) % 5 == 0 or i == n_samples - 1:
+                print(f"[QuickSimu2] sample {i+1}/{n_samples} ...")
+            len1, len2 = float(x[0]), float(x[1])
+            # quick_simu(2) 内部有 len3 = 2 - len1 - len2，必须为正
+            if len1 + len2 >= 1.95:
+                f[i] = 1e12
+                g[i] = 1e12
+                _clear_ansys_cache_from_model(model)
+                continue
+            try:
+                model = self._model_cls([len1, len2])
+                disp_y = model.mapping_func()
+                if disp_y is None:
+                    f[i] = 1e12
+                    g[i] = 1e12
+                else:
+                    # 体积目标（由三段体积线性叠加）
+                    volume = (0.4 ** 2) * len1 + (0.2 ** 2) * len2 + (0.1 ** 2) * (2.0 - len1 - len2)
+                    f[i] = float(volume)
+                    g[i] = abs(float(disp_y)) - disp_limit
+            except Exception as exc:
+                if _quick_simu_debug_enabled():
+                    print(f"[QuickSimu2] sample {i + 1}/{n_samples} 异常: {exc!r}")
+                    traceback.print_exc()
+                f[i] = 1e12
+                g[i] = 1e12
+            finally:
+                _clear_ansys_cache_from_model(model)
+        print(f"[QuickSimu2] done evaluate: batch={n_samples}")
+
+        out["F"] = f
+        out["G"] = g
+
+
 __all__ = [
     "F2Problem",
     "F3Problem",
@@ -604,6 +810,8 @@ __all__ = [
     "AckleyProblem",
     "GriewankProblem",
     "RastriginProblem",
+    "QuickSimu1Problem",
+    "QuickSimu2Problem",
 ]
 
 

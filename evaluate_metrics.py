@@ -102,7 +102,7 @@ PROBLEM_INFO = {
 # 方法列表和颜色：使用高对比度调色板，增加线宽和标志区分度
 METHODS = {
     "GA": {
-        "color": "#0000FF",      # 蓝色
+        "color": "#1F77B4",      # 蓝色
         "linestyle": "-", 
         "marker": "o", 
         "markersize": 6,
@@ -110,7 +110,7 @@ METHODS = {
         "label": "GA"
     },
     "Nelder-Mead": {
-        "color": "#1F77B4",      # 深蓝色
+        "color": "#FF7F0E",      # 橙色
         "linestyle": "-", 
         "marker": "o", 
         "markersize": 6,
@@ -118,7 +118,7 @@ METHODS = {
         "label": "Nelder-Mead"
     },
     "rbf": {
-        "color": "#FF7F0E",      # 橙色
+        "color": "#E377C2",      # 粉红色
         "linestyle": "--", 
         "marker": "s", 
         "markersize": 6,
@@ -126,53 +126,53 @@ METHODS = {
         "label": "RBF"
     },
     "gp": {
-        "color": "#E377C2",      # 粉红色
+        "color": "#2CA02C",      # 绿色
         "linestyle": "--", 
         "marker": "X", 
         "markersize": 6,
         "linewidth": 2.0,
         "label": "GP"
     },
-    "history-ladder": {
-        "color": "#17BECF",      # 青色
-        "linestyle": "-.", 
-        "marker": "+", 
-        "markersize": 7,
-        "linewidth": 2.0,
-        "label": "History-Ladder"
-    },
-    "Adam": {
-        "color": "#2CA02C",      # 绿色
-        "linestyle": "-", 
-        "marker": "^", 
-        "markersize": 7,
-        "linewidth": 2.0,
-        "label": "Adam"
-    },
-    "Sophia": {
-        "color": "#D62728",      # 红色
-        "linestyle": "-.", 
-        "marker": "D", 
-        "markersize": 6,
-        "linewidth": 2.0,
-        "label": "Sophia"
-    },
-    "Lion": {
-        "color": "#9467BD",      # 紫色
-        "linestyle": "-", 
-        "marker": "v", 
-        "markersize": 6,
-        "linewidth": 2.0,
-        "label": "Lion"
-    },
-    "AdamW": {
-        "color": "#8C564B",      # 棕色
-        "linestyle": "--", 
-        "marker": "p", 
-        "markersize": 6,
-        "linewidth": 2.0,
-        "label": "AdamW"
-    },
+    # "history-ladder": {
+    #     "color": "#17BECF",      # 青色
+    #     "linestyle": "-.", 
+    #     "marker": "+", 
+    #     "markersize": 7,
+    #     "linewidth": 2.0,
+    #     "label": "History-Ladder"
+    # },
+    # "Adam": {
+    #     "color": "#2CA02C",      # 绿色
+    #     "linestyle": "-", 
+    #     "marker": "^", 
+    #     "markersize": 7,
+    #     "linewidth": 2.0,
+    #     "label": "Adam"
+    # },
+    # "Sophia": {
+    #     "color": "#D62728",      # 红色
+    #     "linestyle": "-.", 
+    #     "marker": "D", 
+    #     "markersize": 6,
+    #     "linewidth": 2.0,
+    #     "label": "Sophia"
+    # },
+    # "Lion": {
+    #     "color": "#9467BD",      # 紫色
+    #     "linestyle": "-", 
+    #     "marker": "v", 
+    #     "markersize": 6,
+    #     "linewidth": 2.0,
+    #     "label": "Lion"
+    # },
+    # "AdamW": {
+    #     "color": "#8C564B",      # 棕色
+    #     "linestyle": "--", 
+    #     "marker": "p", 
+    #     "markersize": 6,
+    #     "linewidth": 2.0,
+    #     "label": "AdamW"
+    # },
     "L-BFGS-B": {
         "color": "#000000",      # 黑色
         "linestyle": "-", 
@@ -180,6 +180,40 @@ METHODS = {
         "markersize": 7,
         "linewidth": 2.0,
         "label": "L-BFGS-B"
+    },
+    # # ── 原始版（V1）──────────────────────────────────────────────────────
+    # "QL-V1": {
+    #     "color": "#D62728",      # 亮红色
+    #     "linestyle": "--",
+    #     "marker": "o",
+    #     "markersize": 6,
+    #     "linewidth": 2.0,
+    #     "label": "ε-greedy",
+    # },
+    # "UCB-V1": {
+    #     "color": "#66CCFF",      # 浅蓝
+    #     "linestyle": "--",
+    #     "marker": "P",
+    #     "markersize": 7,
+    #     "linewidth": 2.0,
+    #     "label": "UCB",
+    # },
+    # ── Bandit 版本（与 experiment_runner.METHODS 对齐）────────────────────
+    "QL-V2": {
+        "color": "#CC0000",
+        "linestyle": "-",
+        "marker": "H",
+        "markersize": 8,
+        "linewidth": 2.5,
+        "label": "QL",
+    },
+    "UCB-V2": {
+        "color": "#D62728",      # 深红色
+        "linestyle": "-",
+        "marker": "p",           # 五边形
+        "markersize": 8,
+        "linewidth": 2.5,
+        "label": "UCB",
     },
 }
 

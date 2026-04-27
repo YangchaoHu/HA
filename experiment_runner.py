@@ -11,9 +11,11 @@ experiment_runner.py
 """
 
 import os
+import re
 import sys
 import csv
 import pickle
+import argparse
 import warnings
 import contextlib
 import multiprocessing as mp
@@ -31,31 +33,43 @@ class TeeOutput:
     """
     将输出写入文件的类（正常运行时不输出到控制台）。
     支持同时处理 stdout 和 stderr 的重定向。
+
+    实现 isatty()供 PyMAPDL / colorama 等库探测终端能力，避免在重定向流上
+    调用 sys.stdout.isatty() 时因自定义对象缺少该方法而崩溃。
+    关闭后若仍有写入（例如 logging 与异常收尾顺序问题），则回退到真实 stderr。
     """
     def __init__(self, file_path, mode='w'):
+        self._path = file_path
         self.file = open(file_path, mode, encoding='utf-8')
-    
+
+    def isatty(self) -> bool:
+        return False
+
+    def writable(self) -> bool:
+        return True
+
     def write(self, text):
-        """
-        写入方法：仅写入文件，保持控制台清洁。
-        """
-        # 写入文件
+        if not self.file or self.file.closed:
+            try:
+                sys.__stderr__.write(text)
+                sys.__stderr__.flush()
+            except Exception:
+                pass
+            return
         self.file.write(text)
         self.file.flush()
-    
+
     def flush(self):
-        """刷新缓冲区"""
-        self.file.flush()
-        self.stdout.flush()
-    
+        if self.file and not self.file.closed:
+            self.file.flush()
+
     def close(self):
-        """关闭文件"""
         if self.file and not self.file.closed:
             self.file.close()
-    
+
     def __enter__(self):
         return self
-    
+
     def __exit__(self, exc_type, exc_val, exc_tb):
         self.close()
 
@@ -72,6 +86,7 @@ os.environ.setdefault("NUMEXPR_NUM_THREADS", "1")
 
 import numpy as np
 from numpy.typing import NDArray
+from tqdm import tqdm
 
 # pymoo 相关导入
 from pymoo.algorithms.soo.nonconvex.ga import GA
@@ -85,6 +100,7 @@ from problem import F2Problem, F3Problem, F4Problem
 from ha import HA
 from ha_original import HA as HA_Original
 from ha_Nelder_Mead import HA as HA_Nelder_Mead
+from ha_bandit import HA_QL, HA_UCB
 
 # ============================================================================
 # 配置参数
@@ -99,7 +115,8 @@ RANDOM_SEEDS = list(range(42, 42 + N_RUNS))  # 10 个不同的随机种子
 # 问题配置
 from problem import (
     F2Problem, F3Problem, F4Problem,
-    RastriginProblem, GriewankProblem, AckleyProblem
+    RastriginProblem, GriewankProblem, AckleyProblem,
+    # QuickSimu1Problem, QuickSimu2Problem,
 )
 
 PROBLEMS = {
@@ -109,25 +126,31 @@ PROBLEMS = {
     "Rastrigin": lambda: RastriginProblem(n_var=10, xl=-5.12, xu=5.12),
     "Griewank": lambda: GriewankProblem(n_var=10, xl=-600.0, xu=600.0),
     "Ackley": lambda: AckleyProblem(n_var=10, xl=-32.768, xu=32.768),
+    # "QuickSimu1": lambda: QuickSimu1Problem(),
+    # "QuickSimu2": lambda: QuickSimu2Problem(),
 }
 
 # 算法配置 - 包含标准 GA 和 HA_Nelder_Mead 的不同方法
 METHODS = {
-    "GA": "GA",  # 标准 GA
-    "Nelder-Mead": "Nelder-Mead",
+    # "GA": "GA",  # 标准 GA
+    # "Nelder-Mead": "Nelder-Mead",
     "rbf": "rbf",
     "gp": "gp",  # 高斯过程代理模型
-    "history-ladder": "history-ladder",  # 历史阶梯跳跃局部搜索
-    "Adam": "Adam",
-    "Sophia": "Sophia",
-    "Lion": "Lion",
-    "AdamW": "AdamW",
-    "L-BFGS-B": "L-BFGS-B",
+    # "history-ladder": "history-ladder",  # 历史阶梯跳跃局部搜索
+    # "Adam": "Adam",
+    # "Sophia": "Sophia",
+    # "Lion": "Lion",
+    # "AdamW": "AdamW",
+    # "L-BFGS-B": "L-BFGS-B",
+    # Bandit v2 方法
+    "QL-V2": "QL-V2",
+    "UCB-V2": "UCB-V2",
 }
 
-# 输出目录 - 使用当前日期时间命名
-timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-RESULTS_DIR = Path(__file__).parent / "experiments_results" / f"result_{timestamp}"
+# 输出目录占位符 - 实际值由 main() 通过 Pool initializer 设置到 worker 进程
+# 注意：不在模块顶层调用 datetime.now()，避免 Windows spawn 模式下每个 worker
+# 重新 import 本模块时各自生成不同 timestamp，导致创建多个结果目录。
+RESULTS_DIR: Path = Path(__file__).parent / "experiments_results" / "result_placeholder"
 
 
 # ============================================================================
@@ -526,6 +549,143 @@ def run_ha_nelder_mead_method(
     return result, callback.data
 
 
+def run_ha_ql(
+    problem,
+    pop_size: int,
+    n_gen: int,
+    seed: int,
+    ls_actions: Optional[List[str]] = None,
+    epsilon: float = 1.0,
+    epsilon_decay: float = 0.95,
+    epsilon_min: float = 0.05,
+    initial_pop: Optional[NDArray] = None,
+) -> Tuple[Any, List[GenerationData]]:
+    """
+    运行 HA-QL 算法（Q-learning 动态局部搜索选择器）。
+
+    使用 Q-learning（ε-贪婪多臂老虎机）在每次局部搜索时动态选择
+    最优算法，并与单一固定方法的 HA 进行对比。
+
+    Args:
+        problem: 优化问题（pymoo Problem 对象）。
+        pop_size: 种群大小。
+        n_gen: 最大迭代代数。
+        seed: 随机种子，保证可复现性。
+        ls_actions: Q-learning 可选的局部搜索算法列表。
+                    默认：["Nelder-Mead", "L-BFGS-B", "rbf", "gp", "Adam"]。
+        epsilon: 初始探索率，默认 1.0。
+        epsilon_decay: 探索率衰减因子，默认 0.95。
+        epsilon_min: 探索率下限，默认 0.05。
+        initial_pop: 预生成的初始种群（可选），为 None 时使用 seed 生成。
+
+    Returns:
+        Tuple: (优化结果, 代数据列表)
+    """
+    callback = DataCollectorCallback(skip_first=False)
+
+    if initial_pop is None:
+        initial_pop = generate_initial_population(problem, pop_size, seed)
+    print(f"HA_QL使用的初始种群: initial_pop[0,0]={initial_pop[0,0]:.6f}")
+
+    # 默认动作集：覆盖多种风格的局部搜索算法
+    if ls_actions is None:
+        ls_actions = ["Nelder-Mead", "L-BFGS-B", "rbf", "gp", "Adam"]
+
+    algorithm = HA_QL(
+        ls_actions=ls_actions,
+        epsilon=epsilon,
+        epsilon_decay=epsilon_decay,
+        epsilon_min=epsilon_min,
+        pop_size=pop_size,
+        niche_num=3,
+        mutation_rate=1.0,
+        inherit_rate=1.0,
+        activate_method=True,
+        cluster_method="kmeans",
+        X=initial_pop,
+        seed=seed,
+    )
+
+    result = minimize(
+        problem,
+        algorithm,
+        termination=get_termination("n_gen", n_gen),
+        seed=seed,
+        callback=callback,
+        verbose=False
+    )
+
+    # 打印第一代信息
+    if len(callback.data) > 0:
+        gen1 = callback.data[0]
+        print(f"HA_QL seed={seed}: gen1 best_F={gen1.best_F:.10e}, best_X[0]={gen1.best_X[0]:.6f}")
+
+    # 打印 Q-learning 选择器最终统计信息
+    algorithm.print_selector_stats()
+
+    return result, callback.data
+
+
+def run_ha_ucb(
+    problem,
+    pop_size: int,
+    n_gen: int,
+    seed: int,
+    global_best_actions: Optional[List[str]] = None,
+    elite_actions: Optional[List[str]] = None,
+    c: float = 1.0,
+    alpha: float = 0.1,
+    reward_scale_beta: float = 0.1,
+    initial_pop: Optional[NDArray] = None,
+) -> Tuple[Any, List[GenerationData]]:
+    """
+    运行 HA-UCB-V2 算法（UCB 动态局部搜索选择器）。
+    """
+    callback = DataCollectorCallback(skip_first=False)
+
+    if initial_pop is None:
+        initial_pop = generate_initial_population(problem, pop_size, seed)
+    print(f"HA_UCB使用的初始种群: initial_pop[0,0]={initial_pop[0,0]:.6f}")
+
+    if global_best_actions is None:
+        global_best_actions = ["Nelder-Mead", "L-BFGS-B"]
+    if elite_actions is None:
+        elite_actions = ["rbf", "gp"]
+
+    algorithm = HA_UCB(
+        global_best_actions=global_best_actions,
+        elite_actions=elite_actions,
+        c=c,
+        alpha=alpha,
+        reward_scale_beta=reward_scale_beta,
+        pop_size=pop_size,
+        niche_num=3,
+        mutation_rate=1.0,
+        inherit_rate=1.0,
+        activate_method=True,
+        cluster_method="kmeans",
+        X=initial_pop,
+        seed=seed,
+    )
+
+    result = minimize(
+        problem,
+        algorithm,
+        termination=get_termination("n_gen", n_gen),
+        seed=seed,
+        callback=callback,
+        verbose=False
+    )
+
+    if len(callback.data) > 0:
+        gen1 = callback.data[0]
+        print(f"HA_UCB seed={seed}: gen1 best_F={gen1.best_F:.10e}, best_X[0]={gen1.best_X[0]:.6f}")
+
+    algorithm.print_selector_stats()
+
+    return result, callback.data
+
+
 # ============================================================================
 # 单次实验运行
 # ============================================================================
@@ -586,6 +746,25 @@ def _run_experiment_internal(
         elif method_name.startswith("HA_Nelder_Mead_"):
             cluster_method = METHODS[method_name]
             result, gen_data = run_ha_nelder_mead(problem, POP_SIZE, N_GEN, seed, cluster_method, initial_pop)
+        elif method_name == "QL-V2":
+            result, gen_data = run_ha_ql(
+                problem, POP_SIZE, N_GEN, seed,
+                ls_actions=["Nelder-Mead", "L-BFGS-B", "rbf", "gp", "Adam"],
+                epsilon=1.0,
+                epsilon_decay=0.95,
+                epsilon_min=0.05,
+                initial_pop=initial_pop,
+            )
+        elif method_name == "UCB-V2":
+            result, gen_data = run_ha_ucb(
+                problem, POP_SIZE, N_GEN, seed,
+                global_best_actions=["Nelder-Mead", "L-BFGS-B"],
+                elite_actions=["rbf", "gp"],
+                c=1.0,
+                alpha=0.1,
+                reward_scale_beta=0.1,
+                initial_pop=initial_pop,
+            )
         elif method_name in METHODS and method_name != "GA":
             # 使用 HA_Nelder_Mead 的不同方法（排除 GA，因为 GA 已经单独处理）
             method = METHODS[method_name]
@@ -752,6 +931,162 @@ def save_results_to_csv(
 
 
 # ============================================================================
+# 失败日志检测与断点续跑
+# ============================================================================
+
+CHECKPOINT_NAME = "_checkpoint_all_results.pkl"
+
+
+def is_log_failed(log_path: Path) -> bool:
+    """判断单次运行的 .log 是否失败或未正常结束。"""
+    try:
+        text = log_path.read_text(encoding="utf-8", errors="replace")
+    except OSError:
+        return True
+    if "Traceback (most recent call last):" in text:
+        return True
+    if "--- Logging error ---" in text:
+        return True
+    if "] 错误:" in text:
+        return True
+    if "开始运行:" not in text:
+        return False
+    if "完成:" in text and "最终最优值:" in text:
+        return False
+    return True
+
+
+def parse_log_filename(filename: str) -> Optional[Tuple[str, str, int]]:
+    """
+    从 ``{problem}_{method}_run{nn}.log`` 解析 problem、method、run_id。
+    method 名中可含连字符或下划线，problem 与 PROBLEMS 的键一致。
+    """
+    m = re.match(r"^(.+)_run(\d+)\.log$", filename, re.IGNORECASE)
+    if not m:
+        return None
+    rest, run_s = m.group(1), m.group(2)
+    run_id = int(run_s)
+    for pn in sorted(PROBLEMS.keys(), key=len, reverse=True):
+        prefix = pn + "_"
+        if rest.startswith(prefix):
+            method_name = rest[len(prefix):]
+            return pn, method_name, run_id
+    return None
+
+
+def save_run_checkpoint(results: List[RunResult]) -> None:
+    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+    path = RESULTS_DIR / CHECKPOINT_NAME
+    with open(path, "wb") as f:
+        pickle.dump(results, f)
+    print(f"运行 checkpoint 已保存: {path}（共 {len(results)} 条 RunResult）")
+
+
+def load_run_checkpoint() -> Optional[List[RunResult]]:
+    path = RESULTS_DIR / CHECKPOINT_NAME
+    if not path.exists():
+        return None
+    with open(path, "rb") as f:
+        return pickle.load(f)
+
+
+def merge_run_results(
+    previous: List[RunResult],
+    updated: List[RunResult],
+) -> List[RunResult]:
+    def key(r: RunResult) -> Tuple[str, str, int]:
+        return (r.problem_name, r.method_name, r.run_id)
+
+    merged: Dict[Tuple[str, str, int], RunResult] = {key(r): r for r in previous}
+    for r in updated:
+        merged[key(r)] = r
+    return list(merged.values())
+
+
+def retry_failed_experiments(resume_dir: Path) -> None:
+    """
+    扫描 resume_dir/logs 下失败或未完成的日志，按相同 run_id -> RANDOM_SEEDS[run_id] 重跑，
+    并与 _checkpoint_all_results.pkl 合并（若存在），重写 checkpoint 与 CSV 汇总。
+    """
+    global RESULTS_DIR
+    resume_dir = resume_dir.resolve()
+    if not resume_dir.is_dir():
+        raise SystemExit(f"结果目录不存在: {resume_dir}")
+    RESULTS_DIR = resume_dir
+    log_dir = RESULTS_DIR / "logs"
+    if not log_dir.is_dir():
+        raise SystemExit(f"无 logs 子目录: {log_dir}")
+
+    failed_tasks: List[Tuple[str, str, int, int]] = []
+    for log_path in sorted(log_dir.glob("*.log")):
+        if not is_log_failed(log_path):
+            continue
+        parsed = parse_log_filename(log_path.name)
+        if not parsed:
+            print(f"跳过无法解析的文件名: {log_path.name}")
+            continue
+        problem_name, method_name, run_id = parsed
+        if problem_name not in PROBLEMS:
+            print(f"跳过（PROBLEMS 中无此问题）: {problem_name} <- {log_path.name}")
+            continue
+        if method_name not in METHODS:
+            print(f"跳过（METHODS 中无此方法）: {method_name} <- {log_path.name}")
+            continue
+        if run_id < 0 or run_id >= len(RANDOM_SEEDS):
+            print(f"跳过 run_id 超出 RANDOM_SEEDS 范围: {log_path.name}")
+            continue
+        seed = RANDOM_SEEDS[run_id]
+        failed_tasks.append((problem_name, method_name, run_id, seed))
+
+    if not failed_tasks:
+        print("未检测到失败或未完成的日志，无需重跑。")
+        return
+
+    print(f"将重跑 {len(failed_tasks)} 个任务:")
+    for problem_name, method_name, run_id, seed in failed_tasks:
+        print(f"  {problem_name} | {method_name} | run_id={run_id} | seed={seed}")
+
+    prev = load_run_checkpoint()
+    if not prev:
+        print(
+            "警告: 未找到 _checkpoint_all_results.pkl，无法与历史成功运行合并；"
+            "本次仅重跑并更新日志与部分 checkpoint。"
+        )
+
+    has_ansys = any(t[0].startswith("QuickSimu") for t in failed_tasks)
+    n_workers = 1 if has_ansys else min(48, mp.cpu_count())
+    print(f"并行进程数: {n_workers}")
+
+    with mp.Pool(
+        processes=n_workers,
+        initializer=_worker_init,
+        initargs=(RESULTS_DIR,),
+    ) as pool:
+        new_results = list(pool.imap(run_single_experiment, failed_tasks))
+
+    merged = merge_run_results(prev or [], new_results)
+    save_run_checkpoint(merged)
+
+    if prev:
+        by_problem: Dict[str, List[RunResult]] = {}
+        for r in merged:
+            by_problem.setdefault(r.problem_name, []).append(r)
+        for pn, lst in by_problem.items():
+            results_by_method: Dict[str, List[RunResult]] = {}
+            for r in lst:
+                results_by_method.setdefault(r.method_name, []).append(r)
+            save_results_to_csv(lst, pn)
+            print_summary(results_by_method, pn)
+    else:
+        print(
+            "未合并历史 checkpoint：未重写 summary CSV。"
+            "若需恢复完整汇总，请先有一次完整实验生成 _checkpoint_all_results.pkl，再执行重试。"
+        )
+
+    print(f"\n重跑结束，结果目录: {RESULTS_DIR}")
+
+
+# ============================================================================
 # 数据分析函数
 # ============================================================================
 
@@ -817,19 +1152,46 @@ def print_summary(results_by_method: Dict[str, List[RunResult]], problem_name: s
 # 主函数
 # ============================================================================
 
+def _worker_init(results_dir: Path) -> None:
+    """
+    worker 进程初始化函数：将主进程计算好的 RESULTS_DIR 注入到 worker 的全局变量中。
+
+    Windows 使用 "spawn" 模式创建子进程，每个 worker 重新 import 本模块，
+    模块顶层的 RESULTS_DIR 会被重置为占位符值。通过 Pool initializer 在 worker
+    启动后立即覆写全局变量，确保所有 worker 使用同一个结果目录。
+
+    Args:
+        results_dir: 主进程计算好的结果目录路径。
+    """
+    global RESULTS_DIR
+    RESULTS_DIR = results_dir
+
+
 def main():
     """
     主函数：运行所有实验。
     """
+    # 在主进程中计算唯一的 timestamp，避免 worker 进程 re-import 时各自生成不同时间戳
+    global RESULTS_DIR
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    RESULTS_DIR = Path(__file__).parent / "experiments_results" / f"result_{timestamp}"
+
     print(f"实验开始时间: {datetime.now()}")
     print(f"配置: pop_size={POP_SIZE}, n_gen={N_GEN}, n_runs={N_RUNS}")
     print(f"问题: {list(PROBLEMS.keys())}")
     print(f"方法: {list(METHODS.keys())}")
     cpu_count = mp.cpu_count()
-    # 为了避免线程/进程数过多导致资源错误，限制实际 worker 数量
-    n_workers = min(48, cpu_count)
+    # 对 ANSYS 仿真问题使用保守并行：MAPDL 多进程并行容易触发 Fortran I/O 冲突
+    has_ansys_sim_problem = any(name.startswith("QuickSimu") for name in PROBLEMS.keys())
+    if has_ansys_sim_problem:
+        n_workers = 1
+    else:
+        # 非仿真问题可使用较高并行
+        n_workers = min(48, cpu_count)
     print(f"CPU 核心数: {cpu_count}")
     print(f"实际使用的并行进程数: {n_workers}")
+    if has_ansys_sim_problem:
+        print("检测到 QuickSimu（ANSYS）问题：已自动切换为单进程运行，避免 MAPDL Fortran I/O 冲突。")
     print(f"结果目录: {RESULTS_DIR}")
     
     # 创建结果目录
@@ -844,10 +1206,25 @@ def main():
     
     print(f"\n总任务数: {len(all_tasks)}")
     print(f"开始并行运行（进程数 = {n_workers}）...")
-    
-    with mp.Pool(processes=n_workers) as pool:
-        all_results = pool.map(run_single_experiment, all_tasks)
-    
+
+    # 通过 initializer 将主进程的 RESULTS_DIR 同步到每个 worker 进程
+    with mp.Pool(
+        processes=n_workers,
+        initializer=_worker_init,
+        initargs=(RESULTS_DIR,),
+    ) as pool:
+        all_results: List[RunResult] = []
+        for result in tqdm(
+            pool.imap_unordered(run_single_experiment, all_tasks),
+            total=len(all_tasks),
+            desc="实验进度",
+            unit="task",
+            dynamic_ncols=True,
+        ):
+            all_results.append(result)
+
+    save_run_checkpoint(all_results)
+
     # 按问题分组并保存结果（CSV 汇总）
     results_by_problem = {}
     for r in all_results:
@@ -988,8 +1365,31 @@ print(f"各代平均最优值: {mean_f}")
 # ============================================================================
 
 if __name__ == "__main__":
-    if len(sys.argv) > 1 and sys.argv[1] == "--plot":
+    parser = argparse.ArgumentParser(description="HA 实验运行 / 失败重试")
+    parser.add_argument(
+        "--plot",
+        action="store_true",
+        help="加载 RESULTS_DIR 下的结果并绘制示例曲线（需 matplotlib）",
+    )
+    parser.add_argument(
+        "--resume-dir",
+        type=Path,
+        default=None,
+        help="已有实验结果目录（含 logs/），与 --retry-failed 联用以只重跑失败任务",
+    )
+    parser.add_argument(
+        "--retry-failed",
+        action="store_true",
+        help="扫描 resume-dir/logs 中失败或未完成的 .log，按相同 seed 重跑",
+    )
+    args = parser.parse_args()
+
+    if args.plot:
         example_load_and_plot()
+    elif args.retry_failed:
+        if args.resume_dir is None:
+            parser.error("--retry-failed 需要同时指定 --resume-dir")
+        retry_failed_experiments(args.resume_dir)
     else:
         main()
 

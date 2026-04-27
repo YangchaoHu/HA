@@ -1,0 +1,65 @@
+{
+  "updated_at": "2026-04-21T23:14:47",
+  "runs": [
+    {
+      "key": "QuickSimu1|2026",
+      "problem": "QuickSimu1",
+      "seed": 2026,
+      "status": "done",
+      "written_rows": 30,
+      "final_gen": 30,
+      "error": null,
+      "updated_at": "2026-04-21T18:17:25"
+    },
+    {
+      "key": "QuickSimu1|2027",
+      "problem": "QuickSimu1",
+      "seed": 2027,
+      "status": "done",
+      "written_rows": 30,
+      "final_gen": 30,
+      "error": null,
+      "updated_at": "2026-04-21T19:16:03"
+    },
+    {
+      "key": "QuickSimu1|2028",
+      "problem": "QuickSimu1",
+      "seed": 2028,
+      "status": "done",
+      "written_rows": 30,
+      "final_gen": 30,
+      "error": null,
+      "updated_at": "2026-04-21T20:14:02"
+    },
+    {
+      "key": "QuickSimu2|2026",
+      "problem": "QuickSimu2",
+      "seed": 2026,
+      "status": "done",
+      "written_rows": 30,
+      "final_gen": 30,
+      "error": null,
+      "updated_at": "2026-04-21T21:16:48"
+    },
+    {
+      "key": "QuickSimu2|2027",
+      "problem": "QuickSimu2",
+      "seed": 2027,
+      "status": "done",
+      "written_rows": 30,
+      "final_gen": 30,
+      "error": null,
+      "updated_at": "2026-04-21T22:15:56"
+    },
+    {
+      "key": "QuickSimu2|2028",
+      "problem": "QuickSimu2",
+      "seed": 2028,
+      "status": "done",
+      "written_rows": 30,
+      "final_gen": 30,
+      "error": null,
+      "updated_at": "2026-04-21T23:14:47"
+    }
+  ]
+}

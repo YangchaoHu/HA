@@ -34,12 +34,16 @@ ENV/
 *~
 .DS_Store
 
-# 实验结果和日志
-results/
+# 缓存与日志（不含实验结果）
 *.pkl
 *.log
-*.png
-*.csv
+
+# 体积过大的实验目录（含大量日志，不纳入版本控制）
+experiments_results/
+
+# 备份文件
+*.backup
+*.bak
 
 # Jupyter Notebook
 .ipynb_checkpoints
