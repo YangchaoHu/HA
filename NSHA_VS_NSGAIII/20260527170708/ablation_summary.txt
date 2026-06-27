@@ -1,0 +1,17 @@
+Problem  Algorithm          IGD mean    IGD std   FEs mean  FEs std
+--------------------------------------------------------------------
+ZDT1     NSHA-Full        6.0415e-02 4.9360e-02       1632       26
+ZDT1     NSHA-NoLS        2.6853e-01 1.0884e-02       1500        0
+ZDT1     NSHA-StdGA       5.5901e-02 1.8732e-02       1644       20
+ZDT2     NSHA-Full        4.1051e-01 1.3861e-01       1572       13
+ZDT2     NSHA-NoLS        6.6799e-01 3.5980e-02       1500        0
+ZDT2     NSHA-StdGA       4.2599e-01 1.6249e-01       1580       11
+ZDT3     NSHA-Full        2.3112e-01 1.4060e-01       1620       16
+ZDT3     NSHA-NoLS        3.6715e-01 1.9348e-01       1500        0
+ZDT3     NSHA-StdGA       7.2023e-02 2.1908e-02       1650       11
+ZDT4     NSHA-Full        5.2570e+00 1.1129e+00       1569        7
+ZDT4     NSHA-NoLS        5.2570e+00 1.1129e+00       1500        0
+ZDT4     NSHA-StdGA       8.6022e+00 2.9360e+00       1600        2
+ZDT6     NSHA-Full        1.9248e+00 2.4824e+00       1618       36
+ZDT6     NSHA-NoLS        4.8013e+00 5.7295e-01       1500        0
+ZDT6     NSHA-StdGA       8.8157e-02 4.6424e-02       1633       16

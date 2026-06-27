@@ -28,6 +28,7 @@ from __future__ import annotations
 import importlib.util
 import os
 import traceback
+from typing import TypeAlias
 from pathlib import Path
 import numpy as np
 from numpy.typing import NDArray
@@ -35,7 +36,7 @@ from numpy.typing import NDArray
 from pymoo.core.problem import Problem
 
 
-ArrayLike = NDArray[np.floating]
+ArrayLike: TypeAlias = NDArray[np.floating]
 
 
 def _quick_simu_debug_enabled() -> bool:
@@ -647,6 +648,178 @@ class RastriginProblem(Problem):
         out["F"] = f
 
 
+class ZDT1Problem(Problem):
+    """
+    ZDT1 多目标基准问题（2 目标）。
+
+    目标函数：
+        f1 = x1
+        g = 1 + 9 * sum(x2..xD) / (D-1)
+        f2 = g * (1 - sqrt(f1 / g))
+    定义域：x_i ∈ [0, 1]
+    """
+
+    def __init__(self, n_var: int = 30) -> None:
+        self.fes: int = 0
+        super().__init__(
+            n_var=n_var,
+            n_obj=2,
+            n_ieq_constr=0,
+            n_eq_constr=0,
+            xl=0.0,
+            xu=1.0,
+        )
+
+    def _evaluate(self, X: ArrayLike, out: dict, *args, **kwargs) -> None:
+        X = np.atleast_2d(X).astype(float)
+        n_samples, n_var = X.shape
+        self.fes += int(n_samples)
+
+        f1 = X[:, 0]
+        g = 1.0 + 9.0 * np.sum(X[:, 1:], axis=1) / (n_var - 1)
+        f2 = g * (1.0 - np.sqrt(f1 / g))
+        out["F"] = np.column_stack([f1, f2])
+
+
+class ZDT2Problem(Problem):
+    """
+    ZDT2 多目标基准问题（2 目标）。
+
+    目标函数：
+        f1 = x1
+        g = 1 + 9 * sum(x2..xD) / (D-1)
+        f2 = g * (1 - (f1 / g)^2)
+    定义域：x_i ∈ [0, 1]
+    """
+
+    def __init__(self, n_var: int = 30) -> None:
+        self.fes: int = 0
+        super().__init__(
+            n_var=n_var,
+            n_obj=2,
+            n_ieq_constr=0,
+            n_eq_constr=0,
+            xl=0.0,
+            xu=1.0,
+        )
+
+    def _evaluate(self, X: ArrayLike, out: dict, *args, **kwargs) -> None:
+        X = np.atleast_2d(X).astype(float)
+        n_samples, n_var = X.shape
+        self.fes += int(n_samples)
+
+        f1 = X[:, 0]
+        g = 1.0 + 9.0 * np.sum(X[:, 1:], axis=1) / (n_var - 1)
+        f2 = g * (1.0 - (f1 / g) ** 2)
+        out["F"] = np.column_stack([f1, f2])
+
+
+class ZDT3Problem(Problem):
+    """
+    ZDT3 多目标基准问题（2 目标，前沿不连续）。
+
+    目标函数：
+        f1 = x1
+        g = 1 + 9 * sum(x2..xD) / (D-1)
+        f2 = g * (1 - sqrt(f1 / g) - (f1 / g) * sin(10*pi*f1))
+    定义域：x_i ∈ [0, 1]
+    """
+
+    def __init__(self, n_var: int = 30) -> None:
+        self.fes: int = 0
+        super().__init__(
+            n_var=n_var,
+            n_obj=2,
+            n_ieq_constr=0,
+            n_eq_constr=0,
+            xl=0.0,
+            xu=1.0,
+        )
+
+    def _evaluate(self, X: ArrayLike, out: dict, *args, **kwargs) -> None:
+        X = np.atleast_2d(X).astype(float)
+        n_samples, n_var = X.shape
+        self.fes += int(n_samples)
+
+        f1 = X[:, 0]
+        g = 1.0 + 9.0 * np.sum(X[:, 1:], axis=1) / (n_var - 1)
+        f1_g = f1 / g
+        f2 = g * (1.0 - np.sqrt(f1_g) - f1_g * np.sin(10.0 * np.pi * f1))
+        out["F"] = np.column_stack([f1, f2])
+
+
+class ZDT4Problem(Problem):
+    """
+    ZDT4 多目标基准问题（2 目标，含多峰）。
+
+    目标函数：
+        f1 = x1
+        g = 1 + 10*(D-1) + sum(x_i^2 - 10*cos(4*pi*x_i), i=2..D)
+        f2 = g * (1 - sqrt(f1 / g))
+    定义域：x1 ∈ [0, 1], x2..xD ∈ [-5, 5]
+    """
+
+    def __init__(self, n_var: int = 10) -> None:
+        self.fes: int = 0
+        xl = np.array([0.0] + [-5.0] * (n_var - 1), dtype=float)
+        xu = np.array([1.0] + [5.0] * (n_var - 1), dtype=float)
+        super().__init__(
+            n_var=n_var,
+            n_obj=2,
+            n_ieq_constr=0,
+            n_eq_constr=0,
+            xl=xl,
+            xu=xu,
+        )
+
+    def _evaluate(self, X: ArrayLike, out: dict, *args, **kwargs) -> None:
+        X = np.atleast_2d(X).astype(float)
+        n_samples, n_var = X.shape
+        self.fes += int(n_samples)
+
+        f1 = X[:, 0]
+        x_rest = X[:, 1:]
+        g = 1.0 + 10.0 * (n_var - 1) + np.sum(
+            x_rest ** 2 - 10.0 * np.cos(4.0 * np.pi * x_rest), axis=1
+        )
+        f2 = g * (1.0 - np.sqrt(f1 / g))
+        out["F"] = np.column_stack([f1, f2])
+
+
+class ZDT6Problem(Problem):
+    """
+    ZDT6 多目标基准问题（2 目标，偏置前沿）。
+
+    目标函数：
+        f1 = 1 - exp(-4*x1) * sin^6(6*pi*x1)
+        g = 1 + 9 * (sum(x2..xD)/(D-1))^0.25
+        f2 = g * (1 - (f1 / g)^2)
+    定义域：x_i ∈ [0, 1]
+    """
+
+    def __init__(self, n_var: int = 10) -> None:
+        self.fes: int = 0
+        super().__init__(
+            n_var=n_var,
+            n_obj=2,
+            n_ieq_constr=0,
+            n_eq_constr=0,
+            xl=0.0,
+            xu=1.0,
+        )
+
+    def _evaluate(self, X: ArrayLike, out: dict, *args, **kwargs) -> None:
+        X = np.atleast_2d(X).astype(float)
+        n_samples, n_var = X.shape
+        self.fes += int(n_samples)
+
+        x1 = X[:, 0]
+        f1 = 1.0 - np.exp(-4.0 * x1) * (np.sin(6.0 * np.pi * x1) ** 6)
+        g = 1.0 + 9.0 * (np.sum(X[:, 1:], axis=1) / (n_var - 1)) ** 0.25
+        f2 = g * (1.0 - (f1 / g) ** 2)
+        out["F"] = np.column_stack([f1, f2])
+
+
 class QuickSimu1Problem(Problem):
     """
     基于 `simulation_models/quick_simu(1).py` 的 ANSYS 仿真问题。
@@ -803,7 +976,7 @@ class QuickSimu2Problem(Problem):
         out["G"] = g
 
 
-__all__ = [
+SINGLE_OBJECTIVE_PROBLEMS = [
     "F2Problem",
     "F3Problem",
     "F4Problem",
@@ -812,6 +985,33 @@ __all__ = [
     "RastriginProblem",
     "QuickSimu1Problem",
     "QuickSimu2Problem",
+]
+
+MULTI_OBJECTIVE_PROBLEMS = [
+    "ZDT1Problem",
+    "ZDT2Problem",
+    "ZDT3Problem",
+    "ZDT4Problem",
+    "ZDT6Problem",
+]
+
+
+__all__ = [
+    "F2Problem",
+    "F3Problem",
+    "F4Problem",
+    "AckleyProblem",
+    "GriewankProblem",
+    "RastriginProblem",
+    "ZDT1Problem",
+    "ZDT2Problem",
+    "ZDT3Problem",
+    "ZDT4Problem",
+    "ZDT6Problem",
+    "QuickSimu1Problem",
+    "QuickSimu2Problem",
+    "SINGLE_OBJECTIVE_PROBLEMS",
+    "MULTI_OBJECTIVE_PROBLEMS",
 ]
 
 

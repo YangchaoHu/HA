@@ -47,7 +47,7 @@ os.environ["OMP_NUM_THREADS"] = "1"
 # ============================================================================
 # 类型别名
 # ============================================================================
-ArrayLike = NDArray[np.floating]
+ArrayLike = NDArray[Any]
 
 
 class PopulationHistory:
@@ -323,7 +323,7 @@ class HA(Algorithm):
     
     def __init__(
         self,
-        method: str = "L-BFGS-B",
+        method: str = "rbf",
         pop_size: int = 100,
         niche_num: int = 3,
         mutation_rate: float = 0.3,  # 提高变异率以增强探索
@@ -379,16 +379,16 @@ class HA(Algorithm):
         self.stagnation_count: int = 0  # 增加停滞计数
         self.fun_cnt: int = 0
         self.best: float = float("inf")
-        self.best_individual: Optional[ArrayLike] = None
+        self.best_individual: ArrayLike = np.array([], dtype=float)
         
         # 将在 _setup 中初始化的参数
-        self.elite_num: Optional[int] = None
-        self.dim: Optional[int] = None
-        self.lb: Optional[ArrayLike] = None
-        self.ub: Optional[ArrayLike] = None
+        self.elite_num: int = 0
+        self.dim: int = 0
+        self.lb: ArrayLike = np.array([], dtype=float)
+        self.ub: ArrayLike = np.array([], dtype=float)
         self.FEs: int = 0
         self.local_elite_id: List[int] = []
-        self.pop_cv: Optional[ArrayLike] = None
+        self.pop_cv: ArrayLike = np.array([], dtype=float)
         
         # 种群历史信息存储（去重）
         self.history = PopulationHistory()
@@ -419,9 +419,8 @@ class HA(Algorithm):
             self.lb = np.full(problem.n_var, problem.xl)
             self.ub = np.full(problem.n_var, problem.xu)
         
-        # 精英数量：保留较少精英，让更多个体参与进化
-        # 典型设置：种群的 5-10%
-        self.elite_num = max(2, min(5, self.pop_size // 10))
+        # 精英数量：种群的 5%（至少 3 个）
+        self.elite_num = max(3, self.pop_size * 5 // 100)
         self.FEs = 0
         self.local_elite_id = []
 
@@ -440,6 +439,8 @@ class HA(Algorithm):
         Returns:
             Population: 初始化后的种群对象
         """
+        if self.lb.size == 0 or self.ub.size == 0 or self.dim == 0:
+            raise RuntimeError("算法尚未完成 _setup，无法初始化种群")
         print("初始化种群...")
         
         # 生成或使用指定的初始种群
@@ -480,12 +481,14 @@ class HA(Algorithm):
         Returns:
             Population: 进化后的新种群
         """
+        if self.n_gen is None or self.problem is None:
+            raise RuntimeError("算法状态未初始化，无法进化")
         print(f"从 Generation {self.n_gen - 1} 进化到 Generation {self.n_gen}...")
         
         # 获取当前种群数据
-        pop = self.pop.get("X")
-        fit = self.pop.get("F")
-        cv = self.pop_cv
+        pop = np.asarray(self.pop.get("X"))
+        fit = np.asarray(self.pop.get("F"))
+        cv = np.asarray(self.pop_cv)
         
         # 找到当前代的最佳个体
         best_index = self._find_best_individual(fit, cv)
@@ -568,6 +571,8 @@ class HA(Algorithm):
         Raises:
             ValueError: 当 x 超出边界时
         """
+        if self.problem is None:
+            raise RuntimeError("问题未初始化，无法评估适应度")
         # 边界检查
         if np.any(x > self.ub) or np.any(x < self.lb):
             print(x)
@@ -603,6 +608,8 @@ class HA(Algorithm):
         Returns:
             Tuple[ArrayLike, ArrayLike]: (适应度数组, 约束违反度数组)
         """
+        if self.problem is None:
+            raise RuntimeError("问题未初始化，无法评估适应度")
         print(f"进入了 evaluate_fitness_cv_batch，X 大小 {X.shape[0]}")
         
         out = {}
@@ -666,9 +673,11 @@ class HA(Algorithm):
         # 先加入局部精英（来自聚类学习）
         elite_id.extend(self.local_elite_id)
         
-        # 再加入全局精英
-        global_elite_id = np.argsort(fit[:, 0])[:self.elite_num].tolist()
-        elite_id.extend(global_elite_id)
+        # 再加入全局精英，补足至 self.elite_num（不与局部精英重复计数）
+        global_elite_count = max(0, self.elite_num - len(elite_id))
+        if global_elite_count > 0:
+            global_elite_id = np.argsort(fit[:, 0])[:global_elite_count].tolist()
+            elite_id.extend(global_elite_id)
         
         # 去重并保持顺序
         elite_id = self._unique_preserve_order(elite_id)
@@ -803,7 +812,7 @@ class HA(Algorithm):
         pop: ArrayLike,
         fit: ArrayLike,
         cv: ArrayLike,
-        repeat: ArrayLike
+    repeat: NDArray[np.integer]
     ) -> Tuple[ArrayLike, ArrayLike, ArrayLike]:
         """
         恢复去重时删除的重复个体
@@ -866,6 +875,10 @@ class HA(Algorithm):
         Returns:
             Tuple: (更新后的种群, 适应度, 约束违反度, 精英索引列表)
         """
+        if self.n_gen is None:
+            raise RuntimeError("算法状态未初始化，无法进行聚类学习")
+        if self.problem is None:
+            raise RuntimeError("问题未初始化，无法进行聚类学习")
         if not self.activate_method:
             return pop, fit, cv, []
 
@@ -898,9 +911,12 @@ class HA(Algorithm):
             if len(cluster_indices) == 0:
                 continue
             
-            # 在该聚类中找适应度最好的个体
-            cluster_fits = fit[cluster_indices, 0]
-            best_in_cluster = cluster_indices[np.argmin(cluster_fits)]
+            # 在该聚类中按约束优先规则选最优个体
+            cluster_sorted = self._sort_by_constraint_dominance(
+                fit[cluster_indices],
+                cv[cluster_indices]
+            )
+            best_in_cluster = cluster_indices[cluster_sorted[0]]
             cluster_best_indices.append(best_in_cluster)
         
         # 如果聚类数 > niche_num，只选取最优的 niche_num 个聚类代表
@@ -985,6 +1001,8 @@ class HA(Algorithm):
         Returns:
             Tuple[ArrayLike, int]: (聚类标签, 聚类数量)
         """
+        if self.n_gen is None:
+            raise RuntimeError("算法状态未初始化，无法进行聚类")
         if self.n_gen <= 2:
             kmeans = KMeans(n_clusters=self.niche_num, n_init=1, random_state=42)
         else:
@@ -1208,12 +1226,17 @@ class HA(Algorithm):
         else:
             raise ValueError(f"不支持的优化方法: {self.method}")
         
-        # 判断返回的x的objective和y0的比较，小的话才返回
-        y_result = objective(x_result)
-        if y_result < y0:
-            return x_result
-        else:
+        # 使用约束优先规则判断是否改进（不重复评估）
+        hist_x0 = self.history.get(x0)
+        hist_x1 = self.history.get(x_result)
+        if hist_x0 is None or hist_x1 is None:
             return x0
+        f0, cv0 = hist_x0
+        f1, cv1 = hist_x1
+        fit_compare = np.vstack([np.atleast_1d(f0), np.atleast_1d(f1)])
+        cv_compare = np.vstack([np.atleast_1d(cv0), np.atleast_1d(cv1)])
+        best_idx = self._sort_by_constraint_dominance(fit_compare, cv_compare)[0]
+        return x_result if best_idx == 1 else x0
 
     def _scipy_local_search(
         self,
@@ -1459,22 +1482,21 @@ class HA(Algorithm):
         # 使用 L-BFGS-B 在代理模型上优化
         bounds = [(self.lb[i], self.ub[i]) for i in range(self.dim)]
         x0_clipped = np.clip(x0, self.lb, self.ub)
-        
+
         try:
             result = scipy_minimize(
                 fun=surrogate_objective,
                 x0=x0_clipped,
                 method="L-BFGS-B",
                 bounds=bounds,
-                options={"maxiter": maxiter}
+                options={"maxiter": maxiter},
             )
-            
+
             optimized_x = np.clip(result.x, self.lb, self.ub)
             return optimized_x
-            
+
         except Exception as e:
-            # 优化失败，直接返回原值
-            warnings.warn(f"代理模型优化失败: {e}，返回原值")
+            warnings.warn(f"RBF 代理模型优化失败: {e}，返回原值")
             return x0.copy()
 
     def _gp_local_search(
@@ -1581,9 +1603,15 @@ class HA(Algorithm):
             x_scaled = np.clip(x_scaled, 0, 1)  # 确保在标准化范围内
             try:
                 # 预测时获取均值和标准差
-                mu, std = gp.predict(x_scaled.reshape(1, -1), return_std=True)
-                mu = float(mu[0])
-                std = float(std[0])
+                pred = gp.predict(x_scaled.reshape(1, -1), return_std=True)
+                if isinstance(pred, tuple):
+                    mu = pred[0]
+                    std = pred[1]
+                else:
+                    mu = pred
+                    std = np.zeros_like(mu)
+                mu = float(np.atleast_1d(mu)[0])
+                std = float(np.atleast_1d(std)[0])
                 
                 # LCB: 均值 - 2倍标准差 (鼓励探索未知区域)
                 lcb = mu - 2.0 * std
@@ -1598,29 +1626,30 @@ class HA(Algorithm):
         # 7. 将 x0 标准化到 [0, 1] 范围
         x0_scaled = scaler_X.transform(x0.reshape(1, -1))[0]
         x0_scaled = np.clip(x0_scaled, 0, 1)
-        
+
         # 8. 使用 L-BFGS-B 在代理模型上优化（在标准化空间中）
         bounds_scaled = [(0.0, 1.0) for _ in range(self.dim)]
-        
+
         try:
             result = scipy_minimize(
                 fun=surrogate_objective,
                 x0=x0_scaled,
                 method="L-BFGS-B",
                 bounds=bounds_scaled,
-                options={"maxiter": maxiter}
+                options={"maxiter": maxiter},
             )
-            
+
             # 9. 将优化结果从标准化空间转换回原始空间
             x_optimized_scaled = np.clip(result.x, 0, 1)
-            x_optimized = scaler_X.inverse_transform(x_optimized_scaled.reshape(1, -1))[0]
-            
+            x_optimized = scaler_X.inverse_transform(
+                x_optimized_scaled.reshape(1, -1)
+            )[0]
+
             # 10. 确保在原始边界内
             optimized_x = np.clip(x_optimized, self.lb, self.ub)
             return optimized_x
-            
+
         except Exception as e:
-            # 优化失败，直接返回原值
             warnings.warn(f"GP 代理模型优化失败: {e}，返回原值")
             return x0.copy()
 
@@ -1685,7 +1714,10 @@ class HA(Algorithm):
             # g 的方向就是适应度增加最快的方向，所以下降方向是 -g
             try:
                 # lstsq 比求逆矩阵更稳定，能处理共线情况
-                g, residuals, rank, s = lstsq(Delta_X, Delta_y)
+                result = lstsq(Delta_X, Delta_y)
+                if result is None:
+                    return None
+                g, residuals, rank, s = result
             except Exception:
                 return None  # 计算失败（如矩阵奇异）
             
@@ -1788,7 +1820,7 @@ class HA(Algorithm):
         # 如果邻居太近(收敛后期)，trust_radius 可能小于 min_step，此时强制维持最小勘探步长
         step_size = np.clip(step_size, min_step, max_step)
         
-        return step_size
+        return float(step_size)
 
     def _history_ladder_local_search(
         self,
@@ -2733,6 +2765,8 @@ class HA(Algorithm):
         Returns:
             ArrayLike: 变异后的个体
         """
+        if self.n_gen is None:
+            raise RuntimeError("算法状态未初始化，无法执行变异")
         # 自适应分布指数：搜索早期 eta 较小（探索），后期 eta 较大（利用）
         # 典型范围：eta ∈ [5, 100]
         progress = min(1.0, self.n_gen / 50)  # 假设50代达到收敛阶段
@@ -2872,8 +2906,8 @@ class HA(Algorithm):
         ]
         
         # 随机选择变异策略
-        strategy = self._rng.choice(strategies)
-        candidate = strategy(x, tol)
+        strategy_idx = int(self._rng.integers(len(strategies)))
+        candidate = strategies[strategy_idx](x, tol)
         
         # 若变异失败，回退到小扰动
         if not self._is_feasible(candidate, tol):
@@ -2981,7 +3015,7 @@ class HA(Algorithm):
     # 工具方法
     # ========================================================================
     
-    def check_bounds(self, x: ArrayLike) -> bool:
+    def check_bounds(self, x: ArrayLike | List[ArrayLike]) -> bool:
         """
         检查个体是否在边界内
         
@@ -2991,6 +3025,7 @@ class HA(Algorithm):
         Returns:
             bool: 是否全部在边界内
         """
+        x = np.atleast_2d(x)
         out_of_bounds = (
             np.any(x < self.lb, axis=1) | 
             np.any(x > self.ub, axis=1)

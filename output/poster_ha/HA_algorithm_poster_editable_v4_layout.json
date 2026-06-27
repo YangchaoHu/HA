@@ -1,0 +1,8022 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/s52c7r",
+    "id": "s52c7r",
+    "slide": 1,
+    "layoutId": "825ca171-d5c6-40a6-a609-2281c3c33e66",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "1f27c29d-b047-461e-83ab-22f4e66c633f",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#061735",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1800,
+      "height": 4500
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Cambria Math",
+      "Microsoft YaHei"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "825ca171-d5c6-40a6-a609-2281c3c33e66",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "1f27c29d-b047-461e-83ab-22f4e66c633f",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "1f27c29d-b047-461e-83ab-22f4e66c633f",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/1w7mp0bi",
+      "id": "1",
+      "bbox": [
+        0,
+        0,
+        1800,
+        4500
+      ],
+      "alt": "abstract algorithm background",
+      "contentType": "image/png",
+      "imageFit": "cover",
+      "asset": {
+        "assetId": "c43a4c73-0cfc-4151-9b6f-3804055de068",
+        "contentType": "image/png",
+        "byteLength": 1835082
+      }
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/b2hwfyxo",
+      "id": "2",
+      "bbox": [
+        0,
+        0,
+        1800,
+        4500
+      ],
+      "geometry": "roundRect",
+      "fillColor": "rgba(6, 23, 53, 0.82)",
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/mhk3q5o7",
+      "id": "3",
+      "bbox": [
+        0,
+        0,
+        1800,
+        410
+      ],
+      "geometry": "roundRect",
+      "fillColor": "rgba(6, 23, 53, 0.92)",
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/twra5gbq",
+      "id": "4",
+      "bbox": [
+        58,
+        34,
+        1688,
+        70
+      ],
+      "geometry": "rect",
+      "text": "基于聚类自适应局部搜索与混合交叉池的混合进化算法研究与应用",
+      "textPreview": "基于聚类自适应局部搜索与混合交叉池的混合进化算法研究与应用",
+      "resolvedFontSize": 49,
+      "resolvedTextStyle": {
+        "fontSize": 49,
+        "typeface": "Microsoft YaHei",
+        "color": "#F8FAFC",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "基于聚类自适应局部搜索与混合交叉池的混合进化算法研究与应用"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "基于聚类自适应局部搜索与混合交叉池的混合进化算法研究与应用",
+          "resolvedTextStyle": {
+            "fontSize": 49,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "基于聚类自适应局部搜索与混合交叉池的混合进化算法研究与应用",
+              "fontSize": 49,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4byhgn29",
+      "id": "5",
+      "bbox": [
+        62,
+        112,
+        1500,
+        38
+      ],
+      "geometry": "rect",
+      "text": "通用混合进化算法：面向高维、多模态、昂贵黑箱与多目标约束优化",
+      "textPreview": "通用混合进化算法：面向高维、多模态、昂贵黑箱与多目标约束优化",
+      "resolvedFontSize": 29,
+      "resolvedTextStyle": {
+        "fontSize": 29,
+        "typeface": "Microsoft YaHei",
+        "color": "#CDE6F7",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "通用混合进化算法：面向高维、多模态、昂贵黑箱与多目标约束优化"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "通用混合进化算法：面向高维、多模态、昂贵黑箱与多目标约束优化",
+          "resolvedTextStyle": {
+            "fontSize": 29,
+            "typeface": "Microsoft YaHei",
+            "color": "#CDE6F7",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "通用混合进化算法：面向高维、多模态、昂贵黑箱与多目标约束优化",
+              "fontSize": 29,
+              "typeface": "Microsoft YaHei",
+              "color": "#CDE6F7",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/bq1oryts",
+      "id": "6",
+      "bbox": [
+        62,
+        160,
+        1300,
+        32
+      ],
+      "geometry": "rect",
+      "text": "胡杨超  |  电子科技大学（深圳）高等研究院  |  计算机技术  |  导师：李耘、王华山",
+      "textPreview": "胡杨超  |  电子科技大学（深圳）高等研究院  |  计算机技术  |  导师：李耘、王华山",
+      "resolvedFontSize": 23,
+      "resolvedTextStyle": {
+        "fontSize": 23,
+        "typeface": "Microsoft YaHei",
+        "color": "#FFCE48",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "胡杨超  |  电子科技大学（深圳）高等研究院  |  计算机技术  |  导师：李耘、王华山"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "胡杨超  |  电子科技大学（深圳）高等研究院  |  计算机技术  |  导师：李耘、王华山",
+          "resolvedTextStyle": {
+            "fontSize": 23,
+            "typeface": "Microsoft YaHei",
+            "color": "#FFCE48",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "胡杨超  |  电子科技大学（深圳）高等研究院  |  计算机技术  |  导师：李耘、王华山",
+              "fontSize": 23,
+              "typeface": "Microsoft YaHei",
+              "color": "#FFCE48",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/m58z25kb",
+      "id": "7",
+      "bbox": [
+        58,
+        220,
+        1684,
+        138
+      ],
+      "geometry": "roundRect",
+      "fillColor": "rgba(8, 34, 79, 0.86)",
+      "lineColor": "rgba(73, 219, 255, 0.7)",
+      "lineWidth": 2
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/tsvu9kni",
+      "id": "8",
+      "bbox": [
+        88,
+        247,
+        1625,
+        92
+      ],
+      "geometry": "rect",
+      "text": "研究对象不是某一个固定工程零件，而是一套可迁移的优化算法框架。算法以“全局进化负责探索、聚类局部搜索负责开发、混合交叉池负责重组、多臂老虎机与标量化负责自适应决策”为主线，在 CEC/ZDT 基准与工程仿真案例中验证其收敛精度、函数评估效率和可扩展性。",
+      "textPreview": "研究对象不是某一个固定工程零件，而是一套可迁移的优化算法框架。算法以“全局进化负责探索、聚类局部搜索负责开发、混合交叉池负责重组、多臂老虎机与标量化负责自适应决策”为主线，在 CEC/ZDT 基准与工程仿真案例中验证其收敛精度、函数评估效率和可扩展性。",
+      "resolvedFontSize": 23,
+      "resolvedTextStyle": {
+        "fontSize": 23,
+        "typeface": "Microsoft YaHei",
+        "color": "#F8FAFC",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "研究对象不是某一个固定工程零件，而是一套可迁移的优化算法框架。算法以“全局进化负责探索、聚类局部搜索负责开发、混合交叉池负责重组、多臂老虎"
+          },
+          {
+            "index": 2,
+            "text": "机与标量化负责自适应决策”为主线，在 CEC/ZDT 基准与工程仿真案例中验证其收敛精度、函数评估效率和可扩展性。"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "研究对象不是某一个固定工程零件，而是一套可迁移的优化算法框架。算法以“全局进化负责探索、聚类局部搜索负责开发、混合交叉池负责重组、多臂老虎机与标量化负责自适应决策”为主线，在 CEC/ZDT 基准与工程仿真案例中验证其收敛精度、函数评估效率和可扩展性。",
+          "resolvedTextStyle": {
+            "fontSize": 23,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "研究对象不是某一个固定工程零件，而是一套可迁移的优化算法框架。算法以“全局进化负责探索、聚类局部搜索负责开发、混合交叉池负责重组、多臂老虎机与标量化负责自适应决策”为主线，在 CEC/ZDT 基准与工程仿真案例中验证其收敛精度、函数评估效率和可扩展性。",
+              "fontSize": 23,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/47y1kre1",
+      "id": "9",
+      "name": "panel-问题定义与研究动机",
+      "bbox": [
+        48,
+        425,
+        550,
+        620
+      ],
+      "geometry": "roundRect",
+      "fillColor": "rgba(8, 34, 79, 0.88)",
+      "lineColor": "rgba(73, 219, 255, 0.9)",
+      "lineWidth": 2
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/adsji5sn",
+      "id": "10",
+      "bbox": [
+        48,
+        425,
+        10,
+        620
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#49DBFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3ylc7u54",
+      "id": "11",
+      "bbox": [
+        76,
+        441,
+        494,
+        34
+      ],
+      "geometry": "rect",
+      "text": "问题定义与研究动机",
+      "textPreview": "问题定义与研究动机",
+      "resolvedFontSize": 28,
+      "resolvedTextStyle": {
+        "fontSize": 28,
+        "typeface": "Microsoft YaHei",
+        "color": "#F8FAFC",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "问题定义与研究动机"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "问题定义与研究动机",
+          "resolvedTextStyle": {
+            "fontSize": 28,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "问题定义与研究动机",
+              "fontSize": 28,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/sji5snel",
+      "id": "12",
+      "bbox": [
+        76,
+        477,
+        494,
+        26
+      ],
+      "geometry": "rect",
+      "text": "通用算法目标，而非单一工程问题",
+      "textPreview": "通用算法目标，而非单一工程问题",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "fontSize": 18,
+        "typeface": "Microsoft YaHei",
+        "color": "#9BB9CE",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "通用算法目标，而非单一工程问题"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "通用算法目标，而非单一工程问题",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Microsoft YaHei",
+            "color": "#9BB9CE",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "通用算法目标，而非单一工程问题",
+              "fontSize": 18,
+              "typeface": "Microsoft YaHei",
+              "color": "#9BB9CE",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/h4byhgn2",
+      "id": "13",
+      "bbox": [
+        76,
+        513,
+        494,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#49DBFF",
+      "lineWidth": 2
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/a5gbq1or",
+      "id": "14",
+      "bbox": [
+        83,
+        535,
+        485,
+        280
+      ],
+      "geometry": "rect",
+      "text": "• 复杂优化常表现为高维、非线性、多模态、黑箱、不可导和计算昂贵。\n• 标准 GA 全局性较强，但局部开发弱，后期收敛慢，且容易破坏长距离优良图式。\n• 全员局部搜索会消耗大量函数评估次数，在昂贵仿真环境下不可接受。\n• 本研究构建从单目标到多目标、从无约束到有约束均可扩展的混合进化框架。",
+      "textPreview": "• 复杂优化常表现为高维、非线性、多模态、黑箱、不可导和计算昂贵。 | • 标准 GA 全局性较强，但局部开发弱，后期收敛慢，且容易破坏长距离优良图式。 | • 全员局部搜索会消耗大量函数评估次数，在昂贵仿真环境下不可接受。 | • 本研究构建从单目标到多目标、从无约束到有...",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "Microsoft YaHei",
+        "color": "#F8FAFC",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 12,
+        "lines": [
+          {
+            "index": 1,
+            "text": "•"
+          },
+          {
+            "index": 2,
+            "text": "复杂优化常表现为高维、非线性、多模态、黑箱、不"
+          },
+          {
+            "index": 3,
+            "text": "可导和计算昂贵。"
+          },
+          {
+            "index": 4,
+            "text": "• 标准 GA"
+          },
+          {
+            "index": 5,
+            "text": "全局性较强，但局部开发弱，后期收敛慢，且容易破"
+          },
+          {
+            "index": 6,
+            "text": "坏长距离优良图式。"
+          },
+          {
+            "index": 7,
+            "text": "•"
+          },
+          {
+            "index": 8,
+            "text": "全员局部搜索会消耗大量函数评估次数，在昂贵仿真"
+          },
+          {
+            "index": 9,
+            "text": "环境下不可接受。"
+          },
+          {
+            "index": 10,
+            "text": "•"
+          },
+          {
+            "index": 11,
+            "text": "本研究构建从单目标到多目标、从无约束到有约束均"
+          },
+          {
+            "index": 12,
+            "text": "可扩展的混合进化框架。"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "• 复杂优化常表现为高维、非线性、多模态、黑箱、不可导和计算昂贵。",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• 复杂优化常表现为高维、非线性、多模态、黑箱、不可导和计算昂贵。",
+              "fontSize": 20,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "• 标准 GA 全局性较强，但局部开发弱，后期收敛慢，且容易破坏长距离优良图式。",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• 标准 GA 全局性较强，但局部开发弱，后期收敛慢，且容易破坏长距离优良图式。",
+              "fontSize": 20,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "• 全员局部搜索会消耗大量函数评估次数，在昂贵仿真环境下不可接受。",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• 全员局部搜索会消耗大量函数评估次数，在昂贵仿真环境下不可接受。",
+              "fontSize": 20,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 4,
+          "text": "• 本研究构建从单目标到多目标、从无约束到有约束均可扩展的混合进化框架。",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• 本研究构建从单目标到多目标、从无约束到有约束均可扩展的混合进化框架。",
+              "fontSize": 20,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3m94fu18",
+      "id": "15",
+      "name": "formula-通用形式",
+      "bbox": [
+        82,
+        840,
+        484,
+        170
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#092B62",
+      "lineColor": "#49DBFF",
+      "lineWidth": 2
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/s72x4nap",
+      "id": "16",
+      "bbox": [
+        100,
+        852,
+        448,
+        28
+      ],
+      "geometry": "rect",
+      "text": "通用形式",
+      "textPreview": "通用形式",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Microsoft YaHei",
+        "color": "#49DBFF",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "通用形式"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "通用形式",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Microsoft YaHei",
+            "color": "#49DBFF",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "通用形式",
+              "fontSize": 22,
+              "typeface": "Microsoft YaHei",
+              "color": "#49DBFF",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/lszqtcj6",
+      "id": "17",
+      "bbox": [
+        100,
+        894,
+        448,
+        94
+      ],
+      "geometry": "rect",
+      "text": "min / max   F(x)\ns.t.   gⱼ(x) ≤ 0,   hₖ(x)=0\nx ∈ Ω,   F(x) may be black-box",
+      "textPreview": "min / max   F(x) | s.t.   gⱼ(x) ≤ 0,   hₖ(x)=0 | x ∈ Ω,   F(x) may be black-box",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "Cambria Math",
+        "color": "#F8FAFC",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "min / max   F(x)"
+          },
+          {
+            "index": 2,
+            "text": "s.t.   gⱼ(x) ≤ 0,   hₖ(x)=0"
+          },
+          {
+            "index": 3,
+            "text": "x ∈ Ω,   F(x) may be black-box"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "min / max   F(x)",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "min / max   F(x)",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "s.t.   gⱼ(x) ≤ 0,   hₖ(x)=0",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "s.t.   gⱼ(x) ≤ 0,   hₖ(x)=0",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "x ∈ Ω,   F(x) may be black-box",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "x ∈ Ω,   F(x) may be black-box",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/a1gvy90j",
+      "id": "18",
+      "name": "panel-算法总体框架",
+      "bbox": [
+        625,
+        425,
+        550,
+        620
+      ],
+      "geometry": "roundRect",
+      "fillColor": "rgba(8, 34, 79, 0.88)",
+      "lineColor": "rgba(255, 206, 72, 0.9)",
+      "lineWidth": 2
+    },
+    {
+      "order": 19,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/zidonyd0",
+      "id": "19",
+      "bbox": [
+        625,
+        425,
+        10,
+        620
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFCE48",
+      "lineWidth": 0
+    },
+    {
+      "order": 20,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/val87ed8",
+      "id": "20",
+      "bbox": [
+        653,
+        441,
+        494,
+        34
+      ],
+      "geometry": "rect",
+      "text": "算法总体框架",
+      "textPreview": "算法总体框架",
+      "resolvedFontSize": 28,
+      "resolvedTextStyle": {
+        "fontSize": 28,
+        "typeface": "Microsoft YaHei",
+        "color": "#F8FAFC",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "算法总体框架"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "算法总体框架",
+          "resolvedTextStyle": {
+            "fontSize": 28,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "算法总体框架",
+              "fontSize": 28,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 21,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/6psfil0r",
+      "id": "21",
+      "bbox": [
+        653,
+        477,
+        494,
+        26
+      ],
+      "geometry": "rect",
+      "text": "Lamarckian learning + population evolution",
+      "textPreview": "Lamarckian learning + population evolution",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "fontSize": 18,
+        "typeface": "Microsoft YaHei",
+        "color": "#9BB9CE",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Lamarckian learning + population evolution"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Lamarckian learning + population evolution",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Microsoft YaHei",
+            "color": "#9BB9CE",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Lamarckian learning + population evolution",
+              "fontSize": 18,
+              "typeface": "Microsoft YaHei",
+              "color": "#9BB9CE",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 22,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/dcbulwva",
+      "id": "22",
+      "bbox": [
+        653,
+        513,
+        494,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#FFCE48",
+      "lineWidth": 2
+    },
+    {
+      "order": 23,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/kre1w7mp",
+      "id": "23",
+      "bbox": [
+        667,
+        550,
+        132,
+        112
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#0B3577",
+      "lineColor": "#FFCE48",
+      "lineWidth": 2
+    },
+    {
+      "order": 24,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/vixczed8",
+      "id": "24",
+      "bbox": [
+        681,
+        562,
+        104,
+        28
+      ],
+      "geometry": "rect",
+      "text": "P_t",
+      "textPreview": "P_t",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Microsoft YaHei",
+        "color": "#FFCE48",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "P_t"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "P_t",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Microsoft YaHei",
+            "color": "#FFCE48",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "P_t",
+              "fontSize": 22,
+              "typeface": "Microsoft YaHei",
+              "color": "#FFCE48",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 25,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/2x4nap4r",
+      "id": "25",
+      "bbox": [
+        681,
+        598,
+        104,
+        58
+      ],
+      "geometry": "rect",
+      "text": "初始化/保留精英",
+      "textPreview": "初始化/保留精英",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Microsoft YaHei",
+        "color": "#CDE6F7",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "初始化/保"
+          },
+          {
+            "index": 2,
+            "text": "留精英"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "初始化/保留精英",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Microsoft YaHei",
+            "color": "#CDE6F7",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "初始化/保留精英",
+              "fontSize": 16,
+              "typeface": "Microsoft YaHei",
+              "color": "#CDE6F7",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 26,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/donyd0z6",
+      "id": "26",
+      "bbox": [
+        807,
+        592,
+        54,
+        28
+      ],
+      "geometry": "rightArrow",
+      "fillColor": "#FFCE48",
+      "lineWidth": 0
+    },
+    {
+      "order": 27,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/k3q5o7qp",
+      "id": "27",
+      "bbox": [
+        867,
+        550,
+        132,
+        112
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#0B3577",
+      "lineColor": "#FFCE48",
+      "lineWidth": 2
+    },
+    {
+      "order": 28,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/vu9knih4",
+      "id": "28",
+      "bbox": [
+        881,
+        562,
+        104,
+        28
+      ],
+      "geometry": "rect",
+      "text": "聚类",
+      "textPreview": "聚类",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Microsoft YaHei",
+        "color": "#FFCE48",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "聚类"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "聚类",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Microsoft YaHei",
+            "color": "#FFCE48",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "聚类",
+              "fontSize": 22,
+              "typeface": "Microsoft YaHei",
+              "color": "#FFCE48",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 29,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/29gr2p8n",
+      "id": "29",
+      "bbox": [
+        881,
+        598,
+        104,
+        58
+      ],
+      "geometry": "rect",
+      "text": "识别局部盆地",
+      "textPreview": "识别局部盆地",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Microsoft YaHei",
+        "color": "#CDE6F7",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "识别局部盆"
+          },
+          {
+            "index": 2,
+            "text": "地"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "识别局部盆地",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Microsoft YaHei",
+            "color": "#CDE6F7",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "识别局部盆地",
+              "fontSize": 16,
+              "typeface": "Microsoft YaHei",
+              "color": "#CDE6F7",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 30,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/cfa9w3m9",
+      "id": "30",
+      "bbox": [
+        1007,
+        592,
+        54,
+        28
+      ],
+      "geometry": "rightArrow",
+      "fillColor": "#FFCE48",
+      "lineWidth": 0
+    },
+    {
+      "order": 31,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1032lszq",
+      "id": "31",
+      "bbox": [
+        1067,
+        550,
+        132,
+        112
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#0B3577",
+      "lineColor": "#FFCE48",
+      "lineWidth": 2
+    },
+    {
+      "order": 32,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/u9knih4b",
+      "id": "32",
+      "bbox": [
+        1081,
+        562,
+        104,
+        28
+      ],
+      "geometry": "rect",
+      "text": "局部搜索",
+      "textPreview": "局部搜索",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Microsoft YaHei",
+        "color": "#FFCE48",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "局部搜"
+          },
+          {
+            "index": 2,
+            "text": "索"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "局部搜索",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Microsoft YaHei",
+            "color": "#FFCE48",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "局部搜索",
+              "fontSize": 22,
+              "typeface": "Microsoft YaHei",
+              "color": "#FFCE48",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 33,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/judg7ads",
+      "id": "33",
+      "bbox": [
+        1081,
+        598,
+        104,
+        58
+      ],
+      "geometry": "rect",
+      "text": "代表个体后天学习",
+      "textPreview": "代表个体后天学习",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Microsoft YaHei",
+        "color": "#CDE6F7",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "代表个体后"
+          },
+          {
+            "index": 2,
+            "text": "天学习"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "代表个体后天学习",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Microsoft YaHei",
+            "color": "#CDE6F7",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "代表个体后天学习",
+              "fontSize": 16,
+              "typeface": "Microsoft YaHei",
+              "color": "#CDE6F7",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 34,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/c7u54zid",
+      "id": "34",
+      "bbox": [
+        667,
+        735,
+        132,
+        112
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#0B3577",
+      "lineColor": "#FFCE48",
+      "lineWidth": 2
+    },
+    {
+      "order": 35,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1orytsvu",
+      "id": "35",
+      "bbox": [
+        681,
+        747,
+        104,
+        28
+      ],
+      "geometry": "rect",
+      "text": "回写",
+      "textPreview": "回写",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Microsoft YaHei",
+        "color": "#FFCE48",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "回写"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "回写",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Microsoft YaHei",
+            "color": "#FFCE48",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "回写",
+              "fontSize": 22,
+              "typeface": "Microsoft YaHei",
+              "color": "#FFCE48",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 36,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/u18jqh0f",
+      "id": "36",
+      "bbox": [
+        681,
+        783,
+        104,
+        58
+      ],
+      "geometry": "rect",
+      "text": "x' 替换 x",
+      "textPreview": "x' 替换 x",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Microsoft YaHei",
+        "color": "#CDE6F7",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "x' 替换 x"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "x' 替换 x",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Microsoft YaHei",
+            "color": "#CDE6F7",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "x' 替换 x",
+              "fontSize": 16,
+              "typeface": "Microsoft YaHei",
+              "color": "#CDE6F7",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 37,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/jm1cfa9w",
+      "id": "37",
+      "bbox": [
+        807,
+        777,
+        54,
+        28
+      ],
+      "geometry": "rightArrow",
+      "fillColor": "#FFCE48",
+      "lineWidth": 0
+    },
+    {
+      "order": 38,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/cvixczed",
+      "id": "38",
+      "bbox": [
+        867,
+        735,
+        132,
+        112
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#0B3577",
+      "lineColor": "#FFCE48",
+      "lineWidth": 2
+    },
+    {
+      "order": 39,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/5gbq1ory",
+      "id": "39",
+      "bbox": [
+        881,
+        747,
+        104,
+        28
+      ],
+      "geometry": "rect",
+      "text": "交叉池",
+      "textPreview": "交叉池",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Microsoft YaHei",
+        "color": "#FFCE48",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "交叉池"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "交叉池",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Microsoft YaHei",
+            "color": "#FFCE48",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "交叉池",
+              "fontSize": 22,
+              "typeface": "Microsoft YaHei",
+              "color": "#FFCE48",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 40,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/xc3ylc7u",
+      "id": "40",
+      "bbox": [
+        881,
+        783,
+        104,
+        58
+      ],
+      "geometry": "rect",
+      "text": "SBX/多父代/DE",
+      "textPreview": "SBX/多父代/DE",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Microsoft YaHei",
+        "color": "#CDE6F7",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "SBX/多父代"
+          },
+          {
+            "index": 2,
+            "text": "/DE"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "SBX/多父代/DE",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Microsoft YaHei",
+            "color": "#CDE6F7",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "SBX/多父代/DE",
+              "fontSize": 16,
+              "typeface": "Microsoft YaHei",
+              "color": "#CDE6F7",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 41,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4r65wjud",
+      "id": "41",
+      "bbox": [
+        1007,
+        777,
+        54,
+        28
+      ],
+      "geometry": "rightArrow",
+      "fillColor": "#FFCE48",
+      "lineWidth": 0
+    },
+    {
+      "order": 42,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/f6dcbulw",
+      "id": "42",
+      "bbox": [
+        1067,
+        735,
+        132,
+        112
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#0B3577",
+      "lineColor": "#FFCE48",
+      "lineWidth": 2
+    },
+    {
+      "order": 43,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/mlkjm1cf",
+      "id": "43",
+      "bbox": [
+        1081,
+        747,
+        104,
+        28
+      ],
+      "geometry": "rect",
+      "text": "选择",
+      "textPreview": "选择",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Microsoft YaHei",
+        "color": "#FFCE48",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "选择"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "选择",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Microsoft YaHei",
+            "color": "#FFCE48",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "选择",
+              "fontSize": 22,
+              "typeface": "Microsoft YaHei",
+              "color": "#FFCE48",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 44,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/xkf6dcbu",
+      "id": "44",
+      "bbox": [
+        1081,
+        783,
+        104,
+        58
+      ],
+      "geometry": "rect",
+      "text": "约束优先+精英保留",
+      "textPreview": "约束优先+精英保留",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Microsoft YaHei",
+        "color": "#CDE6F7",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "约束优先+"
+          },
+          {
+            "index": 2,
+            "text": "精英保留"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "约束优先+精英保留",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Microsoft YaHei",
+            "color": "#CDE6F7",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "约束优先+精英保留",
+              "fontSize": 16,
+              "typeface": "Microsoft YaHei",
+              "color": "#CDE6F7",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 45,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4zidonyd",
+      "id": "45",
+      "bbox": [
+        663,
+        892,
+        486,
+        105
+      ],
+      "geometry": "rect",
+      "text": "核心思想：学习结果不是只改变适应度评价，而是以 Lamarckian 方式回写到染色体，直接改变下一代可继承信息。聚类控制“在哪里学”，交叉池控制“如何重组”。",
+      "textPreview": "核心思想：学习结果不是只改变适应度评价，而是以 Lamarckian 方式回写到染色体，直接改变下一代可继承信息。聚类控制“在哪里学”，交叉池控制“如何重组”。",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "Microsoft YaHei",
+        "color": "#F8FAFC",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 4,
+        "lines": [
+          {
+            "index": 1,
+            "text": "核心思想：学习结果不是只改变适应度评价，而是以"
+          },
+          {
+            "index": 2,
+            "text": "Lamarckian"
+          },
+          {
+            "index": 3,
+            "text": "方式回写到染色体，直接改变下一代可继承信息。聚"
+          },
+          {
+            "index": 4,
+            "text": "类控制“在哪里学”，交叉池控制“如何重组”。"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "核心思想：学习结果不是只改变适应度评价，而是以 Lamarckian 方式回写到染色体，直接改变下一代可继承信息。聚类控制“在哪里学”，交叉池控制“如何重组”。",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "核心思想：学习结果不是只改变适应度评价，而是以 Lamarckian 方式回写到染色体，直接改变下一代可继承信息。聚类控制“在哪里学”，交叉池控制“如何重组”。",
+              "fontSize": 20,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 46,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fepkzupw",
+      "id": "46",
+      "name": "panel-聚类自适应局部搜索",
+      "bbox": [
+        1202,
+        425,
+        550,
+        620
+      ],
+      "geometry": "roundRect",
+      "fillColor": "rgba(8, 34, 79, 0.88)",
+      "lineColor": "rgba(255, 142, 70, 0.9)",
+      "lineWidth": 2
+    },
+    {
+      "order": 47,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/mtwra5gb",
+      "id": "47",
+      "bbox": [
+        1202,
+        425,
+        10,
+        620
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FF8E46",
+      "lineWidth": 0
+    },
+    {
+      "order": 48,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/xobm58z2",
+      "id": "48",
+      "bbox": [
+        1230,
+        441,
+        494,
+        34
+      ],
+      "geometry": "rect",
+      "text": "聚类自适应局部搜索",
+      "textPreview": "聚类自适应局部搜索",
+      "resolvedFontSize": 28,
+      "resolvedTextStyle": {
+        "fontSize": 28,
+        "typeface": "Microsoft YaHei",
+        "color": "#F8FAFC",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "聚类自适应局部搜索"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "聚类自适应局部搜索",
+          "resolvedTextStyle": {
+            "fontSize": 28,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "聚类自适应局部搜索",
+              "fontSize": 28,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 49,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/83itgfml",
+      "id": "49",
+      "bbox": [
+        1230,
+        477,
+        494,
+        26
+      ],
+      "geometry": "rect",
+      "text": "本课题重点强调机制",
+      "textPreview": "本课题重点强调机制",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "fontSize": 18,
+        "typeface": "Microsoft YaHei",
+        "color": "#9BB9CE",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "本课题重点强调机制"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "本课题重点强调机制",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Microsoft YaHei",
+            "color": "#9BB9CE",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "本课题重点强调机制",
+              "fontSize": 18,
+              "typeface": "Microsoft YaHei",
+              "color": "#9BB9CE",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 50,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/i5sneloj",
+      "id": "50",
+      "bbox": [
+        1230,
+        513,
+        494,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#FF8E46",
+      "lineWidth": 2
+    },
+    {
+      "order": 51,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7qpg3ex0",
+      "id": "51",
+      "bbox": [
+        1237,
+        535,
+        485,
+        300
+      ],
+      "geometry": "rect",
+      "text": "• 在决策空间进行 K-means / MeanShift / DBSCAN 聚类，兼容固定簇数与密度自适应场景。\n• 每 5 代周期触发，或连续 3 代无改进触发；停滞时加深搜索深度。\n• 每簇只选择约束优先意义下的代表个体；簇数过多时保留最有潜力的 niche_num 个代表。\n• 改进后才回写，避免局部搜索噪声污染种群。",
+      "textPreview": "• 在决策空间进行 K-means / MeanShift / DBSCAN 聚类，兼容固定簇数与密度自适应场景。 | • 每 5 代周期触发，或连续 3 代无改进触发；停滞时加深搜索深度。 | • 每簇只选择约束优先意义下的代表个体；簇数过多时保留最有潜力的 niche_...",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "Microsoft YaHei",
+        "color": "#F8FAFC",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 8,
+        "lines": [
+          {
+            "index": 1,
+            "text": "• 在决策空间进行 K-means / MeanShift /"
+          },
+          {
+            "index": 2,
+            "text": "DBSCAN 聚类，兼容固定簇数与密度自适应场景。"
+          },
+          {
+            "index": 3,
+            "text": "• 每 5 代周期触发，或连续 3"
+          },
+          {
+            "index": 4,
+            "text": "代无改进触发；停滞时加深搜索深度。"
+          },
+          {
+            "index": 5,
+            "text": "•"
+          },
+          {
+            "index": 6,
+            "text": "每簇只选择约束优先意义下的代表个体；簇数过多时"
+          },
+          {
+            "index": 7,
+            "text": "保留最有潜力的 niche_num 个代表。"
+          },
+          {
+            "index": 8,
+            "text": "• 改进后才回写，避免局部搜索噪声污染种群。"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "• 在决策空间进行 K-means / MeanShift / DBSCAN 聚类，兼容固定簇数与密度自适应场景。",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• 在决策空间进行 K-means / MeanShift / DBSCAN 聚类，兼容固定簇数与密度自适应场景。",
+              "fontSize": 20,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "• 每 5 代周期触发，或连续 3 代无改进触发；停滞时加深搜索深度。",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• 每 5 代周期触发，或连续 3 代无改进触发；停滞时加深搜索深度。",
+              "fontSize": 20,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "• 每簇只选择约束优先意义下的代表个体；簇数过多时保留最有潜力的 niche_num 个代表。",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• 每簇只选择约束优先意义下的代表个体；簇数过多时保留最有潜力的 niche_num 个代表。",
+              "fontSize": 20,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 4,
+          "text": "• 改进后才回写，避免局部搜索噪声污染种群。",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• 改进后才回写，避免局部搜索噪声污染种群。",
+              "fontSize": 20,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 52,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0bi9s36h",
+      "id": "52",
+      "name": "formula-触发与代表",
+      "bbox": [
+        1236,
+        858,
+        484,
+        152
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#092B62",
+      "lineColor": "#FF8E46",
+      "lineWidth": 2
+    },
+    {
+      "order": 53,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/pwb2hwfy",
+      "id": "53",
+      "bbox": [
+        1254,
+        870,
+        448,
+        28
+      ],
+      "geometry": "rect",
+      "text": "触发与代表",
+      "textPreview": "触发与代表",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Microsoft YaHei",
+        "color": "#FF8E46",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "触发与代表"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "触发与代表",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Microsoft YaHei",
+            "color": "#FF8E46",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "触发与代表",
+              "fontSize": 22,
+              "typeface": "Microsoft YaHei",
+              "color": "#FF8E46",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 54,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ed8v6psf",
+      "id": "54",
+      "bbox": [
+        1254,
+        912,
+        448,
+        76
+      ],
+      "geometry": "rect",
+      "text": "trigger ⇔ (t mod 5 = 0) ∨ (s ≥ 3)\nr_c = arg best_{i∈C_c}(CV_i, f_i)\ndepth = 10 if stagnant else 3",
+      "textPreview": "trigger ⇔ (t mod 5 = 0) ∨ (s ≥ 3) | r_c = arg best_{i∈C_c}(CV_i, f_i) | depth = 10 if stagnant else 3",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "Cambria Math",
+        "color": "#F8FAFC",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "trigger ⇔ (t mod 5 = 0) ∨ (s ≥ 3)"
+          },
+          {
+            "index": 2,
+            "text": "r_c = arg best_{i∈C_c}(CV_i, f_i)"
+          },
+          {
+            "index": 3,
+            "text": "depth = 10 if stagnant else 3"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "trigger ⇔ (t mod 5 = 0) ∨ (s ≥ 3)",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "trigger ⇔ (t mod 5 = 0) ∨ (s ≥ 3)",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "r_c = arg best_{i∈C_c}(CV_i, f_i)",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "r_c = arg best_{i∈C_c}(CV_i, f_i)",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "depth = 10 if stagnant else 3",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "depth = 10 if stagnant else 3",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 55,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7y1kre1w",
+      "id": "55",
+      "name": "panel-局部代理与伪梯度",
+      "bbox": [
+        48,
+        1085,
+        550,
+        690
+      ],
+      "geometry": "roundRect",
+      "fillColor": "rgba(8, 34, 79, 0.88)",
+      "lineColor": "rgba(73, 219, 255, 0.9)",
+      "lineWidth": 2
+    },
+    {
+      "order": 56,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/wjudg7ad",
+      "id": "56",
+      "bbox": [
+        48,
+        1085,
+        10,
+        690
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#49DBFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 57,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/p4r65wju",
+      "id": "57",
+      "bbox": [
+        76,
+        1101,
+        494,
+        34
+      ],
+      "geometry": "rect",
+      "text": "局部代理与伪梯度",
+      "textPreview": "局部代理与伪梯度",
+      "resolvedFontSize": 28,
+      "resolvedTextStyle": {
+        "fontSize": 28,
+        "typeface": "Microsoft YaHei",
+        "color": "#F8FAFC",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "局部代理与伪梯度"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "局部代理与伪梯度",
+          "resolvedTextStyle": {
+            "fontSize": 28,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "局部代理与伪梯度",
+              "fontSize": 28,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 58,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ih4byhgn",
+      "id": "58",
+      "bbox": [
+        76,
+        1137,
+        494,
+        26
+      ],
+      "geometry": "rect",
+      "text": "面向小样本昂贵黑箱",
+      "textPreview": "面向小样本昂贵黑箱",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "fontSize": 18,
+        "typeface": "Microsoft YaHei",
+        "color": "#9BB9CE",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "面向小样本昂贵黑箱"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "面向小样本昂贵黑箱",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Microsoft YaHei",
+            "color": "#9BB9CE",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "面向小样本昂贵黑箱",
+              "fontSize": 18,
+              "typeface": "Microsoft YaHei",
+              "color": "#9BB9CE",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 59,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/72x4nap4",
+      "id": "59",
+      "bbox": [
+        76,
+        1173,
+        494,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#49DBFF",
+      "lineWidth": 2
+    },
+    {
+      "order": 60,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ji5snelo",
+      "id": "60",
+      "bbox": [
+        83,
+        1195,
+        480,
+        145
+      ],
+      "geometry": "rect",
+      "text": "局部搜索并不假设真实目标可导。算法复用簇内邻域和历史样本，构建局部 RBF/GP 近似，获得低代价的搜索方向；当样本不足或代理不可靠时，回退到直接搜索/原始解。",
+      "textPreview": "局部搜索并不假设真实目标可导。算法复用簇内邻域和历史样本，构建局部 RBF/GP 近似，获得低代价的搜索方向；当样本不足或代理不可靠时，回退到直接搜索/原始解。",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "Microsoft YaHei",
+        "color": "#F8FAFC",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 4,
+        "lines": [
+          {
+            "index": 1,
+            "text": "局部搜索并不假设真实目标可导。算法复用簇内邻域"
+          },
+          {
+            "index": 2,
+            "text": "和历史样本，构建局部 RBF/GP"
+          },
+          {
+            "index": 3,
+            "text": "近似，获得低代价的搜索方向；当样本不足或代理不"
+          },
+          {
+            "index": 4,
+            "text": "可靠时，回退到直接搜索/原始解。"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "局部搜索并不假设真实目标可导。算法复用簇内邻域和历史样本，构建局部 RBF/GP 近似，获得低代价的搜索方向；当样本不足或代理不可靠时，回退到直接搜索/原始解。",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "局部搜索并不假设真实目标可导。算法复用簇内邻域和历史样本，构建局部 RBF/GP 近似，获得低代价的搜索方向；当样本不足或代理不可靠时，回退到直接搜索/原始解。",
+              "fontSize": 20,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 61,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/uxc3ylc7",
+      "id": "61",
+      "name": "formula-代理模型目标",
+      "bbox": [
+        82,
+        1368,
+        484,
+        240
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#092B62",
+      "lineColor": "#49DBFF",
+      "lineWidth": 2
+    },
+    {
+      "order": 62,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1kre1w7m",
+      "id": "62",
+      "bbox": [
+        100,
+        1380,
+        448,
+        28
+      ],
+      "geometry": "rect",
+      "text": "代理模型目标",
+      "textPreview": "代理模型目标",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Microsoft YaHei",
+        "color": "#49DBFF",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "代理模型目标"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "代理模型目标",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Microsoft YaHei",
+            "color": "#49DBFF",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "代理模型目标",
+              "fontSize": 22,
+              "typeface": "Microsoft YaHei",
+              "color": "#49DBFF",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 63,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/c3ylc7u5",
+      "id": "63",
+      "bbox": [
+        100,
+        1422,
+        448,
+        164
+      ],
+      "geometry": "rect",
+      "text": "ŷ(x) = Σᵢ λᵢ φ(‖x − xᵢ‖) + p(x)\nx_next = arg min_x [ μ(x) − κσ(x) ]\ny = F + α·CV,    α ≈ 10·mean(|F|)",
+      "textPreview": "ŷ(x) = Σᵢ λᵢ φ(‖x − xᵢ‖) + p(x) | x_next = arg min_x [ μ(x) − κσ(x) ] | y = F + α·CV,    α ≈ 10·mean(|F|)",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "Cambria Math",
+        "color": "#F8FAFC",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "ŷ(x) = Σᵢ λᵢ φ(‖x − xᵢ‖) + p(x)"
+          },
+          {
+            "index": 2,
+            "text": "x_next = arg min_x [ μ(x) − κσ(x) ]"
+          },
+          {
+            "index": 3,
+            "text": "y = F + α·CV,    α ≈ 10·mean(|F|)"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "ŷ(x) = Σᵢ λᵢ φ(‖x − xᵢ‖) + p(x)",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "ŷ(x) = Σᵢ λᵢ φ(‖x − xᵢ‖) + p(x)",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "x_next = arg min_x [ μ(x) − κσ(x) ]",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "x_next = arg min_x [ μ(x) − κσ(x) ]",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "y = F + α·CV,    α ≈ 10·mean(|F|)",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "y = F + α·CV,    α ≈ 10·mean(|F|)",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 64,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/j6tovaho",
+      "id": "64",
+      "bbox": [
+        100,
+        1556,
+        448,
+        42
+      ],
+      "geometry": "rect",
+      "text": "小样本场景的关键不是全局代理处处准确，而是在候选盆地内快速变准。",
+      "textPreview": "小样本场景的关键不是全局代理处处准确，而是在候选盆地内快速变准。",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "Microsoft YaHei",
+        "color": "#CDE6F7",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "小样本场景的关键不是全局代理处处准确，而是在候选盆地内快"
+          },
+          {
+            "index": 2,
+            "text": "速变准。"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "小样本场景的关键不是全局代理处处准确，而是在候选盆地内快速变准。",
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "typeface": "Microsoft YaHei",
+            "color": "#CDE6F7",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "小样本场景的关键不是全局代理处处准确，而是在候选盆地内快速变准。",
+              "fontSize": 15,
+              "typeface": "Microsoft YaHei",
+              "color": "#CDE6F7",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 65,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ulwval87",
+      "id": "65",
+      "bbox": [
+        83,
+        1632,
+        480,
+        65
+      ],
+      "geometry": "rect",
+      "text": "工程仿真闭环只作为验证场景之一：参数 → 仿真响应 → 代理更新 → HA 候选 → 真实回评。",
+      "textPreview": "工程仿真闭环只作为验证场景之一：参数 → 仿真响应 → 代理更新 → HA 候选 → 真实回评。",
+      "resolvedFontSize": 19,
+      "resolvedTextStyle": {
+        "fontSize": 19,
+        "typeface": "Microsoft YaHei",
+        "color": "#CDE6F7",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "工程仿真闭环只作为验证场景之一：参数 → 仿真响应"
+          },
+          {
+            "index": 2,
+            "text": "→ 代理更新 → HA 候选 → 真实回评。"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "工程仿真闭环只作为验证场景之一：参数 → 仿真响应 → 代理更新 → HA 候选 → 真实回评。",
+          "resolvedTextStyle": {
+            "fontSize": 19,
+            "typeface": "Microsoft YaHei",
+            "color": "#CDE6F7",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "工程仿真闭环只作为验证场景之一：参数 → 仿真响应 → 代理更新 → HA 候选 → 真实回评。",
+              "fontSize": 19,
+              "typeface": "Microsoft YaHei",
+              "color": "#CDE6F7",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 66,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1cfa9w3m",
+      "id": "66",
+      "name": "panel-混合交叉池",
+      "bbox": [
+        625,
+        1085,
+        550,
+        690
+      ],
+      "geometry": "roundRect",
+      "fillColor": "rgba(8, 34, 79, 0.88)",
+      "lineColor": "rgba(255, 206, 72, 0.9)",
+      "lineWidth": 2
+    },
+    {
+      "order": 67,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/crmhk3q5",
+      "id": "67",
+      "bbox": [
+        625,
+        1085,
+        10,
+        690
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFCE48",
+      "lineWidth": 0
+    },
+    {
+      "order": 68,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/j2t83itg",
+      "id": "68",
+      "bbox": [
+        653,
+        1101,
+        494,
+        34
+      ],
+      "geometry": "rect",
+      "text": "混合交叉池",
+      "textPreview": "混合交叉池",
+      "resolvedFontSize": 28,
+      "resolvedTextStyle": {
+        "fontSize": 28,
+        "typeface": "Microsoft YaHei",
+        "color": "#F8FAFC",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "混合交叉池"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "混合交叉池",
+          "resolvedTextStyle": {
+            "fontSize": 28,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "混合交叉池",
+              "fontSize": 28,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 69,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/qh0fepkz",
+      "id": "69",
+      "bbox": [
+        653,
+        1137,
+        494,
+        26
+      ],
+      "geometry": "rect",
+      "text": "显式比例 + 隐性选择压力",
+      "textPreview": "显式比例 + 隐性选择压力",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "fontSize": 18,
+        "typeface": "Microsoft YaHei",
+        "color": "#9BB9CE",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "显式比例 + 隐性选择压力"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "显式比例 + 隐性选择压力",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Microsoft YaHei",
+            "color": "#9BB9CE",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "显式比例 + 隐性选择压力",
+              "fontSize": 18,
+              "typeface": "Microsoft YaHei",
+              "color": "#9BB9CE",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 70,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4byhgn29",
+      "id": "70",
+      "bbox": [
+        653,
+        1173,
+        494,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#FFCE48",
+      "lineWidth": 2
+    },
+    {
+      "order": 71,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/twra5gbq",
+      "id": "71",
+      "name": "formula-三类重组算子",
+      "bbox": [
+        659,
+        1195,
+        484,
+        270
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#092B62",
+      "lineColor": "#FFCE48",
+      "lineWidth": 2
+    },
+    {
+      "order": 72,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/m58z25kb",
+      "id": "72",
+      "bbox": [
+        677,
+        1207,
+        448,
+        28
+      ],
+      "geometry": "rect",
+      "text": "三类重组算子",
+      "textPreview": "三类重组算子",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Microsoft YaHei",
+        "color": "#FFCE48",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "三类重组算子"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "三类重组算子",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Microsoft YaHei",
+            "color": "#FFCE48",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "三类重组算子",
+              "fontSize": 22,
+              "typeface": "Microsoft YaHei",
+              "color": "#FFCE48",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 73,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/bq1oryts",
+      "id": "73",
+      "bbox": [
+        677,
+        1249,
+        448,
+        194
+      ],
+      "geometry": "rect",
+      "text": "SBX 60%:   β = (2u)^{1/(η+1)},    u ≤ 0.5\n          β = [1/(2(1−u))]^{1/(η+1)},    u > 0.5\nMulti-parent 25%:   x_c = Σᵢ ωᵢ xᵢ + ε\nDE 15%:   v = x + F₁(x_best−x) + F₂(x_r1−x_r2)",
+      "textPreview": "SBX 60%:   β = (2u)^{1/(η+1)},    u ≤ 0.5 |           β = [1/(2(1−u))]^{1/(η+1)},    u > 0.5 | Multi-parent 25%:   x_c = Σᵢ ωᵢ xᵢ + ε | D...",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "Cambria Math",
+        "color": "#F8FAFC",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 4,
+        "lines": [
+          {
+            "index": 1,
+            "text": "SBX 60%:   β = (2u)^{1/(η+1)},    u ≤ 0.5"
+          },
+          {
+            "index": 2,
+            "text": "          β = [1/(2(1−u))]^{1/(η+1)},    u > 0.5"
+          },
+          {
+            "index": 3,
+            "text": "Multi-parent 25%:   x_c = Σᵢ ωᵢ xᵢ + ε"
+          },
+          {
+            "index": 4,
+            "text": "DE 15%:   v = x + F₁(x_best−x) + F₂(x_r1−x_r2)"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "SBX 60%:   β = (2u)^{1/(η+1)},    u ≤ 0.5",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "SBX 60%:   β = (2u)^{1/(η+1)},    u ≤ 0.5",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "          β = [1/(2(1−u))]^{1/(η+1)},    u > 0.5",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "          β = [1/(2(1−u))]^{1/(η+1)},    u > 0.5",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "Multi-parent 25%:   x_c = Σᵢ ωᵢ xᵢ + ε",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Multi-parent 25%:   x_c = Σᵢ ωᵢ xᵢ + ε",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 4,
+          "text": "DE 15%:   v = x + F₁(x_best−x) + F₂(x_r1−x_r2)",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "DE 15%:   v = x + F₁(x_best−x) + F₂(x_r1−x_r2)",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 74,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4nap4r65",
+      "id": "74",
+      "bbox": [
+        660,
+        1488,
+        480,
+        95
+      ],
+      "geometry": "rect",
+      "text": "设计理由：SBX 保证稳定遗传，多父代融合群体统计信息，DE/current-to-best 提供方向性开发。三者共同缓解“纯随机缺方向”和“单一算子易失效”的问题。",
+      "textPreview": "设计理由：SBX 保证稳定遗传，多父代融合群体统计信息，DE/current-to-best 提供方向性开发。三者共同缓解“纯随机缺方向”和“单一算子易失效”的问题。",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "Microsoft YaHei",
+        "color": "#F8FAFC",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 5,
+        "lines": [
+          {
+            "index": 1,
+            "text": "设计理由：SBX"
+          },
+          {
+            "index": 2,
+            "text": "保证稳定遗传，多父代融合群体统计信息，DE/curr"
+          },
+          {
+            "index": 3,
+            "text": "ent-to-best"
+          },
+          {
+            "index": 4,
+            "text": "提供方向性开发。三者共同缓解“纯随机缺方向”和"
+          },
+          {
+            "index": 5,
+            "text": "“单一算子易失效”的问题。"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "设计理由：SBX 保证稳定遗传，多父代融合群体统计信息，DE/current-to-best 提供方向性开发。三者共同缓解“纯随机缺方向”和“单一算子易失效”的问题。",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "设计理由：SBX 保证稳定遗传，多父代融合群体统计信息，DE/current-to-best 提供方向性开发。三者共同缓解“纯随机缺方向”和“单一算子易失效”的问题。",
+              "fontSize": 20,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 75,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/t83itgfm",
+      "id": "75",
+      "name": "formula-多项式变异",
+      "bbox": [
+        659,
+        1610,
+        484,
+        128
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#092B62",
+      "lineColor": "#FFCE48",
+      "lineWidth": 2
+    },
+    {
+      "order": 76,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/mhk3q5o7",
+      "id": "76",
+      "bbox": [
+        677,
+        1622,
+        448,
+        28
+      ],
+      "geometry": "rect",
+      "text": "多项式变异",
+      "textPreview": "多项式变异",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Microsoft YaHei",
+        "color": "#FFCE48",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "多项式变异"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "多项式变异",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Microsoft YaHei",
+            "color": "#FFCE48",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "多项式变异",
+              "fontSize": 22,
+              "typeface": "Microsoft YaHei",
+              "color": "#FFCE48",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 77,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/b2hwfyxo",
+      "id": "77",
+      "bbox": [
+        677,
+        1664,
+        448,
+        52
+      ],
+      "geometry": "rect",
+      "text": "p_m = 1/d,    η_m = 20 + 80·min(1,t/50)\nstagnant ⇒ η_m ↓,   mutation radius ↑",
+      "textPreview": "p_m = 1/d,    η_m = 20 + 80·min(1,t/50) | stagnant ⇒ η_m ↓,   mutation radius ↑",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "Cambria Math",
+        "color": "#F8FAFC",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "p_m = 1/d,    η_m = 20 + 80·min(1,t/50)"
+          },
+          {
+            "index": 2,
+            "text": "stagnant ⇒ η_m ↓,   mutation radius ↑"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "p_m = 1/d,    η_m = 20 + 80·min(1,t/50)",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "p_m = 1/d,    η_m = 20 + 80·min(1,t/50)",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "stagnant ⇒ η_m ↓,   mutation radius ↑",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "stagnant ⇒ η_m ↓,   mutation radius ↑",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 78,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4vmtwra5",
+      "id": "78",
+      "name": "panel-多臂老虎机自适应策略选择",
+      "bbox": [
+        1202,
+        1085,
+        550,
+        690
+      ],
+      "geometry": "roundRect",
+      "fillColor": "rgba(8, 34, 79, 0.88)",
+      "lineColor": "rgba(164, 152, 255, 0.9)",
+      "lineWidth": 2
+    },
+    {
+      "order": 79,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/tgfmlkjm",
+      "id": "79",
+      "bbox": [
+        1202,
+        1085,
+        10,
+        690
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#A498FF",
+      "lineWidth": 0
+    },
+    {
+      "order": 80,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9gr2p8nq",
+      "id": "80",
+      "bbox": [
+        1230,
+        1101,
+        494,
+        34
+      ],
+      "geometry": "rect",
+      "text": "多臂老虎机自适应策略选择",
+      "textPreview": "多臂老虎机自适应策略选择",
+      "resolvedFontSize": 28,
+      "resolvedTextStyle": {
+        "fontSize": 28,
+        "typeface": "Microsoft YaHei",
+        "color": "#F8FAFC",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "多臂老虎机自适应策略选择"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "多臂老虎机自适应策略选择",
+          "resolvedTextStyle": {
+            "fontSize": 28,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "多臂老虎机自适应策略选择",
+              "fontSize": 28,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 81,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gvy90je9",
+      "id": "81",
+      "bbox": [
+        1230,
+        1137,
+        494,
+        26
+      ],
+      "geometry": "rect",
+      "text": "让搜索器选择随阶段改变",
+      "textPreview": "让搜索器选择随阶段改变",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "fontSize": 18,
+        "typeface": "Microsoft YaHei",
+        "color": "#9BB9CE",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "让搜索器选择随阶段改变"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "让搜索器选择随阶段改变",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Microsoft YaHei",
+            "color": "#9BB9CE",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "让搜索器选择随阶段改变",
+              "fontSize": 18,
+              "typeface": "Microsoft YaHei",
+              "color": "#9BB9CE",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 82,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ra5gbq1o",
+      "id": "82",
+      "bbox": [
+        1230,
+        1173,
+        494,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#A498FF",
+      "lineWidth": 2
+    },
+    {
+      "order": 83,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/2p8nqxs7",
+      "id": "83",
+      "name": "formula-QL / UCB 更新",
+      "bbox": [
+        1236,
+        1195,
+        484,
+        320
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#092B62",
+      "lineColor": "#A498FF",
+      "lineWidth": 2
+    },
+    {
+      "order": 84,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/94fu18jq",
+      "id": "84",
+      "bbox": [
+        1254,
+        1207,
+        448,
+        28
+      ],
+      "geometry": "rect",
+      "text": "QL / UCB 更新",
+      "textPreview": "QL / UCB 更新",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Microsoft YaHei",
+        "color": "#A498FF",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "QL / UCB 更新"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "QL / UCB 更新",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Microsoft YaHei",
+            "color": "#A498FF",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "QL / UCB 更新",
+              "fontSize": 22,
+              "typeface": "Microsoft YaHei",
+              "color": "#A498FF",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 85,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/kjm1cfa9",
+      "id": "85",
+      "bbox": [
+        1254,
+        1249,
+        448,
+        244
+      ],
+      "geometry": "rect",
+      "text": "ε-greedy:   a ∼ Uniform(A),   if p < ε\n             a = arg max_a Q(a),   otherwise\nR_t = max(0, f_before − f_after)\nQ(a) ← Q(a) + (1/n_a)[R_t − Q(a)]\nUCB(a) = Q(a) + c √(log t / n_a)",
+      "textPreview": "ε-greedy:   a ∼ Uniform(A),   if p < ε |              a = arg max_a Q(a),   otherwise | R_t = max(0, f_before − f_after) | Q(a) ← Q(a) + ...",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "Cambria Math",
+        "color": "#F8FAFC",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 5,
+        "lines": [
+          {
+            "index": 1,
+            "text": "ε-greedy:   a ∼ Uniform(A),   if p < ε"
+          },
+          {
+            "index": 2,
+            "text": "             a = arg max_a Q(a),   otherwise"
+          },
+          {
+            "index": 3,
+            "text": "R_t = max(0, f_before − f_after)"
+          },
+          {
+            "index": 4,
+            "text": "Q(a) ← Q(a) + (1/n_a)[R_t − Q(a)]"
+          },
+          {
+            "index": 5,
+            "text": "UCB(a) = Q(a) + c √(log t / n_a)"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "ε-greedy:   a ∼ Uniform(A),   if p < ε",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "ε-greedy:   a ∼ Uniform(A),   if p < ε",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "             a = arg max_a Q(a),   otherwise",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "             a = arg max_a Q(a),   otherwise",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "R_t = max(0, f_before − f_after)",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "R_t = max(0, f_before − f_after)",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 4,
+          "text": "Q(a) ← Q(a) + (1/n_a)[R_t − Q(a)]",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Q(a) ← Q(a) + (1/n_a)[R_t − Q(a)]",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 5,
+          "text": "UCB(a) = Q(a) + c √(log t / n_a)",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "UCB(a) = Q(a) + c √(log t / n_a)",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 86,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/r2p8nqxs",
+      "id": "86",
+      "bbox": [
+        1254,
+        1463,
+        448,
+        42
+      ],
+      "geometry": "rect",
+      "text": "将局部搜索器视作“臂”，用真实改进量学习当前阶段最值得调用的搜索方式。",
+      "textPreview": "将局部搜索器视作“臂”，用真实改进量学习当前阶段最值得调用的搜索方式。",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "Microsoft YaHei",
+        "color": "#CDE6F7",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "将局部搜索器视作“臂”，用真实改进量学习当前阶段最值得调"
+          },
+          {
+            "index": 2,
+            "text": "用的搜索方式。"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "将局部搜索器视作“臂”，用真实改进量学习当前阶段最值得调用的搜索方式。",
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "typeface": "Microsoft YaHei",
+            "color": "#CDE6F7",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "将局部搜索器视作“臂”，用真实改进量学习当前阶段最值得调用的搜索方式。",
+              "fontSize": 15,
+              "typeface": "Microsoft YaHei",
+              "color": "#CDE6F7",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 87,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/2hwfyxob",
+      "id": "87",
+      "bbox": [
+        1237,
+        1545,
+        480,
+        78
+      ],
+      "geometry": "rect",
+      "text": "双选择器思想：全局最优个体偏深度开发，普通精英个体偏代理/探索，避免一种经验支配所有个体。",
+      "textPreview": "双选择器思想：全局最优个体偏深度开发，普通精英个体偏代理/探索，避免一种经验支配所有个体。",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "Microsoft YaHei",
+        "color": "#F8FAFC",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "双选择器思想：全局最优个体偏深度开发，普通精英"
+          },
+          {
+            "index": 2,
+            "text": "个体偏代理/探索，避免一种经验支配所有个体。"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "双选择器思想：全局最优个体偏深度开发，普通精英个体偏代理/探索，避免一种经验支配所有个体。",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "双选择器思想：全局最优个体偏深度开发，普通精英个体偏代理/探索，避免一种经验支配所有个体。",
+              "fontSize": 20,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 88,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9w3m94fu",
+      "id": "88",
+      "name": "panel-约束处理与多样性维护",
+      "bbox": [
+        48,
+        1818,
+        550,
+        757
+      ],
+      "geometry": "roundRect",
+      "fillColor": "rgba(8, 34, 79, 0.88)",
+      "lineColor": "rgba(115, 236, 160, 0.9)",
+      "lineWidth": 2
+    },
+    {
+      "order": 89,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/kb6xkf6d",
+      "id": "89",
+      "bbox": [
+        48,
+        1818,
+        10,
+        757
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#73ECA0",
+      "lineWidth": 0
+    },
+    {
+      "order": 90,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/u9knih4b",
+      "id": "90",
+      "bbox": [
+        76,
+        1834,
+        494,
+        34
+      ],
+      "geometry": "rect",
+      "text": "约束处理与多样性维护",
+      "textPreview": "约束处理与多样性维护",
+      "resolvedFontSize": 28,
+      "resolvedTextStyle": {
+        "fontSize": 28,
+        "typeface": "Microsoft YaHei",
+        "color": "#F8FAFC",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "约束处理与多样性维护"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "约束处理与多样性维护",
+          "resolvedTextStyle": {
+            "fontSize": 28,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "约束处理与多样性维护",
+              "fontSize": 28,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 91,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/judg7ads",
+      "id": "91",
+      "bbox": [
+        76,
+        1870,
+        494,
+        26
+      ],
+      "geometry": "rect",
+      "text": "防止不可行和早熟收敛",
+      "textPreview": "防止不可行和早熟收敛",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "fontSize": 18,
+        "typeface": "Microsoft YaHei",
+        "color": "#9BB9CE",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "防止不可行和早熟收敛"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "防止不可行和早熟收敛",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Microsoft YaHei",
+            "color": "#9BB9CE",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "防止不可行和早熟收敛",
+              "fontSize": 18,
+              "typeface": "Microsoft YaHei",
+              "color": "#9BB9CE",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 92,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/cfa9w3m9",
+      "id": "92",
+      "bbox": [
+        76,
+        1906,
+        494,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#73ECA0",
+      "lineWidth": 2
+    },
+    {
+      "order": 93,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1032lszq",
+      "id": "93",
+      "bbox": [
+        83,
+        1930,
+        485,
+        305
+      ],
+      "geometry": "rect",
+      "text": "• 约束排序采用可行解优先思想：可行解优于不可行解；同可行比较目标，同不可行比较违反度。\n• 标量局部搜索统一叠加约束惩罚，使无约束局部搜索器也能感知可行性。\n• 重复个体过多时注入随机个体并重置步长，维持后期探索能力。\n• 工程仿真异常、网格失败或无效响应返回大罚值，保证算法流程不断裂。",
+      "textPreview": "• 约束排序采用可行解优先思想：可行解优于不可行解；同可行比较目标，同不可行比较违反度。 | • 标量局部搜索统一叠加约束惩罚，使无约束局部搜索器也能感知可行性。 | • 重复个体过多时注入随机个体并重置步长，维持后期探索能力。 | • 工程仿真异常、网格失败或无效响应返回...",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "Microsoft YaHei",
+        "color": "#F8FAFC",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 12,
+        "lines": [
+          {
+            "index": 1,
+            "text": "•"
+          },
+          {
+            "index": 2,
+            "text": "约束排序采用可行解优先思想：可行解优于不可行解"
+          },
+          {
+            "index": 3,
+            "text": "；同可行比较目标，同不可行比较违反度。"
+          },
+          {
+            "index": 4,
+            "text": "•"
+          },
+          {
+            "index": 5,
+            "text": "标量局部搜索统一叠加约束惩罚，使无约束局部搜索"
+          },
+          {
+            "index": 6,
+            "text": "器也能感知可行性。"
+          },
+          {
+            "index": 7,
+            "text": "•"
+          },
+          {
+            "index": 8,
+            "text": "重复个体过多时注入随机个体并重置步长，维持后期"
+          },
+          {
+            "index": 9,
+            "text": "探索能力。"
+          },
+          {
+            "index": 10,
+            "text": "•"
+          },
+          {
+            "index": 11,
+            "text": "工程仿真异常、网格失败或无效响应返回大罚值，保"
+          },
+          {
+            "index": 12,
+            "text": "证算法流程不断裂。"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "• 约束排序采用可行解优先思想：可行解优于不可行解；同可行比较目标，同不可行比较违反度。",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• 约束排序采用可行解优先思想：可行解优于不可行解；同可行比较目标，同不可行比较违反度。",
+              "fontSize": 20,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "• 标量局部搜索统一叠加约束惩罚，使无约束局部搜索器也能感知可行性。",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• 标量局部搜索统一叠加约束惩罚，使无约束局部搜索器也能感知可行性。",
+              "fontSize": 20,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "• 重复个体过多时注入随机个体并重置步长，维持后期探索能力。",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• 重复个体过多时注入随机个体并重置步长，维持后期探索能力。",
+              "fontSize": 20,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 4,
+          "text": "• 工程仿真异常、网格失败或无效响应返回大罚值，保证算法流程不断裂。",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• 工程仿真异常、网格失败或无效响应返回大罚值，保证算法流程不断裂。",
+              "fontSize": 20,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 94,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/u18jqh0f",
+      "id": "94",
+      "name": "formula-约束惩罚",
+      "bbox": [
+        82,
+        2308,
+        484,
+        230
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#092B62",
+      "lineColor": "#73ECA0",
+      "lineWidth": 2
+    },
+    {
+      "order": 95,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/jm1cfa9w",
+      "id": "95",
+      "bbox": [
+        100,
+        2320,
+        448,
+        28
+      ],
+      "geometry": "rect",
+      "text": "约束惩罚",
+      "textPreview": "约束惩罚",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Microsoft YaHei",
+        "color": "#73ECA0",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "约束惩罚"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "约束惩罚",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Microsoft YaHei",
+            "color": "#73ECA0",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "约束惩罚",
+              "fontSize": 22,
+              "typeface": "Microsoft YaHei",
+              "color": "#73ECA0",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 96,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/c7u54zid",
+      "id": "96",
+      "bbox": [
+        100,
+        2362,
+        448,
+        154
+      ],
+      "geometry": "rect",
+      "text": "g(x) = value(x) + α·CV(x)\nα = 10|value(x)| + 1\nCV(x) = Σⱼ max(0, gⱼ(x))",
+      "textPreview": "g(x) = value(x) + α·CV(x) | α = 10|value(x)| + 1 | CV(x) = Σⱼ max(0, gⱼ(x))",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "Cambria Math",
+        "color": "#F8FAFC",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "g(x) = value(x) + α·CV(x)"
+          },
+          {
+            "index": 2,
+            "text": "α = 10|value(x)| + 1"
+          },
+          {
+            "index": 3,
+            "text": "CV(x) = Σⱼ max(0, gⱼ(x))"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "g(x) = value(x) + α·CV(x)",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "g(x) = value(x) + α·CV(x)",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "α = 10|value(x)| + 1",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "α = 10|value(x)| + 1",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "CV(x) = Σⱼ max(0, gⱼ(x))",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "CV(x) = Σⱼ max(0, gⱼ(x))",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 97,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1orytsvu",
+      "id": "97",
+      "bbox": [
+        100,
+        2486,
+        448,
+        42
+      ],
+      "geometry": "rect",
+      "text": "与 Deb 可行性规则共同工作：选择时重可行性，局部搜索时用连续惩罚引导方向。",
+      "textPreview": "与 Deb 可行性规则共同工作：选择时重可行性，局部搜索时用连续惩罚引导方向。",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "Microsoft YaHei",
+        "color": "#CDE6F7",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "与 Deb"
+          },
+          {
+            "index": 2,
+            "text": "可行性规则共同工作：选择时重可行性，局部搜索时用连续惩罚"
+          },
+          {
+            "index": 3,
+            "text": "引导方向。"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "与 Deb 可行性规则共同工作：选择时重可行性，局部搜索时用连续惩罚引导方向。",
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "typeface": "Microsoft YaHei",
+            "color": "#CDE6F7",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "与 Deb 可行性规则共同工作：选择时重可行性，局部搜索时用连续惩罚引导方向。",
+              "fontSize": 15,
+              "typeface": "Microsoft YaHei",
+              "color": "#CDE6F7",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 98,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/upwb2hwf",
+      "id": "98",
+      "name": "panel-多目标扩展：NSHA",
+      "bbox": [
+        625,
+        1818,
+        550,
+        757
+      ],
+      "geometry": "roundRect",
+      "fillColor": "rgba(8, 34, 79, 0.88)",
+      "lineColor": "rgba(255, 142, 70, 0.9)",
+      "lineWidth": 2
+    },
+    {
+      "order": 99,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/nap4r65w",
+      "id": "99",
+      "bbox": [
+        625,
+        1818,
+        10,
+        757
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FF8E46",
+      "lineWidth": 0
+    },
+    {
+      "order": 100,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8nqxs72x",
+      "id": "100",
+      "bbox": [
+        653,
+        1834,
+        494,
+        34
+      ],
+      "geometry": "rect",
+      "text": "多目标扩展：NSHA",
+      "textPreview": "多目标扩展：NSHA",
+      "resolvedFontSize": 28,
+      "resolvedTextStyle": {
+        "fontSize": 28,
+        "typeface": "Microsoft YaHei",
+        "color": "#F8FAFC",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "多目标扩展：NSHA"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "多目标扩展：NSHA",
+          "resolvedTextStyle": {
+            "fontSize": 28,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "多目标扩展：NSHA",
+              "fontSize": 28,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 101,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/18jqh0fe",
+      "id": "101",
+      "bbox": [
+        653,
+        1870,
+        494,
+        26
+      ],
+      "geometry": "rect",
+      "text": "局部搜索与 Pareto 前沿相容",
+      "textPreview": "局部搜索与 Pareto 前沿相容",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "fontSize": 18,
+        "typeface": "Microsoft YaHei",
+        "color": "#9BB9CE",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "局部搜索与 Pareto 前沿相容"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "局部搜索与 Pareto 前沿相容",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Microsoft YaHei",
+            "color": "#9BB9CE",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "局部搜索与 Pareto 前沿相容",
+              "fontSize": 18,
+              "typeface": "Microsoft YaHei",
+              "color": "#9BB9CE",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 102,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/qh0fepkz",
+      "id": "102",
+      "bbox": [
+        653,
+        1906,
+        494,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#FF8E46",
+      "lineWidth": 2
+    },
+    {
+      "order": 103,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/j2t83itg",
+      "id": "103",
+      "bbox": [
+        660,
+        1930,
+        480,
+        145
+      ],
+      "geometry": "rect",
+      "text": "NSHA 将多目标问题沿 NSGA-III 参考方向分解。每个 niche 选择代表个体，并用对应参考方向构造标量化目标；局部改进后回到多目标选择框架中维护前沿分布。",
+      "textPreview": "NSHA 将多目标问题沿 NSGA-III 参考方向分解。每个 niche 选择代表个体，并用对应参考方向构造标量化目标；局部改进后回到多目标选择框架中维护前沿分布。",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "Microsoft YaHei",
+        "color": "#F8FAFC",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 4,
+        "lines": [
+          {
+            "index": 1,
+            "text": "NSHA 将多目标问题沿 NSGA-III"
+          },
+          {
+            "index": 2,
+            "text": "参考方向分解。每个 niche"
+          },
+          {
+            "index": 3,
+            "text": "选择代表个体，并用对应参考方向构造标量化目标；"
+          },
+          {
+            "index": 4,
+            "text": "局部改进后回到多目标选择框架中维护前沿分布。"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "NSHA 将多目标问题沿 NSGA-III 参考方向分解。每个 niche 选择代表个体，并用对应参考方向构造标量化目标；局部改进后回到多目标选择框架中维护前沿分布。",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "NSHA 将多目标问题沿 NSGA-III 参考方向分解。每个 niche 选择代表个体，并用对应参考方向构造标量化目标；局部改进后回到多目标选择框架中维护前沿分布。",
+              "fontSize": 20,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 104,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8bat47y1",
+      "id": "104",
+      "name": "formula-标量化公式",
+      "bbox": [
+        659,
+        2110,
+        484,
+        348
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#092B62",
+      "lineColor": "#FF8E46",
+      "lineWidth": 2
+    },
+    {
+      "order": 105,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1w7mp0bi",
+      "id": "105",
+      "bbox": [
+        677,
+        2122,
+        448,
+        28
+      ],
+      "geometry": "rect",
+      "text": "标量化公式",
+      "textPreview": "标量化公式",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Microsoft YaHei",
+        "color": "#FF8E46",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "标量化公式"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "标量化公式",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Microsoft YaHei",
+            "color": "#FF8E46",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "标量化公式",
+              "fontSize": 22,
+              "typeface": "Microsoft YaHei",
+              "color": "#FF8E46",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 106,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/q5o7qpg3",
+      "id": "106",
+      "bbox": [
+        677,
+        2164,
+        448,
+        272
+      ],
+      "geometry": "rect",
+      "text": "F_s = F(x) − z*,    ŵ = w / ‖w‖\nd₁ = ⟨F_s, ŵ⟩,    d₂ = ‖F_s − d₁ŵ‖\ng_PBI = d₁ + θd₂\ng_TCH = max_i  w_i |f_i − z_i*|\ng_ASF = max_i  (f_i − z_i*) / w_i",
+      "textPreview": "F_s = F(x) − z*,    ŵ = w / ‖w‖ | d₁ = ⟨F_s, ŵ⟩,    d₂ = ‖F_s − d₁ŵ‖ | g_PBI = d₁ + θd₂ | g_TCH = max_i  w_i |f_i − z_i*| | g_ASF = max_i...",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "Cambria Math",
+        "color": "#F8FAFC",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 5,
+        "lines": [
+          {
+            "index": 1,
+            "text": "F_s = F(x) − z*,    ŵ = w / ‖w‖"
+          },
+          {
+            "index": 2,
+            "text": "d₁ = ⟨F_s, ŵ⟩,    d₂ = ‖F_s − d₁ŵ‖"
+          },
+          {
+            "index": 3,
+            "text": "g_PBI = d₁ + θd₂"
+          },
+          {
+            "index": 4,
+            "text": "g_TCH = max_i  w_i |f_i − z_i*|"
+          },
+          {
+            "index": 5,
+            "text": "g_ASF = max_i  (f_i − z_i*) / w_i"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "F_s = F(x) − z*,    ŵ = w / ‖w‖",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "F_s = F(x) − z*,    ŵ = w / ‖w‖",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "d₁ = ⟨F_s, ŵ⟩,    d₂ = ‖F_s − d₁ŵ‖",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "d₁ = ⟨F_s, ŵ⟩,    d₂ = ‖F_s − d₁ŵ‖",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "g_PBI = d₁ + θd₂",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "g_PBI = d₁ + θd₂",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 4,
+          "text": "g_TCH = max_i  w_i |f_i − z_i*|",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "g_TCH = max_i  w_i |f_i − z_i*|",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 5,
+          "text": "g_ASF = max_i  (f_i − z_i*) / w_i",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "g_ASF = max_i  (f_i − z_i*) / w_i",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 107,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/jqh0fepk",
+      "id": "107",
+      "bbox": [
+        677,
+        2406,
+        448,
+        42
+      ],
+      "geometry": "rect",
+      "text": "所有 scalarizer 叠加 value+αCV；ZDT2/ZDT3 暴露了凹/不连续前沿下进一步改进 θ 和 nadir 的必要性。",
+      "textPreview": "所有 scalarizer 叠加 value+αCV；ZDT2/ZDT3 暴露了凹/不连续前沿下进一步改进 θ 和 nadir 的必要性。",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "Microsoft YaHei",
+        "color": "#CDE6F7",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "所有 scalarizer 叠加 value+αCV；ZDT2/ZDT3"
+          },
+          {
+            "index": 2,
+            "text": "暴露了凹/不连续前沿下进一步改进 θ 和 nadir 的必要性。"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "所有 scalarizer 叠加 value+αCV；ZDT2/ZDT3 暴露了凹/不连续前沿下进一步改进 θ 和 nadir 的必要性。",
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "typeface": "Microsoft YaHei",
+            "color": "#CDE6F7",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "所有 scalarizer 叠加 value+αCV；ZDT2/ZDT3 暴露了凹/不连续前沿下进一步改进 θ 和 nadir 的必要性。",
+              "fontSize": 15,
+              "typeface": "Microsoft YaHei",
+              "color": "#CDE6F7",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 108,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/c3ylc7u5",
+      "id": "108",
+      "name": "panel-理论解释与验证路径",
+      "bbox": [
+        1202,
+        1818,
+        550,
+        757
+      ],
+      "geometry": "roundRect",
+      "fillColor": "rgba(8, 34, 79, 0.88)",
+      "lineColor": "rgba(73, 219, 255, 0.9)",
+      "lineWidth": 2
+    },
+    {
+      "order": 109,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1kre1w7m",
+      "id": "109",
+      "bbox": [
+        1202,
+        1818,
+        10,
+        757
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#49DBFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 110,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/re1w7mp0",
+      "id": "110",
+      "bbox": [
+        1230,
+        1834,
+        494,
+        34
+      ],
+      "geometry": "rect",
+      "text": "理论解释与验证路径",
+      "textPreview": "理论解释与验证路径",
+      "resolvedFontSize": 28,
+      "resolvedTextStyle": {
+        "fontSize": 28,
+        "typeface": "Microsoft YaHei",
+        "color": "#F8FAFC",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "理论解释与验证路径"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "理论解释与验证路径",
+          "resolvedTextStyle": {
+            "fontSize": 28,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "理论解释与验证路径",
+              "fontSize": 28,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 111,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/2t83itgf",
+      "id": "111",
+      "bbox": [
+        1230,
+        1870,
+        494,
+        26
+      ],
+      "geometry": "rect",
+      "text": "为什么它有研究价值",
+      "textPreview": "为什么它有研究价值",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "fontSize": 18,
+        "typeface": "Microsoft YaHei",
+        "color": "#9BB9CE",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "为什么它有研究价值"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "为什么它有研究价值",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Microsoft YaHei",
+            "color": "#9BB9CE",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "为什么它有研究价值",
+              "fontSize": 18,
+              "typeface": "Microsoft YaHei",
+              "color": "#9BB9CE",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 112,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9knih4by",
+      "id": "112",
+      "bbox": [
+        1230,
+        1906,
+        494,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#49DBFF",
+      "lineWidth": 2
+    },
+    {
+      "order": 113,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/kzupwb2h",
+      "id": "113",
+      "bbox": [
+        1237,
+        1930,
+        485,
+        270
+      ],
+      "geometry": "rect",
+      "text": "• 图式定理扩展：多父代概率采样降低长定义距图式被交叉破坏的概率。\n• 马尔可夫链收敛：精英保留使状态转移满足收敛分析所需的单调保优条件。\n• 消融实验：Full HA / 去聚类 / 去局部搜索 / 标准交叉 / 标准 GA。\n• 统计检验：CEC/ZDT 上结合 IGD、HV、最优值、FEs 与 Wilcoxon 秩和检验。",
+      "textPreview": "• 图式定理扩展：多父代概率采样降低长定义距图式被交叉破坏的概率。 | • 马尔可夫链收敛：精英保留使状态转移满足收敛分析所需的单调保优条件。 | • 消融实验：Full HA / 去聚类 / 去局部搜索 / 标准交叉 / 标准 GA。 | • 统计检验：CEC/ZDT 上...",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "Microsoft YaHei",
+        "color": "#F8FAFC",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 10,
+        "lines": [
+          {
+            "index": 1,
+            "text": "•"
+          },
+          {
+            "index": 2,
+            "text": "图式定理扩展：多父代概率采样降低长定义距图式被"
+          },
+          {
+            "index": 3,
+            "text": "交叉破坏的概率。"
+          },
+          {
+            "index": 4,
+            "text": "•"
+          },
+          {
+            "index": 5,
+            "text": "马尔可夫链收敛：精英保留使状态转移满足收敛分析"
+          },
+          {
+            "index": 6,
+            "text": "所需的单调保优条件。"
+          },
+          {
+            "index": 7,
+            "text": "• 消融实验：Full HA / 去聚类 / 去局部搜索 /"
+          },
+          {
+            "index": 8,
+            "text": "标准交叉 / 标准 GA。"
+          },
+          {
+            "index": 9,
+            "text": "• 统计检验：CEC/ZDT 上结合"
+          },
+          {
+            "index": 10,
+            "text": "IGD、HV、最优值、FEs 与 Wilcoxon 秩和检验。"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "• 图式定理扩展：多父代概率采样降低长定义距图式被交叉破坏的概率。",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• 图式定理扩展：多父代概率采样降低长定义距图式被交叉破坏的概率。",
+              "fontSize": 20,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "• 马尔可夫链收敛：精英保留使状态转移满足收敛分析所需的单调保优条件。",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• 马尔可夫链收敛：精英保留使状态转移满足收敛分析所需的单调保优条件。",
+              "fontSize": 20,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "• 消融实验：Full HA / 去聚类 / 去局部搜索 / 标准交叉 / 标准 GA。",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• 消融实验：Full HA / 去聚类 / 去局部搜索 / 标准交叉 / 标准 GA。",
+              "fontSize": 20,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 4,
+          "text": "• 统计检验：CEC/ZDT 上结合 IGD、HV、最优值、FEs 与 Wilcoxon 秩和检验。",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• 统计检验：CEC/ZDT 上结合 IGD、HV、最优值、FEs 与 Wilcoxon 秩和检验。",
+              "fontSize": 20,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 114,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/rqd4vmtw",
+      "id": "114",
+      "name": "formula-图式与收敛表达",
+      "bbox": [
+        1236,
+        2260,
+        484,
+        278
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#092B62",
+      "lineColor": "#49DBFF",
+      "lineWidth": 2
+    },
+    {
+      "order": 115,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/25kb6xkf",
+      "id": "115",
+      "bbox": [
+        1254,
+        2272,
+        448,
+        28
+      ],
+      "geometry": "rect",
+      "text": "图式与收敛表达",
+      "textPreview": "图式与收敛表达",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Microsoft YaHei",
+        "color": "#49DBFF",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "图式与收敛表达"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "图式与收敛表达",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Microsoft YaHei",
+            "color": "#49DBFF",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "图式与收敛表达",
+              "fontSize": 22,
+              "typeface": "Microsoft YaHei",
+              "color": "#49DBFF",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 116,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9w3m94fu",
+      "id": "116",
+      "bbox": [
+        1254,
+        2314,
+        448,
+        202
+      ],
+      "geometry": "rect",
+      "text": "E[m(H,t+1)] ≥ m(H,t) · f(H)/f̄ · (1−p_d)\nElitism:   best(P_{t+1}) ≤ best(P_t)\nP{ lim_{t→∞} P_t ∩ X* ≠ ∅ } = 1",
+      "textPreview": "E[m(H,t+1)] ≥ m(H,t) · f(H)/f̄ · (1−p_d) | Elitism:   best(P_{t+1}) ≤ best(P_t) | P{ lim_{t→∞} P_t ∩ X* ≠ ∅ } = 1",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "Cambria Math",
+        "color": "#F8FAFC",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "E[m(H,t+1)] ≥ m(H,t) · f(H)/f̄ · (1−p_d)"
+          },
+          {
+            "index": 2,
+            "text": "Elitism:   best(P_{t+1}) ≤ best(P_t)"
+          },
+          {
+            "index": 3,
+            "text": "P{ lim_{t→∞} P_t ∩ X* ≠ ∅ } = 1"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "E[m(H,t+1)] ≥ m(H,t) · f(H)/f̄ · (1−p_d)",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "E[m(H,t+1)] ≥ m(H,t) · f(H)/f̄ · (1−p_d)",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "Elitism:   best(P_{t+1}) ≤ best(P_t)",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Elitism:   best(P_{t+1}) ≤ best(P_t)",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "P{ lim_{t→∞} P_t ∩ X* ≠ ∅ } = 1",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "P{ lim_{t→∞} P_t ∩ X* ≠ ∅ } = 1",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 117,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/kb6xkf6d",
+      "id": "117",
+      "bbox": [
+        1254,
+        2486,
+        448,
+        42
+      ],
+      "geometry": "rect",
+      "text": "海报中只给核心表达，完整证明应放论文正文。",
+      "textPreview": "海报中只给核心表达，完整证明应放论文正文。",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "Microsoft YaHei",
+        "color": "#CDE6F7",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "海报中只给核心表达，完整证明应放论文正文。"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "海报中只给核心表达，完整证明应放论文正文。",
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "typeface": "Microsoft YaHei",
+            "color": "#CDE6F7",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "海报中只给核心表达，完整证明应放论文正文。",
+              "fontSize": 15,
+              "typeface": "Microsoft YaHei",
+              "color": "#CDE6F7",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 118,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/r2p8nqxs",
+      "id": "118",
+      "name": "panel-阶段实验：ZDT 多目标验证（算法通用性的一部分）",
+      "bbox": [
+        48,
+        2618,
+        1704,
+        817
+      ],
+      "geometry": "roundRect",
+      "fillColor": "rgba(8, 34, 79, 0.88)",
+      "lineColor": "rgba(255, 206, 72, 0.9)",
+      "lineWidth": 2
+    },
+    {
+      "order": 119,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/2hwfyxob",
+      "id": "119",
+      "bbox": [
+        48,
+        2618,
+        10,
+        817
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFCE48",
+      "lineWidth": 0
+    },
+    {
+      "order": 120,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/q1orytsv",
+      "id": "120",
+      "bbox": [
+        76,
+        2634,
+        1648,
+        34
+      ],
+      "geometry": "rect",
+      "text": "阶段实验：ZDT 多目标验证（算法通用性的一部分）",
+      "textPreview": "阶段实验：ZDT 多目标验证（算法通用性的一部分）",
+      "resolvedFontSize": 28,
+      "resolvedTextStyle": {
+        "fontSize": 28,
+        "typeface": "Microsoft YaHei",
+        "color": "#F8FAFC",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "阶段实验：ZDT 多目标验证（算法通用性的一部分）"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "阶段实验：ZDT 多目标验证（算法通用性的一部分）",
+          "resolvedTextStyle": {
+            "fontSize": 28,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "阶段实验：ZDT 多目标验证（算法通用性的一部分）",
+              "fontSize": 28,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 121,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fmlkjm1c",
+      "id": "121",
+      "bbox": [
+        76,
+        2670,
+        1648,
+        26
+      ],
+      "geometry": "rect",
+      "text": "图示为 NSGA-III 与 HA-RBF-PBI 的 Pareto 前沿对比",
+      "textPreview": "图示为 NSGA-III 与 HA-RBF-PBI 的 Pareto 前沿对比",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "fontSize": 18,
+        "typeface": "Microsoft YaHei",
+        "color": "#9BB9CE",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "图示为 NSGA-III 与 HA-RBF-PBI 的 Pareto 前沿对比"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "图示为 NSGA-III 与 HA-RBF-PBI 的 Pareto 前沿对比",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Microsoft YaHei",
+            "color": "#9BB9CE",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "图示为 NSGA-III 与 HA-RBF-PBI 的 Pareto 前沿对比",
+              "fontSize": 18,
+              "typeface": "Microsoft YaHei",
+              "color": "#9BB9CE",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 122,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/87ed8bat",
+      "id": "122",
+      "bbox": [
+        76,
+        2706,
+        1648,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#FFCE48",
+      "lineWidth": 2
+    },
+    {
+      "order": 123,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/w7mp0bi9",
+      "id": "123",
+      "bbox": [
+        92,
+        2748,
+        502,
+        427
+      ],
+      "alt": "ZDT1 Pareto front comparison",
+      "contentType": "image/png",
+      "imageFit": "contain",
+      "asset": {
+        "assetId": "f73c9c9e-d2f9-4750-a64c-d124502bf1bf",
+        "contentType": "image/png",
+        "byteLength": 52442
+      }
+    },
+    {
+      "order": 124,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/qtcj6tov",
+      "id": "124",
+      "bbox": [
+        92,
+        2748,
+        502,
+        427
+      ],
+      "geometry": "roundRect",
+      "lineColor": "#FFCE48",
+      "lineWidth": 4
+    },
+    {
+      "order": 125,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/epkzupwb",
+      "id": "125",
+      "bbox": [
+        650,
+        2748,
+        502,
+        427
+      ],
+      "alt": "ZDT2 Pareto front comparison",
+      "contentType": "image/png",
+      "imageFit": "contain",
+      "asset": {
+        "assetId": "4fc7a2ad-d0e0-41d6-ab50-3a0618c6af8d",
+        "contentType": "image/png",
+        "byteLength": 46966
+      }
+    },
+    {
+      "order": 126,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8z25kb6x",
+      "id": "126",
+      "bbox": [
+        650,
+        2748,
+        502,
+        427
+      ],
+      "geometry": "roundRect",
+      "lineColor": "#FFCE48",
+      "lineWidth": 4
+    },
+    {
+      "order": 127,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/wval87ed",
+      "id": "127",
+      "bbox": [
+        1208,
+        2748,
+        502,
+        427
+      ],
+      "alt": "ZDT3 Pareto front comparison",
+      "contentType": "image/png",
+      "imageFit": "contain",
+      "asset": {
+        "assetId": "d0469481-a5ac-43c4-8adc-bd2c722ad3d1",
+        "contentType": "image/png",
+        "byteLength": 48564
+      }
+    },
+    {
+      "order": 128,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/qpg3ex0n",
+      "id": "128",
+      "bbox": [
+        1208,
+        2748,
+        502,
+        427
+      ],
+      "geometry": "roundRect",
+      "lineColor": "#FFCE48",
+      "lineWidth": 4
+    },
+    {
+      "order": 129,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fa9w3m94",
+      "id": "129",
+      "bbox": [
+        92,
+        3210,
+        1580,
+        80
+      ],
+      "geometry": "rect",
+      "text": "结果解读：ZDT1 上 HA-RBF-PBI 的 IGD=6.04e-02，优于 NSGA-III 的 1.21e-01，说明聚类局部搜索能够提升部分前沿逼近。ZDT2/ZDT3 上表现不稳定，反映当前 PBI 局部搜索对凹前沿和不连续前沿仍敏感。该结果不是失败，而是明确指出下一步：动态 nadir、θ 自适应、支配式局部搜索与标量化消融。",
+      "textPreview": "结果解读：ZDT1 上 HA-RBF-PBI 的 IGD=6.04e-02，优于 NSGA-III 的 1.21e-01，说明聚类局部搜索能够提升部分前沿逼近。ZDT2/ZDT3 上表现不稳定，反映当前 PBI 局部搜索对凹前沿和不连续前沿仍敏感。该结果不是失败，而是明确指...",
+      "resolvedFontSize": 21,
+      "resolvedTextStyle": {
+        "fontSize": 21,
+        "typeface": "Microsoft YaHei",
+        "color": "#F8FAFC",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "结果解读：ZDT1 上 HA-RBF-PBI 的 IGD=6.04e-02，优于 NSGA-III 的 1.21e-01，说明聚类局部搜索能够提升部分前沿逼近。ZDT2/ZDT3 上表现不稳定，反映当前"
+          },
+          {
+            "index": 2,
+            "text": "PBI 局部搜索对凹前沿和不连续前沿仍敏感。该结果不是失败，而是明确指出下一步：动态 nadir、θ 自适应、支配式局部搜索与标量化消融。"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "结果解读：ZDT1 上 HA-RBF-PBI 的 IGD=6.04e-02，优于 NSGA-III 的 1.21e-01，说明聚类局部搜索能够提升部分前沿逼近。ZDT2/ZDT3 上表现不稳定，反映当前 PBI 局部搜索对凹前沿和不连续前沿仍敏感。该结果不是失败，而是明确指出下一步：动态 nadir、θ 自适应、支配式局部搜索与标量化消融。",
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "结果解读：ZDT1 上 HA-RBF-PBI 的 IGD=6.04e-02，优于 NSGA-III 的 1.21e-01，说明聚类局部搜索能够提升部分前沿逼近。ZDT2/ZDT3 上表现不稳定，反映当前 PBI 局部搜索对凹前沿和不连续前沿仍敏感。该结果不是失败，而是明确指出下一步：动态 nadir、θ 自适应、支配式局部搜索与标量化消融。",
+              "fontSize": 21,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 130,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/58z25kb6",
+      "id": "130",
+      "bbox": [
+        92,
+        3322,
+        1580,
+        55
+      ],
+      "geometry": "rect",
+      "text": "工程案例定位：SolidWorks/CAE 只作为昂贵黑箱验证场景，用于检验小样本代理、异常惩罚、真实回评和算法接口的可用性；不作为算法研究对象本身。",
+      "textPreview": "工程案例定位：SolidWorks/CAE 只作为昂贵黑箱验证场景，用于检验小样本代理、异常惩罚、真实回评和算法接口的可用性；不作为算法研究对象本身。",
+      "resolvedFontSize": 21,
+      "resolvedTextStyle": {
+        "fontSize": 21,
+        "typeface": "Microsoft YaHei",
+        "color": "#CDE6F7",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "工程案例定位：SolidWorks/CAE 只作为昂贵黑箱验证场景，用于检验小样本代理、异常惩罚、真实回评和算法接口的可用性；不作为算法研究对象本身。"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "工程案例定位：SolidWorks/CAE 只作为昂贵黑箱验证场景，用于检验小样本代理、异常惩罚、真实回评和算法接口的可用性；不作为算法研究对象本身。",
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "typeface": "Microsoft YaHei",
+            "color": "#CDE6F7",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "工程案例定位：SolidWorks/CAE 只作为昂贵黑箱验证场景，用于检验小样本代理、异常惩罚、真实回评和算法接口的可用性；不作为算法研究对象本身。",
+              "fontSize": 21,
+              "typeface": "Microsoft YaHei",
+              "color": "#CDE6F7",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 131,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gn29gr2p",
+      "id": "131",
+      "name": "panel-已完成工作",
+      "bbox": [
+        48,
+        3478,
+        839,
+        912
+      ],
+      "geometry": "roundRect",
+      "fillColor": "rgba(8, 34, 79, 0.88)",
+      "lineColor": "rgba(115, 236, 160, 0.9)",
+      "lineWidth": 2
+    },
+    {
+      "order": 132,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/n29gr2p8",
+      "id": "132",
+      "bbox": [
+        48,
+        3478,
+        10,
+        912
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#73ECA0",
+      "lineWidth": 0
+    },
+    {
+      "order": 133,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/yhgn29gr",
+      "id": "133",
+      "bbox": [
+        76,
+        3494,
+        783,
+        34
+      ],
+      "geometry": "rect",
+      "text": "已完成工作",
+      "textPreview": "已完成工作",
+      "resolvedFontSize": 28,
+      "resolvedTextStyle": {
+        "fontSize": 28,
+        "typeface": "Microsoft YaHei",
+        "color": "#F8FAFC",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "已完成工作"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "已完成工作",
+          "resolvedTextStyle": {
+            "fontSize": 28,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "已完成工作",
+              "fontSize": 28,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 134,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/5wjudg7a",
+      "id": "134",
+      "bbox": [
+        76,
+        3530,
+        783,
+        26
+      ],
+      "geometry": "rect",
+      "text": "从算法原型到扩展验证",
+      "textPreview": "从算法原型到扩展验证",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "fontSize": 18,
+        "typeface": "Microsoft YaHei",
+        "color": "#9BB9CE",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "从算法原型到扩展验证"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "从算法原型到扩展验证",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Microsoft YaHei",
+            "color": "#9BB9CE",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "从算法原型到扩展验证",
+              "fontSize": 18,
+              "typeface": "Microsoft YaHei",
+              "color": "#9BB9CE",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 135,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gbq1oryt",
+      "id": "135",
+      "bbox": [
+        76,
+        3566,
+        783,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#73ECA0",
+      "lineWidth": 2
+    },
+    {
+      "order": 136,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/nuxc3ylc",
+      "id": "136",
+      "bbox": [
+        88,
+        3588,
+        760,
+        265
+      ],
+      "geometry": "rect",
+      "text": "• 实现单目标 HA：聚类局部搜索、混合交叉池、自适应多项式变异与多样性维护。\n• 实现多臂老虎机版本：QL/UCB 根据真实改进量动态选择局部搜索器。\n• 实现 NSHA：参考方向 niche、PBI/Tchebycheff/WS/ASF/AASF/IPBI 标量化接口。\n• 搭建小样本验证流程：LHS 初始采样、GP/KAN-GP 代理、CEI 采集、top-k 真实回评。\n• 整理 ZDT 与工程仿真初步结果，形成下一步消融和统计检验方向。",
+      "textPreview": "• 实现单目标 HA：聚类局部搜索、混合交叉池、自适应多项式变异与多样性维护。 | • 实现多臂老虎机版本：QL/UCB 根据真实改进量动态选择局部搜索器。 | • 实现 NSHA：参考方向 niche、PBI/Tchebycheff/WS/ASF/AASF/IPBI 标量...",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "Microsoft YaHei",
+        "color": "#F8FAFC",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 7,
+        "lines": [
+          {
+            "index": 1,
+            "text": "• 实现单目标 HA：聚类局部搜索、混合交叉池、自适应多项式变异与多样性维护。"
+          },
+          {
+            "index": 2,
+            "text": "• 实现多臂老虎机版本：QL/UCB 根据真实改进量动态选择局部搜索器。"
+          },
+          {
+            "index": 3,
+            "text": "• 实现 NSHA：参考方向 niche、PBI/Tchebycheff/WS/ASF/AASF/IPBI"
+          },
+          {
+            "index": 4,
+            "text": "标量化接口。"
+          },
+          {
+            "index": 5,
+            "text": "• 搭建小样本验证流程：LHS 初始采样、GP/KAN-GP 代理、CEI 采集、top-k"
+          },
+          {
+            "index": 6,
+            "text": "真实回评。"
+          },
+          {
+            "index": 7,
+            "text": "• 整理 ZDT 与工程仿真初步结果，形成下一步消融和统计检验方向。"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "• 实现单目标 HA：聚类局部搜索、混合交叉池、自适应多项式变异与多样性维护。",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• 实现单目标 HA：聚类局部搜索、混合交叉池、自适应多项式变异与多样性维护。",
+              "fontSize": 20,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "• 实现多臂老虎机版本：QL/UCB 根据真实改进量动态选择局部搜索器。",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• 实现多臂老虎机版本：QL/UCB 根据真实改进量动态选择局部搜索器。",
+              "fontSize": 20,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "• 实现 NSHA：参考方向 niche、PBI/Tchebycheff/WS/ASF/AASF/IPBI 标量化接口。",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• 实现 NSHA：参考方向 niche、PBI/Tchebycheff/WS/ASF/AASF/IPBI 标量化接口。",
+              "fontSize": 20,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 4,
+          "text": "• 搭建小样本验证流程：LHS 初始采样、GP/KAN-GP 代理、CEI 采集、top-k 真实回评。",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• 搭建小样本验证流程：LHS 初始采样、GP/KAN-GP 代理、CEI 采集、top-k 真实回评。",
+              "fontSize": 20,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 5,
+          "text": "• 整理 ZDT 与工程仿真初步结果，形成下一步消融和统计检验方向。",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• 整理 ZDT 与工程仿真初步结果，形成下一步消融和统计检验方向。",
+              "fontSize": 20,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 137,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/y90je9cv",
+      "id": "137",
+      "name": "formula-当前代码能力",
+      "bbox": [
+        88,
+        3892,
+        762,
+        438
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#092B62",
+      "lineColor": "#73ECA0",
+      "lineWidth": 2
+    },
+    {
+      "order": 138,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/5sneloj2",
+      "id": "138",
+      "bbox": [
+        106,
+        3904,
+        726,
+        28
+      ],
+      "geometry": "rect",
+      "text": "当前代码能力",
+      "textPreview": "当前代码能力",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Microsoft YaHei",
+        "color": "#73ECA0",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "当前代码能力"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "当前代码能力",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Microsoft YaHei",
+            "color": "#73ECA0",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "当前代码能力",
+              "fontSize": 22,
+              "typeface": "Microsoft YaHei",
+              "color": "#73ECA0",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 139,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/cbulwval",
+      "id": "139",
+      "bbox": [
+        106,
+        3946,
+        726,
+        362
+      ],
+      "geometry": "rect",
+      "text": "HA: single-objective + constraints\nNSHA: ref-dir niching + scalarizers\nBandit: QL / UCB local-search selector\nSurrogate: GP / KAN-GP + CEI acquisition",
+      "textPreview": "HA: single-objective + constraints | NSHA: ref-dir niching + scalarizers | Bandit: QL / UCB local-search selector | Surrogate: GP / KAN-G...",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "Cambria Math",
+        "color": "#F8FAFC",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 4,
+        "lines": [
+          {
+            "index": 1,
+            "text": "HA: single-objective + constraints"
+          },
+          {
+            "index": 2,
+            "text": "NSHA: ref-dir niching + scalarizers"
+          },
+          {
+            "index": 3,
+            "text": "Bandit: QL / UCB local-search selector"
+          },
+          {
+            "index": 4,
+            "text": "Surrogate: GP / KAN-GP + CEI acquisition"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "HA: single-objective + constraints",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "HA: single-objective + constraints",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "NSHA: ref-dir niching + scalarizers",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "NSHA: ref-dir niching + scalarizers",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "Bandit: QL / UCB local-search selector",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Bandit: QL / UCB local-search selector",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 4,
+          "text": "Surrogate: GP / KAN-GP + CEI acquisition",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Surrogate: GP / KAN-GP + CEI acquisition",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 140,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0je9cvix",
+      "id": "140",
+      "bbox": [
+        106,
+        4278,
+        726,
+        42
+      ],
+      "geometry": "rect",
+      "text": "这些模块共同服务于通用算法框架；工程案例只承担黑箱昂贵评估验证。",
+      "textPreview": "这些模块共同服务于通用算法框架；工程案例只承担黑箱昂贵评估验证。",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "Microsoft YaHei",
+        "color": "#CDE6F7",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "这些模块共同服务于通用算法框架；工程案例只承担黑箱昂贵评估验证。"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "这些模块共同服务于通用算法框架；工程案例只承担黑箱昂贵评估验证。",
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "typeface": "Microsoft YaHei",
+            "color": "#CDE6F7",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "这些模块共同服务于通用算法框架；工程案例只承担黑箱昂贵评估验证。",
+              "fontSize": 15,
+              "typeface": "Microsoft YaHei",
+              "color": "#CDE6F7",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 141,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/t47y1kre",
+      "id": "141",
+      "name": "panel-下一步研究重点",
+      "bbox": [
+        913,
+        3478,
+        839,
+        912
+      ],
+      "geometry": "roundRect",
+      "fillColor": "rgba(8, 34, 79, 0.88)",
+      "lineColor": "rgba(255, 142, 70, 0.9)",
+      "lineWidth": 2
+    },
+    {
+      "order": 142,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/idonyd0z",
+      "id": "142",
+      "bbox": [
+        913,
+        3478,
+        10,
+        912
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FF8E46",
+      "lineWidth": 0
+    },
+    {
+      "order": 143,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/byhgn29g",
+      "id": "143",
+      "bbox": [
+        941,
+        3494,
+        783,
+        34
+      ],
+      "geometry": "rect",
+      "text": "下一步研究重点",
+      "textPreview": "下一步研究重点",
+      "resolvedFontSize": 28,
+      "resolvedTextStyle": {
+        "fontSize": 28,
+        "typeface": "Microsoft YaHei",
+        "color": "#F8FAFC",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "下一步研究重点"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "下一步研究重点",
+          "resolvedTextStyle": {
+            "fontSize": 28,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "下一步研究重点",
+              "fontSize": 28,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 144,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0rqd4vmt",
+      "id": "144",
+      "bbox": [
+        941,
+        3530,
+        783,
+        26
+      ],
+      "geometry": "rect",
+      "text": "让算法故事闭环",
+      "textPreview": "让算法故事闭环",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "fontSize": 18,
+        "typeface": "Microsoft YaHei",
+        "color": "#9BB9CE",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "让算法故事闭环"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "让算法故事闭环",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Microsoft YaHei",
+            "color": "#9BB9CE",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "让算法故事闭环",
+              "fontSize": 18,
+              "typeface": "Microsoft YaHei",
+              "color": "#9BB9CE",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 145,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/tcj6tova",
+      "id": "145",
+      "bbox": [
+        941,
+        3566,
+        783,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#FF8E46",
+      "lineWidth": 2
+    },
+    {
+      "order": 146,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/il0rqd4v",
+      "id": "146",
+      "bbox": [
+        953,
+        3588,
+        760,
+        285
+      ],
+      "geometry": "rect",
+      "text": "• 聚类自适应：比较 K-means、MeanShift、DBSCAN 在多峰/高维/噪声场景下的收益与开销。\n• 交叉池自适应：由固定 60/25/15 走向基于反馈的算子概率更新。\n• 多目标局部搜索：改进 PBI 参数、动态理想/最差点、Pareto-Nelder-Mead 和共同下降方向。\n• 理论证明：补全多亲概率采样图式传播模型与精英马尔可夫链收敛条件。\n• 验证体系：CEC + ZDT + 一个工程黑箱案例，主次清晰地证明通用算法能力。",
+      "textPreview": "• 聚类自适应：比较 K-means、MeanShift、DBSCAN 在多峰/高维/噪声场景下的收益与开销。 | • 交叉池自适应：由固定 60/25/15 走向基于反馈的算子概率更新。 | • 多目标局部搜索：改进 PBI 参数、动态理想/最差点、Pareto-Neld...",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "Microsoft YaHei",
+        "color": "#F8FAFC",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 7,
+        "lines": [
+          {
+            "index": 1,
+            "text": "• 聚类自适应：比较 K-means、MeanShift、DBSCAN"
+          },
+          {
+            "index": 2,
+            "text": "在多峰/高维/噪声场景下的收益与开销。"
+          },
+          {
+            "index": 3,
+            "text": "• 交叉池自适应：由固定 60/25/15 走向基于反馈的算子概率更新。"
+          },
+          {
+            "index": 4,
+            "text": "• 多目标局部搜索：改进 PBI 参数、动态理想/最差点、Pareto-Nelder-Mead"
+          },
+          {
+            "index": 5,
+            "text": "和共同下降方向。"
+          },
+          {
+            "index": 6,
+            "text": "• 理论证明：补全多亲概率采样图式传播模型与精英马尔可夫链收敛条件。"
+          },
+          {
+            "index": 7,
+            "text": "• 验证体系：CEC + ZDT + 一个工程黑箱案例，主次清晰地证明通用算法能力。"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "• 聚类自适应：比较 K-means、MeanShift、DBSCAN 在多峰/高维/噪声场景下的收益与开销。",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• 聚类自适应：比较 K-means、MeanShift、DBSCAN 在多峰/高维/噪声场景下的收益与开销。",
+              "fontSize": 20,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "• 交叉池自适应：由固定 60/25/15 走向基于反馈的算子概率更新。",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• 交叉池自适应：由固定 60/25/15 走向基于反馈的算子概率更新。",
+              "fontSize": 20,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "• 多目标局部搜索：改进 PBI 参数、动态理想/最差点、Pareto-Nelder-Mead 和共同下降方向。",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• 多目标局部搜索：改进 PBI 参数、动态理想/最差点、Pareto-Nelder-Mead 和共同下降方向。",
+              "fontSize": 20,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 4,
+          "text": "• 理论证明：补全多亲概率采样图式传播模型与精英马尔可夫链收敛条件。",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• 理论证明：补全多亲概率采样图式传播模型与精英马尔可夫链收敛条件。",
+              "fontSize": 20,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 5,
+          "text": "• 验证体系：CEC + ZDT + 一个工程黑箱案例，主次清晰地证明通用算法能力。",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Microsoft YaHei",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• 验证体系：CEC + ZDT + 一个工程黑箱案例，主次清晰地证明通用算法能力。",
+              "fontSize": 20,
+              "typeface": "Microsoft YaHei",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 147,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/b6xkf6dc",
+      "id": "147",
+      "name": "formula-论文实验矩阵",
+      "bbox": [
+        953,
+        3892,
+        762,
+        438
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#092B62",
+      "lineColor": "#FF8E46",
+      "lineWidth": 2
+    },
+    {
+      "order": 148,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/032lszqt",
+      "id": "148",
+      "bbox": [
+        971,
+        3904,
+        726,
+        28
+      ],
+      "geometry": "rect",
+      "text": "论文实验矩阵",
+      "textPreview": "论文实验矩阵",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Microsoft YaHei",
+        "color": "#FF8E46",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "论文实验矩阵"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "论文实验矩阵",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Microsoft YaHei",
+            "color": "#FF8E46",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "论文实验矩阵",
+              "fontSize": 22,
+              "typeface": "Microsoft YaHei",
+              "color": "#FF8E46",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 149,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/tovahoza",
+      "id": "149",
+      "bbox": [
+        971,
+        3946,
+        726,
+        362
+      ],
+      "geometry": "rect",
+      "text": "Benchmark: CEC + ZDT + engineering black-box\nAblation: Full / no-cluster / no-LS / no-pool\nMetrics: best, FEs, IGD, HV, feasibility rate\nStatistics: Wilcoxon rank-sum test",
+      "textPreview": "Benchmark: CEC + ZDT + engineering black-box | Ablation: Full / no-cluster / no-LS / no-pool | Metrics: best, FEs, IGD, HV, feasibility r...",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "Cambria Math",
+        "color": "#F8FAFC",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 4,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Benchmark: CEC + ZDT + engineering black-box"
+          },
+          {
+            "index": 2,
+            "text": "Ablation: Full / no-cluster / no-LS / no-pool"
+          },
+          {
+            "index": 3,
+            "text": "Metrics: best, FEs, IGD, HV, feasibility rate"
+          },
+          {
+            "index": 4,
+            "text": "Statistics: Wilcoxon rank-sum test"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Benchmark: CEC + ZDT + engineering black-box",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Benchmark: CEC + ZDT + engineering black-box",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "Ablation: Full / no-cluster / no-LS / no-pool",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Ablation: Full / no-cluster / no-LS / no-pool",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "Metrics: best, FEs, IGD, HV, feasibility rate",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Metrics: best, FEs, IGD, HV, feasibility rate",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 4,
+          "text": "Statistics: Wilcoxon rank-sum test",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Cambria Math",
+            "color": "#F8FAFC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Statistics: Wilcoxon rank-sum test",
+              "fontSize": 20,
+              "typeface": "Cambria Math",
+              "color": "#F8FAFC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 150,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/z61032ls",
+      "id": "150",
+      "bbox": [
+        971,
+        4278,
+        726,
+        42
+      ],
+      "geometry": "rect",
+      "text": "主结论应证明通用算法能力，而不是某个具体零件调参成功。",
+      "textPreview": "主结论应证明通用算法能力，而不是某个具体零件调参成功。",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "Microsoft YaHei",
+        "color": "#CDE6F7",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "主结论应证明通用算法能力，而不是某个具体零件调参成功。"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "主结论应证明通用算法能力，而不是某个具体零件调参成功。",
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "typeface": "Microsoft YaHei",
+            "color": "#CDE6F7",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "主结论应证明通用算法能力，而不是某个具体零件调参成功。",
+              "fontSize": 15,
+              "typeface": "Microsoft YaHei",
+              "color": "#CDE6F7",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 151,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/al87ed8b",
+      "id": "151",
+      "bbox": [
+        58,
+        4410,
+        1684,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#FFCE48",
+      "lineWidth": 3
+    },
+    {
+      "order": 152,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/hcrmhk3q",
+      "id": "152",
+      "bbox": [
+        62,
+        4430,
+        1180,
+        32
+      ],
+      "geometry": "rect",
+      "text": "HA / NSHA  |  Clustering Adaptive Local Search  |  Hybrid Crossover Pool  |  Bandit Local Search Selection",
+      "textPreview": "HA / NSHA  |  Clustering Adaptive Local Search  |  Hybrid Crossover Pool  |  Bandit Local Search Selection",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Microsoft YaHei",
+        "color": "#CDE6F7",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "HA / NSHA  |  Clustering Adaptive Local Search  |  Hybrid Crossover Pool  |  Bandit Local Search Selection"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "HA / NSHA  |  Clustering Adaptive Local Search  |  Hybrid Crossover Pool  |  Bandit Local Search Selection",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Microsoft YaHei",
+            "color": "#CDE6F7",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "HA / NSHA  |  Clustering Adaptive Local Search  |  Hybrid Crossover Pool  |  Bandit Local Search Selection",
+              "fontSize": 22,
+              "typeface": "Microsoft YaHei",
+              "color": "#CDE6F7",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 153,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/orytsvu9",
+      "id": "153",
+      "bbox": [
+        1260,
+        4430,
+        300,
+        32
+      ],
+      "geometry": "rect",
+      "text": "2026 Academic Poster",
+      "textPreview": "2026 Academic Poster",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Microsoft YaHei",
+        "color": "#FFCE48",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "2026 Academic Poster"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "2026 Academic Poster",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Microsoft YaHei",
+            "color": "#FFCE48",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "2026 Academic Poster",
+              "fontSize": 22,
+              "typeface": "Microsoft YaHei",
+              "color": "#FFCE48",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

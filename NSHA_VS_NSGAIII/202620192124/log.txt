@@ -1,0 +1,78 @@
+(hycpytorch) PS C:\Users\dell\Desktop\HA\HA> python .\compare_nsga3_vs_ha.py
+
+============================================================
+  Problem: ZDT1  (n_var=10, pop=50, gen=30)
+============================================================
+
+Compiled modules for significant speedup can not be used!
+https://pymoo.org/installation.html#installation
+
+To disable this warning:
+from pymoo.config import Config
+Config.warnings['not_compiled'] = False
+
+  NSGA-III      seed=42: IGD=8.2652e-02  FEs=1500
+  HA-RBF-PBI    seed=42: IGD=4.4000e-02  FEs=1446
+  NSGA-III      seed=2024: IGD=1.7770e-01  FEs=1500
+  HA-RBF-PBI    seed=2024: IGD=1.8960e-01  FEs=1416
+  NSGA-III      seed=2025: IGD=1.0367e-01  FEs=1500
+  HA-RBF-PBI    seed=2025: IGD=7.4836e-02  FEs=1401
+
+============================================================
+  Problem: ZDT2  (n_var=10, pop=50, gen=30)
+============================================================
+  NSGA-III      seed=42: IGD=2.3438e-01  FEs=1500
+  HA-RBF-PBI    seed=42: IGD=6.0381e-01  FEs=1416
+  NSGA-III      seed=2024: IGD=3.5731e-01  FEs=1500
+  HA-RBF-PBI    seed=2024: IGD=4.3555e-01  FEs=1396
+  NSGA-III      seed=2025: IGD=2.6276e-01  FEs=1500
+  HA-RBF-PBI    seed=2025: IGD=4.9401e-01  FEs=1405
+
+============================================================
+  Problem: ZDT3  (n_var=10, pop=50, gen=30)
+============================================================
+  NSGA-III      seed=42: IGD=9.3624e-02  FEs=1500
+  HA-RBF-PBI    seed=42: IGD=6.4438e-02  FEs=1449
+  NSGA-III      seed=2024: IGD=1.0124e-01  FEs=1500
+  HA-RBF-PBI    seed=2024: IGD=2.3236e-01  FEs=1441
+  NSGA-III      seed=2025: IGD=1.1114e-01  FEs=1500
+  HA-RBF-PBI    seed=2025: IGD=7.4736e-01  FEs=1427
+
+============================================================
+  Problem: ZDT4  (n_var=10, pop=50, gen=30)
+============================================================
+  NSGA-III      seed=42: IGD=1.7987e+01  FEs=1500
+  HA-RBF-PBI    seed=42: IGD=6.4151e+00  FEs=1466
+  NSGA-III      seed=2024: IGD=1.2434e+01  FEs=1500
+  HA-RBF-PBI    seed=2024: IGD=1.4083e+01  FEs=1474
+  NSGA-III      seed=2025: IGD=1.5661e+01  FEs=1500
+  HA-RBF-PBI    seed=2025: IGD=9.5300e+00  FEs=1424
+
+============================================================
+  Problem: ZDT6  (n_var=10, pop=50, gen=30)
+============================================================
+  NSGA-III      seed=42: IGD=3.7878e+00  FEs=1500
+  HA-RBF-PBI    seed=42: IGD=5.0959e+00  FEs=1467
+  NSGA-III      seed=2024: IGD=3.9903e+00  FEs=1500
+  HA-RBF-PBI    seed=2024: IGD=4.7344e+00  FEs=1425
+  NSGA-III      seed=2025: IGD=3.4346e+00  FEs=1500
+  HA-RBF-PBI    seed=2025: IGD=5.5140e+00  FEs=1439
+
+===========================================================================
+                                  Summary
+===========================================================================
+Problem  Algorithm        IGD mean    IGD std   FEs mean  FEs std
+---------------------------------------------------------------------------
+ZDT1     NSGA-III       1.2134e-01 4.0768e-02       1500        0
+ZDT1     HA-RBF-PBI     1.0281e-01 6.2647e-02       1421       19
+
+ZDT2     NSGA-III       2.8482e-01 5.2552e-02       1500        0
+ZDT2     HA-RBF-PBI     5.1112e-01 6.9751e-02       1406        8
+
+ZDT3     NSGA-III       1.0200e-01 7.1707e-03       1500        0
+ZDT3     HA-RBF-PBI     3.4806e-01 2.9056e-01       1439        9
+
+ZDT4     NSGA-III       1.5361e+01 2.2769e+00       1500        0
+ZDT4     HA-RBF-PBI     1.0009e+01 3.1489e+00       1455       22
+
+ZDT6     NSGA-III       3.7376e+00 2.2966e-01       1500        0

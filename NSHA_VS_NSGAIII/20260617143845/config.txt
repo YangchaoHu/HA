@@ -1,0 +1,7 @@
+pop_size=50
+n_gen=30
+seeds=[42, 2024, 2025]
+algorithms=['NSGA-III', 'NSHA-Base', 'NSHA+Nadir', 'NSHA+Theta', 'NSHA+Inject', 'NSHA+All']
+problems=['ZDT1', 'ZDT2', 'ZDT3', 'ZDT4', 'ZDT6']
+pbi_theta_base=5.0
+pbi_theta_new=1.0

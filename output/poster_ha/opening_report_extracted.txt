@@ -1,0 +1,478 @@
+
+===== PAGE 1 =====
+电 子 科 技 大 学
+专 业 学 位 研 究 生 学 位 论 文 开 题 报 告 表
+攻读学位级别： □博士 ☑硕士
+培 养 方 式： ☑全日制 □非全日制
+专业学位类别或领域： 计算机技术
+学 院：电子科技大学（深圳）高等研究院
+学 号： 202422280711
+姓 名： 唐茂文
+论 文 题 目： 课程学习 RL 与领域适配 RAG
+双驱动的 EDA 代码生成方法
+校内指导教师： 李耘
+校外指导教师： 刘洪杰
+填 表 日 期： 2025 年 11 月 24 日
+电子科技大学研究生院
+
+===== PAGE 2 =====
+一、学位论文研究内容
+课题类型 ☑应用基础研究 □应用研究
+课题来源 ☑纵向 □横向 □自拟
+1. 研究目标：
+本论文旨在提出一种课程学习强化学习（RL）与领域适配检索增强生成（RAG）双
+驱动的电子设计自动化（EDA）代码生成方法，以解决当前大模型在电子设计自动化场
+景中面临的少样本适配困难、收敛效率低、训练稳定性不足以及检索结果不可靠等问题。
+具体而言，本研究旨在通过少量监督微调实现基座大语言模型（LLM）的冷启动，降低
+领域迁移成本；在强化学习阶段引入课程学习思想，基于正确率与熵对样本进行难度划
+分，重点利用中等样本训练，从而提升收敛速度与泛化能力；设计基于实时正确率的动
+态 KL 散度惩罚机制，使训练过程能够自适应调整约束强度，在探索与稳定之间保持平
+衡；在 RAG 框架中引入置信度感知机制，通过置信度预测、自博弈训练和风险预算化
+Top-k 选择机制提升检索结果的可靠性，并在生成过程中显式传递不确定性信息，从而
+实现置信度感知的代码生成。最终目标是构建一个可信赖的 EDA 代码生成系统，为工程
+师提供高质量、可解释的辅助代码与知识支持，推动 EDA 工具的智能化与自动化发展。
+学
+位
+论 2. 研究内容：
+文
+（1）少量监督数据冷启动与基座 LLM 适配。
+研
+究 利用小规模高质量的 SFT 数据对基座 LLM 进行轻量化微调，实现领域冷启动；具体
+内
+流程是选取典型 EDA 任务与代码样例，构建少量训练集，在基座模型上进行初始化训练，
+容
+使其掌握 EDA 领域的基本语义与代码结构；预期效果是在监督数据有限的情况下快速建
+立模型的领域适配能力，降低迁移成本并提升代码生成的起点性能。
+（2）课程学习驱动的强化学习优化与动态 KL 惩罚。
+改进 GRPO 算法，引入课程学习思想，通过样本难度分级提升收敛效率与泛化能力；
+具体流程是基于模型输出的正确率与熵，将训练样本划分为简单、中等、困难三类，重
+点使用中等样本进行训练，并动态调整样本分布及 KL 惩罚以逐步提升模型学习能力；
+预期效果是显著加快收敛速度，提升模型在复杂 EDA 任务上的表现，同时增强泛化能力，
+减少模式崩塌与过拟合风险。
+（3）置信度感知增强的 RAG 可信检索与生成。
+在 RAG 框架中引入置信度感知的 Reranker，通过置信度预测、自博弈训练和风险
+预算化 Top-k 选择机制提升检索与生成的可靠性；具体流程是在候选文档的 reranking
+阶段利用置信度预测头进行可靠性估计，结合自博弈训练机制提升置信度校准能力，并
+1
+
+===== PAGE 3 =====
+在推理阶段采用风险预算化 Top-k 选择确保检索结果具备较高平均置信度；预期效果是
+提升 RAG 在 EDA 场景下的检索准确性与生成可信度，减少低置信度文档对生成结果的干
+扰，实现透明、可靠的 EDA 代码生成。
+3. 拟解决的关键性问题：
+（1）少样本适配与冷启动问题。
+当前大模型在 EDA 领域面临监督数据稀缺的挑战，传统方法往往需要大量标注样本
+才能建立有效的领域知识表示，导致迁移成本高、适配速度慢。本研究拟解决的关键问
+题是如何在极少量 SFT 数据条件下实现基座 LLM 的冷启动，使其快速掌握 EDA 领域的基
+本语义与代码生成能力，为后续强化学习与 RAG 提供坚实的起点。
+（2）收敛效率与训练稳定性问题。
+现有强化学习方法在复杂 EDA 任务中往往收敛缓慢，且容易出现模式崩塌或过拟
+合。本研究拟解决的关键问题是如何通过课程学习改进 GRPO 算法，基于正确率与熵对
+样本进行难度分级，并结合动态 KL 散度惩罚机制实现训练过程的自适应约束，从而在
+探索与稳定之间保持平衡，提升收敛速度与泛化能力。
+（3）检索可信度与生成可靠性问题。
+传统 RAG 框架在 EDA 场景下常因检索结果不准确或不稳定而导致生成内容缺乏可信
+度。本研究拟解决的关键问题是如何在 RAG 中引入置信度感知的 Reranker，通过置信
+度预测、自博弈训练和风险预算化 Top-k 选择机制提升检索结果的可靠性，并在生成过
+程中显式传递不确定性信息，从而实现透明、可信的 EDA 代码生成。
+2
+
+===== PAGE 4 =====
+二、学位论文研究依据
+1. 选题依据：
+EDA 是现代集成电路设计的核心支撑技术，其工具链覆盖从 RTL 到 GDSII 的完整流程。
+随着工艺节点的不断演进和设计复杂度的指数级增长，EDA 工具的使用场景日益复杂，工程
+师需要在大量文档、脚本和标准之间进行跨域知识整合。然而，传统的 EDA 工具依赖人工经
+验和文档检索，效率低下且容易出错。近年来，LLM 的出现为智能化 EDA 提供了新的可能性，
+但其在领域适配、可靠性和泛化能力方面仍存在显著不足。尤其在少样本条件下，如何快速
+冷启动模型并保证训练稳定性，以及在 RAG 框架下如何提升结果的可信度，成为亟需解决的
+关键问题。因此，本研究选题的依据在于结合课程学习强化学习与领域适配 RAG，探索一种
+双驱动的 EDA 代码生成方法，以满足复杂设计场景下的智能化需求。
+2. 研究意义：
+（1）基于课程学习改进的 GRPO 与动态 KL 惩罚，提升收敛与泛化：
+本研究通过引入课程学习机制改进强化学习算法，探索如何在复杂技术任务中实现难度
+分级训练，从而提升收敛效率与泛化能力；同时提出基于实时正确率的动态 KL 散度惩罚机制，
+为强化学习过程提供自适应约束，避免模式崩塌。
+（2）结合置信度感知的 RAG，增强 EDA 代码生成透明性与自动化：
+在 EDA 场景中，代码生成的可靠性直接影响设计效率与产品质量。本研究通过少量监督
+数据的冷启动，使大模型能够快速适配领域知识，降低数据标注成本；通过课程学习与动态
+约束提升训练稳定性，使模型在复杂 EDA 任务中表现更优；通过置信度感知的 RAG 提升检索
+与生成的可信度，使工程师能够获得透明、可靠的辅助代码与知识支持。这些成果将显著改
+善 EDA 工具的智能化水平，减少人工查阅文档与调试的负担，提高设计流程的自动化程度。
+（3）成果应用于 EDA 并可推广至复杂领域，具备重要经济与社会价值：
+随着集成电路设计复杂度的不断提升，EDA 工具的智能化已成为产业发展的必然趋势。
+本研究成果能够直接应用于 EDA 产业，提升设计效率与质量，缩短产品研发周期，具有显著
+的经济价值。同时，提出的课程学习强化学习与置信度感知 RAG 方法也可推广到其他高复杂
+度技术领域，如医疗、航空航天、能源系统等，为可信 AI 的跨领域应用提供参考，具有广泛
+的社会意义。
+3. 国内外研究现状：
+以 Transformer 为基础的大型语言模型（LLMs）在通用代码生成领域已取得突破性进展，
+其应用已从早期的代码补全、语法高亮等辅助任务，拓展至自然语言转代码（NL2Code）、代
+3
+
+===== PAGE 5 =====
+码修复、测试用例生成及 API 文档撰写等复杂场景[1][2][4][6][14][15]。这类模型凭借强大的语义理
+解能力和代码结构内隐知识，能够生成语法正确且一定程度上满足功能需求的程序，但相关
+研究多集中于 Python、Java 等通用编程语言，在处理长程依赖、保证逻辑正确性及复杂第三
+方库调用方面仍面临挑战[16]。然而，当 LLMs 面向电子设计自动化（EDA）这一高度专业化领
+域时，通用模型的局限性被显著放大[3][5]。EDA 代码涵盖硬件描述语言（Verilog、VHDL）、
+工具控制脚本（Tcl）及设计约束文件，其正确性高度依赖 EDA 工具命令、设计规范（时序、
+功耗）和专业术语[3][19][20]，且容错率极低，微小错误可能导致芯片功能失效或不可综合[5][20]，
+而通用 LLMs 普遍存在知识陈旧、领域知识匮乏及逻辑推理不足等问题，难以适配 EDA 工具不
+断更新的文档、最新设计标准及私有企业知识[5][20][21]。
+高质量数据集与可靠评估基准是 LLMs 在 EDA 代码生成领域落地的核心支撑，国内外研究
+者已开展针对性构建工作。目前已有研究基于开源 EDA 工具 OpenROAD 的交互数据和文档构建
+语料库，为模型提供精准上下文和训练素材[21]，但相较于通用代码领域，公开可用的高质量
+EDA 代码数据集仍存在规模小、分布散的问题。在评估基准方面，通用代码领域的 HumanEval、
+CodeX 等标准无法全面反映 EDA 代码的特殊性[1]，EDA 代码评估需兼顾功能正确性、可综合性、
+时序收敛性及设计性能指标等多重维度[22]。现有研究虽尝试借鉴软件工程中的 LLM 辅助评估
+方法，但尚未形成被广泛接受的、能自动化评估生成代码在真实 EDA 流程中表现的全面评估
+基准[1][22]，当前效用评估仍需结合人工审查与实际工具流程仿真，评估体系的通用性和自动
+化程度亟待提升[38]，多模态评估相关探索也处于起步阶段[40]。
+为解决 LLMs 在 EDA 领域的知识局限性，检索增强生成（RAG）成为关键技术路径，其基
+础架构由检索器、知识库和生成器构成，通过整合模型隐式知识与外部显式知识，显著提升
+生成结果的准确性和可信度[7]。国内外研究围绕 EDA 领域知识检索优化展开多方面探索：在
+知识库构建上，针对 EDA 工具文档、规范手册、设计案例及工具交互记录进行收集、清洗和
+分块处理[20][21]；在检索增强方法上，引入知识图谱（KG）结构化 EDA 领域知识，优化实体关
+系和复杂逻辑处理能力[23][24][25]，同时探索多模态检索技术，以期融合设计图、波形图等非文
+本信息[26][27]；在具体应用模式上，形成了代码片段级检索（提供功能正确的代码结构参考）、
+文档/规范检索（确保代码符合工具流程和设计标准）及多分区检索（M-RAG）（应对跨知识
+类型推理的复杂任务）等多种形式[28][29][30][31]。此外，RAG 技术正朝着智能化方向进阶，Agentic
+RAG 将 RAG 与规划、反思等智能体能力结合，实现检索时机和方式的自主决策[32][33]，多跳检
+索则利用强化学习等技术解决复杂设计中的多步推理和间接知识获取问题[34]，但检索结果相
+关性、知识库实时性与完备性，以及检索代码片段的可重用性和兼容性等挑战仍未完全解决
+[28][29]。
+强化学习（RL）为优化 LLMs 的 EDA 代码生成策略提供了有效框架，其中人类反馈强化学
+4
+
+===== PAGE 6 =====
+习（RLHF）应用最为成功[8][9]。RLHF 通过监督微调（SFT）、奖励模型（RM）训练和近端策略
+优化（PPO）三大阶段[10]，以软性奖励机制替代硬性规则约束，引导模型生成更符合期望的代
+码。在代码生成任务中，强化学习能够有效解决监督学习存在的暴露偏差问题，缓解生成长
+复杂代码序列时的错误累积[36]，同时通过最终执行奖励惩罚逻辑错误，助力模型处理长距离
+依赖与逻辑一致性问题[35][36]。针对 EDA 代码生成的高要求，过程监督强化学习
+（Process-Supervised RL）被证实具有重要价值，其利用代码语法正确性、函数正确调用等
+中间步骤反馈作为额外奖励信号，加速模型训练并指导正确生成流程[37]。在实践层面，程序
+合成指导的 RL 将 EDA 代码生成分解为可验证的小步骤，提供密集奖励信号[35]，CodeRL 框架
+等为 EDA 领域应用提供了重要参考[36]，多智能体强化学习（Multi-Agent RL）则通过不同智
+能体分工协作（如代码生成、验证、参数优化），应对复杂 EDA 流程的代码生成需求[33][39]。
+但该领域仍面临奖励函数稀疏性与延迟、训练计算资源需求高及评估体系不完善等突出挑战
+[35][38]。
+鉴于 RAG 与强化学习的互补特性，国内外研究界已开展二者深度融合的探索，形成了更
+具竞争力的技术框架[32][39]。RAG 擅长解决知识时效性和领域专业性问题，但难以保证对检索
+信息的最优利用及从执行结果中学习推理正确性[32]；强化学习能够提升代码逻辑正确性和指
+令遵循度，却受限于奖励信号稀疏性且无法有效引入动态外部知识[39]，二者结合可实现知识
+供给与策略优化的协同增效。现有融合模式主要分为两类：一是利用强化学习优化 RAG 检索
+策略，将检索器视为智能体，基于生成代码质量（如语法检查、仿真结果）设计奖励信号，
+使检索过程从静态信息匹配升级为目标驱动的决策过程[32][34]；二是通过多智能体协作，将强
+化学习应用于整个 RAG 系统的生成策略优化，综合衡量检索质量与生成质量，强制生成策略
+与检索到的事实性知识保持一致[31][33][39]。针对 EDA 流程的多步骤特性，研究提出分阶段决策
+的 RAG-RL 框架，使各阶段智能体的检索和生成策略均由强化学习优化，Agentic RAG 在此过
+程中展现出显著潜力，能够自主分解复杂任务、针对性检索知识并利用 EDA 工具反馈实现自
+我校正[32]。
+当前基于 RAG 与强化学习的 EDA 代码生成大模型研究虽取得阶段性进展，但仍面临多项
+核心挑战，相关前沿方向已成为国内外研究焦点。在知识表示与管理方面，现有文本切片和
+简单向量索引难以捕捉 EDA 领域复杂的工具依赖、设计约束和流程逻辑[23][24]，未来需深入探
+索知识图谱与多模态数据的深度融合[40]；在奖励机制设计上，奖励信号稀疏和延迟问题突出，
+亟需开发基于过程监督和中间验证的细粒度奖励机制，利用 EDA 流程中的可验证步骤提供密
+集反馈[35][37][38]；在集成框架优化上，需提升 RAG 与 RL 集成的智能化和适应性，增强智能体的
+环境感知与规划能力，以应对 EDA 流程的非结构化和动态变化[28][29][32]；在评估体系构建上，
+需建立覆盖可综合性、时序、面积、功耗及工具链集成兼容性的高保真自动化评估基准[17][38]；
+5
+
+===== PAGE 7 =====
+此外，随着应用深化，EDA 代码生成模型的可解释性与安全性也成为重要研究方向，以抵御
+潜在的安全漏洞和设计风险[3][5]。这些研究方向的突破将为下一代自动化、高可靠性 EDA 智能
+设计工具链的研发奠定基础。
+4. 发展态势：
+总体发展态势表明，未来趋势是少样本领域适配、强化学习、RAG 以及智能 EDA 助手的
+构建。少样本领域适配能够降低数据标注成本并加快模型迁移速度；课程学习与动态约束能
+够提升强化学习的收敛效率与稳定性；置信度感知的 RAG 能够实现可靠检索与透明生成；智
+能 EDA 助手则有望成为工程师日常工作的重要支持工具，推动 EDA 产业的智能化升级。
+5. 实际应用方面的意义和价值：
+在实际应用层面，本研究能够显著提升 EDA 代码生成的可靠性与透明性，为工程师提供
+高质量、可信赖的代码与知识支持，减少错误与返工；推动 EDA 工具的智能化与自动化水平，
+提升设计效率与质量；在集成电路设计复杂度不断提升的背景下，本研究成果可直接应用于
+EDA 产业，具有显著的经济与社会价值。同时，本研究提出的课程学习强化学习与置信度感
+知 RAG 方法也可推广到其他高复杂度技术领域，为可信 AI 的跨领域应用提供参考。
+6. 主要参考文献：
+[1] Chen M. Evaluating large language models trained on code[J]. Advances in neural information
+processing systems, 2022, 35: 27730-27744.
+[2] Jiang J, Wang F, Shen J, et al. A survey on large language models for code generation[J]. arXiv
+preprint arXiv:2406.00515, 2024.
+[3] Pan J, Zhou G, Chang C C, et al. A survey of research in large language models for electronic
+design automation[J]. ACM Transactions on Design Automation of Electronic Systems, 2025, 30
+（3）: 1-21.
+[4] Zhang Q, Fang C, Xie Y, et al. A survey on large language models for software engineering[J].
+arXiv preprint arXiv:2312.15223, 2023.
+[5] He Z, Pu Y, Wu H, et al. Large language models for eda: Future or mirage?[J]. ACM
+Transactions on Design Automation of Electronic Systems, 2025, 30（6）: 1-53.
+[6] Hou X, Zhao Y, Liu Y, et al. Large language models for software engineering: A systematic
+literature review[J]. ACM Transactions on Software Engineering and Methodology, 2024, 33（8）:
+1-79.
+6
+
+===== PAGE 8 =====
+[7] Lewis P, Perez E, Piktus A, et al. Retrieval-augmented generation for knowledge-intensive nlp
+tasks[J]. Advances in neural information processing systems, 2020, 33: 9459-9474.
+[8] Christiano P F, Leike J, Brown T, et al. Deep reinforcement learning from human preferences[J].
+Advances in neural information processing systems, 2017, 30.
+[9] Ouyang L, Wu J, Jiang X, et al. Training language models to follow instructions with human
+feedback[J]. Advances in neural information processing systems, 2022, 35: 27730-27744.
+[10] Schulman J, Wolski F, Dhariwal P, et al. Proximal policy optimization algorithms[J]. arXiv
+preprint arXiv:1707.06347, 2017.
+[11] Sharma C. Retrieval-Augmented Generation: A Comprehensive Survey of Architectures,
+Enhancements, and Robustness Frontiers[J]. arXiv preprint arXiv:2506.00054, 2025.
+[12] Gao Y, Xiong Y, Gao X, et al. Retrieval-augmented generation for large language models: A
+survey[J]. arXiv preprint arXiv:2312.10997, 2023, 2（1）.
+[13] Wu S, Xiong Y, Cui Y, et al. Retrieval-augmented generation for natural language processing:
+A survey[J]. arXiv preprint arXiv:2407.13193, 2024.
+[14] Zheng Z, Ning K, Wang Y, et al. A survey of large language models for code: Evolution,
+benchmarking, and future trends[J]. arXiv preprint arXiv:2311.10372, 2023.
+[15] Zan D, Chen B, Zhang F, et al. Large language models meet nl2code: A
+survey[C]//Proceedings of the 61st Annual Meeting of the Association for Computational
+Linguistics （Volume 1: Long Papers）. 2023: 7443-7464.
+[16] Shuster K, Komeili M, Adolphs L, et al. Language models that seek for knowledge: Modular
+search & generation for dialogue and prompt completion[J]. arXiv preprint arXiv:2203.13224,
+2022.
+[17] Chen X, Liu J, Wang H, et al. Large Language Models for Automated Program Repair: A
+Survey[J/OL]. arXiv:2402.01234, 2024.
+[18] Zubair F, Al-Hitmi M, Catal C. The use of large language models for program repair[J].
+Computer Standards & Interfaces, 2025, 93: 103951.
+[19] Sami H, Gaillardon P E, Tenace V. Eda-aware rtl generation with large language models[J].
+arXiv preprint arXiv:2412.04485, 2024.
+[20] Pu Y, He Z, Qiu T, et al. Customized retrieval augmented generation and benchmarking for
+EDA tool documentation QA[C]//Proceedings of the 43rd IEEE/ACM International Conference on
+Computer-Aided Design. 2024: 1-9.
+[21] Wu B Y, Sharma U, Kankipati S R D, et al. Eda corpus: A large language model dataset for
+7
+
+===== PAGE 9 =====
+enhanced interaction with openroad[C]//2024 IEEE LLM Aided Design Workshop （LAD）. IEEE,
+2024: 1-5.
+[22] Wang J, Huang Y, Chen C, et al. Software testing with large language models: Survey,
+landscape, and vision[J]. IEEE Transactions on Software Engineering, 2024, 50（4）: 911-936.
+[23] Pan J Z, Razniewski S, Kalo J C, et al. Large language models and knowledge graphs:
+Opportunities and challenges[J]. arXiv preprint arXiv:2308.06374, 2023.
+[24] Pan S, Luo L, Wang Y, et al. Unifying large language models and knowledge graphs: A
+roadmap[J]. IEEE Transactions on Knowledge and Data Engineering, 2024, 36（7）: 3580-3599.
+[25] Peng B, Zhou G, Chang C C, et al. Graph retrieval-augmented generation: A survey[J]. ACM
+Transactions on Information Systems, 2024.
+[26] Abootorabi M M, Zobeiri A, Dehghani M, et al. Ask in any modality: A comprehensive survey
+on multimodal retrieval-augmented generation[J]. arXiv preprint arXiv:2502.08826, 2025.
+[27] Mei L, Mo S, Yang Z, et al. A survey of multimodal retrieval-augmented generation[J]. arXiv
+preprint arXiv:2504.08748, 2025.
+[28] Yang Z, Chen S, Gao C, et al. An empirical study of retrieval-augmented code generation:
+Challenges and opportunities[J]. ACM Transactions on Software Engineering and Methodology,
+2025.
+[29] Wang Z Z, Asai A, Yu X V, Xu F F, Xie Y, Neubig G, Fried D. CodeRAG-Bench: Can
+Retrieval Augment Code Generation?[C]//NAACL. Mexico City: ACL, 2025: 1234-1246.
+[30] Wang Z, Teo S, Ouyang J, et al. M-RAG: Reinforcing large language model performance
+through retrieval-augmented generation with multiple partitions[C]//Proceedings of the 62nd
+Annual Meeting of the Association for Computational Linguistics （Volume 1: Long Papers）. 2024:
+1966-1978.
+[31] Gu X, Chen M, Lin Y, et al. On the effectiveness of large language models in domain-specific
+code generation[J]. ACM Transactions on Software Engineering and Methodology, 2025, 34（3）:
+1-22.
+[32] Singh A, Ehtesham A, Kumar S, et al. Agentic retrieval-augmented generation: A survey on
+agentic rag[J]. arXiv preprint arXiv:2501.09136, 2025.
+[33] Wu H, Zheng H, He Z, et al. Divergent Thoughts toward One Goal: LLM-based Multi-Agent
+Collaboration System for Electronic Design Automation[J]. arXiv preprint arXiv:2502.10857, 2025.
+[34] Ji Y, Meng R, Li Z, et al. Curriculum guided reinforcement learning for efficient multi hop
+retrieval augmented generation[J]. arXiv preprint arXiv:2505.17391, 2025.
+8
+
+===== PAGE 10 =====
+[35] Yang Y, Inala J P, Bastani O, et al. Program synthesis guided reinforcement learning for
+partially observed environments[J]. Advances in neural information processing systems, 2021, 34:
+29669-29683.
+[36] Le H, Wang Y, Gotmare A D, et al. Coderl: Mastering code generation through pretrained
+models and deep reinforcement learning[J]. Advances in Neural Information Processing Systems,
+2022, 35: 21314-21328.
+[37] Ye Y, Zhang T, Jiang W, et al. Process-supervised reinforcement learning for code
+generation[J]. arXiv preprint arXiv:2502.01715, 2025.
+[38] Chang Y, Wang X, Wang J, et al. A survey on evaluation of large language models[J]. ACM
+transactions on intelligent systems and technology, 2024, 15（3）: 1-45.
+[39] Chen Y, Yan L, Sun W, et al. Improving retrieval-augmented generation through multi-agent
+reinforcement learning[J]. arXiv preprint arXiv:2501.15228, 2025.
+[40] Li J, Lu W, Fei H, et al. A survey on benchmarks of multimodal large language models[J].
+arXiv preprint arXiv:2408.08632, 2024.
+7. 已有工作积累与研究成果：
+已对大模型后训练的基本原理和方法形成较为深入的理解，掌握了大模型强化学习的前
+沿内容并具备相关实践经验，同时熟悉 RAG 的召回—重排—生成完整流程。
+已有研究成果：
+（1）作为共同第二作者参与完成一篇 ACL 论文，主要负责相关算法与实验部分工作。
+（2）以第一作者身份完成并正在投稿一篇 CCF A 类会议论文，该工作系统性地提出了
+置信度感知的 RAG 框架。
+9
+
+===== PAGE 11 =====
+三、学位论文研究计划及预期目标
+1.拟采取的主要理论、研究方法、技术路线和实施方案
+1. 主要理论：
+（1）强化学习：强化学习是一种通过与环境交互不断优化策略的机器学习方法。在大语
+言模型后训练中，强化学习常用于结合奖励信号来调整模型输出，使其更符合任务需求。本
+研究基于 GRPO 算法进行改进，通过奖励建模与策略优化提升模型在 EDA 代码生成任务中的收
+敛效率与稳定性。
+（2）课程学习：课程学习是一种训练策略，通过按照样本难度分级逐步训练模型，使其
+先掌握简单任务，再逐步过渡到复杂任务，从而提升泛化能力与训练效率。在本研究中，课
+程学习机制被引入强化学习过程，重点利用中等难度样本进行训练，避免模式崩塌，并提升
+模型在复杂 EDA 任务中的表现。
+（3）检索增强生成：RAG 是一种结合检索与生成的框架，通过召回外部知识、重排候选
+结果并最终生成答案来提升模型的知识覆盖与可靠性。然而在复杂领域中，检索结果常存在
+噪声与不确定性。本研究提出置信度感知的 RAG 框架，在召回—重排—生成流程中引入置信
+度预测与风险预算化选择机制，实现检索结果的可信度传递，从而提升生成内容的可靠性与
+透明性。
+（4）置信度估计：置信度估计是一种衡量模型输出可靠性的理论方法，通过对检索结果
+或生成内容进行概率建模与不确定性分析，帮助系统在多候选答案中进行风险控制与可信选
+择。本研究在 RAG 框架中引入置信度估计模块，对召回结果进行可信度预测，并在生成阶段
+传递这一信息，从而实现可解释、可控的代码生成过程。
+2. 研究方法：
+（1）理论分析：本研究首先对大模型后训练的基本原理进行系统梳理，重点分析强化学
+习在复杂任务中的收敛特性与稳定性问题；结合课程学习机制，推导样本难度分级训练的合
+理性；在 RAG 框架下，建立置信度估计的数学模型，明确其在召回—重排—生成流程中的可
+信度传递逻辑。
+（2）算法设计与实现：在强化学习阶段，设计基于课程学习的 GRPO 改进算法，构建样
+本难度分级与奖励函数结合的训练流程；提出动态 KL 散度惩罚机制，利用实时正确率信号动
+态调整约束强度；在 RAG 框架中集成置信度估计模块，对召回结果进行可信度预测，并在重
+排与生成阶段传递置信度信息，实现透明、可靠的代码生成。
+（3）实验验证：构建 EDA 领域小规模监督数据集，完成冷启动训练，验证模型的基本适
+配能力；在强化学习阶段开展对比实验，评估课程学习与动态 KL 惩罚机制对收敛速度与生成
+10
+
+===== PAGE 12 =====
+质量的提升效果；在检索增强生成任务中，测试置信度感知的 RAG 框架对检索可靠性与生成
+透明性的改进；通过消融实验，验证各模块的独立贡献。
+（4）效果评估：采用定量指标（收敛速度、生成正确率、检索准确率、置信度预测精度）
+与定性指标（生成结果的可解释性、透明性与工程师使用体验）进行综合评估；与现有方法
+（如传统 RLHF、标准 RAG）进行对比，突出本研究方法在收敛效率、生成质量与可信度方面
+的优势。
+3. 技术路线：
+（1）冷启动与基础适配：构建小规模 EDA 领域监督数据集，完成 SFT 冷启动训练，使大
+模型快速适配领域知识，并验证其在基础代码生成任务上的适配能力。
+（2）课程学习驱动的强化学习优化：在 GRPO 算法中引入课程学习机制，按照样本难度
+分级训练，重点利用中等难度样本提升收敛效率与泛化能力；同时设计动态 KL 散度惩罚机制，
+根据实时正确率动态调整约束强度，保证训练稳定性。
+（3）置信度感知的 RAG 框架集成：在召回—重排—生成流程中引入置信度估计模块，对
+候选结果进行可信度预测与风险预算化选择，并在生成阶段传递置信度信息，实现透明、可
+信的代码生成。
+（4）实验验证与效果评估：在 EDA 代码生成任务中开展系统实验，验证课程学习、动态
+KL 与置信度感知 RAG 的独立与综合贡献；采用定量指标（收敛速度、生成正确率、检索准确
+率、置信度预测精度）与定性指标（透明性、可解释性）进行综合评估，并与现有方法进行
+对比。
+4. 实施方案：
+（1）设备与资源准备：配置必要的 GPU 计算环境（4 卡 A6000），搭建 pytorch、
+llamafactory、verl 实验平台，构建 EDA 领域小规模监督数据集，完成冷启动训练以验证模
+型的基础适配能力。
+（2）进度安排与管理：分阶段推进研究，第一阶段完成冷启动与数据集构建，第二阶段
+开展课程学习驱动的强化学习实验并引入动态 KL 惩罚，第三阶段实现并测试置信度感知的
+RAG 框架，第四阶段进行系统实验、效果评估与论文撰写，确保研究目标顺利完成。
+11
+
+===== PAGE 13 =====
+2.研究计划可行性，研究条件落实情况，可能存在的问题及解决办法
+1. 研究计划可行性：
+（1）技术可行性：本研究基于强化学习、课程学习、RAG 与置信度估计等成熟理论方法，
+已有较多相关实践经验与前期成果积累，技术路线明确，方法体系完整，具备较强的可行性。
+（2）资源可行性：实验室已具备完善的硬件与软件条件，能够支持大规模模型训练与分
+布式实验，研究计划在资源层面可行性高。
+2. 研究条件落实情况：
+（1）硬件设备方面：实验平台已构建基于 NVIDIA A6000 GPU 的高性能计算集群，共部
+署 4 台服务器节点，每节点配置 4 卡 48GB 显存的 GPU，满足大规模强化学习与大模型训
+练需求。
+（2）软件工具层面：主要采用 LlamaFactory 与 Verl 等开源框架，支持大语言模型的
+后训练与强化学习实验；分布式训练方面，集成 DeepSpeed 与 PyTorch FSDP，实现参数高
+效切分与流水线并行，提升大规模模型训练效率。数据处理使用 Pandas 与 HuggingFace
+Datasets ， 支 持 结 构 化 与 非 结 构 化 数 据 的 灵 活 加 载 。 可 视 化 工 具 采 用 TensorBoard 与
+Weights & Biases，支持训练过程的实时监控与实验管理。
+（3）实验环境方面：基于 Ubuntu 22.04 操作系统构建，内核版本升级至 5.15，以兼
+容新型硬件与通信库。CUDA 与 cuDNN 提供底层计算加速，配合 NCCL 优化跨节点通信。虚拟
+环境使用 Conda 与 Docker 双重管理，支持多版本 Python 依赖与容器化部署。分布式训练
+框架整合 PyTorch Lightning 与 Ray，结合 DeepSpeed/FSDP 提供灵活的任务调度与自动混
+合精度训练。
+3. 可能存在的问题：
+（1）技术问题：大规模强化学习与分布式训练过程中，可能出现通信延迟、梯度同步效
+率不足，导致训练速度下降；同时，异构硬件环境下算子兼容性不足，跨平台部署存在困难。
+（2）资源限制：GPU 显存容量有限，训练超大规模模型时需复杂的并行策略；预训练模
+型存储需求激增，对分布式存储系统的管理能力构成挑战。
+（3）硬件适配性：不同架构设备存在算子差异，难以满足实时推理需求。
+（4）研究风险：强化学习训练可能收敛不稳定或出现模式崩塌；RAG 框架中检索结果存
+在噪声，置信度估计精度不足，影响生成可靠性。
+4. 解决方案：
+12
+
+===== PAGE 14 =====
+（1）针对效率与兼容性问题：采用 DeepSpeed 与 FSDP 等分布式训练框架，结合梯度
+压缩与流水线并行策略提升通信效率；利用 TVM 编译器与 TensorRT 优化算子，确保跨平台
+兼容性。
+（2）针对资源有限的问题，通过 AMP 自动混合精度训练与梯度累积降低显存占用；在
+存储侧引入 8bit 量化压缩与 DVC 增量存储，有效缩减存储需求。
+（3）针对硬件适配性问题，构建 NVIDIA Triton 推理服务器容器化部署体系，结合
+TensorRT 优化计算图，确保模型在不同架构间无缝迁移。
+（4）针对方法鲁棒性问题，通过课程学习机制与动态 KL 散度惩罚提升训练稳定性；在
+RAG 框架中引入置信度感知模块与风险预算化选择机制，提升检索与生成的透明性与可信度。
+13
+
+===== PAGE 15 =====
+3.研究计划及预期成果
+起止年月 完成内容
+构建 EDA 领域小规模监督数据集，完成 SFT 冷启动训练，验证模型的基础适配
+2025.12-2026.1
+能力。
+研 2026.1-2026.3 开展课程学习驱动的强化学习实验，分级训练样本，提升收敛效率与泛化能力。
+究
+2026.3-2026.5 引入动态 KL 散度惩罚机制，优化训练稳定性，避免模式崩塌。
+计
+划
+2026.5-2026.7 集成置信度感知的 RAG 框架，设计置信度估计与风险预算化选择机制。
+2026.7-2026.9 系统实验与效果评估，开展消融实验，验证各模块的独立与综合贡献。
+2026.9-2026.11 完成结果分析与论文撰写，形成学位论文与学术论文投稿成果。
+1. 预期创新点：
+（1）课程学习驱动的强化学习优化方法：针对传统强化学习在大模型复杂任务中
+收敛效率低、泛化能力不足的瓶颈，提出课程学习驱动的强化学习优化方法。该方法借
+鉴人类渐进学习规律，将复杂任务拆解为“简单-中等-完整”三级子任务体系，设计动
+态课程调度机制，依据模型收敛度（奖励波动、任务完成率）自动切换学习阶段，实现
+课程与强化学习的深度耦合。
+（2）动态 KL 散度惩罚机制：为解决传统固定 KL 散度惩罚系数难以适配训练动态
+过程的问题，设计动态 KL 散度惩罚机制。该机制以策略更新幅度和奖励稳定性为核心
+预
+指标，构建惩罚系数自适应调整模型，实时匹配模型训练状态，同时设置系数上下限避
+期
+创 免失控。
+新
+（3）置信度感知的 RAG 框架：针对传统 RAG 框架“召回-重排-生成”流程中可信
+点
+及 度传递断裂的缺陷，构建置信度感知的 RAG 框架。召回阶段采用“相关性+置信度”双
+成
+维度检索并标注文档可信度；重排阶段融合二者加权排序，权重随任务需求动态调整；
+果
+生成阶段通过注意力权重归因，将源文档置信度传递至生成内容并附加可信标签，配套
+形
+式 置信度校准模块保障评估准确性。
+2. 成果形式：
+（1）完成硕士学位论文并顺利答辩。
+（2）形成可推广的研究方法与技术体系。
+（3）撰写并投稿至少一篇高水平国际会议/期刊论文。
+（4）开源部分实验代码与工具，推动成果在 EDA 智能化领域的应用。
+14
+
+===== PAGE 16 =====
+四、开题报告审查意见
+1.导师对学位论文选题和论文计划可行性意见，是否同意开题：
+校内导师（组）签字： 2025 年 11 月 26 日
+校外导师签字： 2025 年 11 月 26 日
+2.开题报告考评组意见
+开题日期 开题地点
+考评专家
+考评成绩 合格 票 基本合格 票 不合格 票
+□通过 □原则通过 □不通过
+结 论
+通 过：表决票均为合格
+原则通过：表决票中有 1 票为基本合格或不合格，其余为合格和基本合格
+不 通 过：表决票中有 2 票及以上为不合格
+考评组对学位论文的选题、研究计划及方案实施的可行性的意见和建议：
+考评组签名：
+年 月 日
+3.学院意见：
+负责人签名： 年 月 日
+15

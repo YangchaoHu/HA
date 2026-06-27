@@ -1,0 +1,5 @@
+pop_size=50
+n_gen=30
+seeds=[42, 2024, 2025]
+algorithms=['NSGA-III', 'HA-Full', 'HA-NoLS', 'HA-StdGA']
+problems=['ZDT1', 'ZDT2', 'ZDT3', 'ZDT4', 'ZDT6']

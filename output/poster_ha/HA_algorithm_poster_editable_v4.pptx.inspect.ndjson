@@ -1,0 +1,158 @@
+{"kind":"deck","id":"pr/pcbf0n","name":"Deck"}
+{"kind":"layout","layoutId":"1f27c29d-b047-461e-83ab-22f4e66c633f","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"825ca171-d5c6-40a6-a609-2281c3c33e66","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/s52c7r","slide":1,"title":"基于聚类自适应局部搜索与混合交叉池的混合进化算法研究与应用","textShapes":85}
+{"kind":"shape","id":"sh/b2hwfyxo","slide":1,"bbox":[0,0,1800,4500]}
+{"kind":"shape","id":"sh/mhk3q5o7","slide":1,"bbox":[0,0,1800,410]}
+{"kind":"textbox","id":"sh/twra5gbq","slide":1,"text":"基于聚类自适应局部搜索与混合交叉池的混合进化算法研究与应用","textPreview":"基于聚类自适应局部搜索与混合交叉池的混合进化算法研究与应用","textChars":29,"textLines":1,"bbox":[58,34,1688,70]}
+{"kind":"textbox","id":"sh/4byhgn29","slide":1,"text":"通用混合进化算法：面向高维、多模态、昂贵黑箱与多目标约束优化","textPreview":"通用混合进化算法：面向高维、多模态、昂贵黑箱与多目标约束优化","textChars":30,"textLines":1,"bbox":[62,112,1500,38]}
+{"kind":"textbox","id":"sh/bq1oryts","slide":1,"text":"胡杨超  |  电子科技大学（深圳）高等研究院  |  计算机技术  |  导师：李耘、王华山","textPreview":"胡杨超  |  电子科技大学（深圳）高等研究院  |  计算机技术  |  导师：李耘、王华山","textChars":47,"textLines":1,"bbox":[62,160,1300,32]}
+{"kind":"shape","id":"sh/m58z25kb","slide":1,"bbox":[58,220,1684,138]}
+{"kind":"textbox","id":"sh/tsvu9kni","slide":1,"text":"研究对象不是某一个固定工程零件，而是一套可迁移的优化算法框架。算法以“全局进化负责探索、聚类局部搜索负责开发、混合交叉池负责重组、多臂老虎机与标量化负责自适应决策”为主线，在 CEC/ZDT 基准与工程仿真案例中验证其收敛精度、函数评估效率和可扩展性。","textPreview":"研究对象不是某一个固定工程零件，而是一套可迁移的优化算法框架。算法以“全局进化负责探索、聚类局部搜索负责开发、混合交叉池负责重组、多臂老虎机与标量化负责自适应决策”为主线，在 CEC/ZDT 基准与工程仿真案例中验证其收敛精度、函数评估效率和可扩展性。","textChars":126,"textLines":1,"bbox":[88,247,1625,92]}
+{"kind":"shape","id":"sh/47y1kre1","slide":1,"name":"panel-问题定义与研究动机","bbox":[48,425,550,620]}
+{"kind":"shape","id":"sh/adsji5sn","slide":1,"bbox":[48,425,10,620]}
+{"kind":"textbox","id":"sh/3ylc7u54","slide":1,"text":"问题定义与研究动机","textPreview":"问题定义与研究动机","textChars":9,"textLines":1,"bbox":[76,441,494,34]}
+{"kind":"textbox","id":"sh/sji5snel","slide":1,"text":"通用算法目标，而非单一工程问题","textPreview":"通用算法目标，而非单一工程问题","textChars":15,"textLines":1,"bbox":[76,477,494,26]}
+{"kind":"shape","id":"sh/h4byhgn2","slide":1,"bbox":[76,513,494,0]}
+{"kind":"textbox","id":"sh/a5gbq1or","slide":1,"text":"• 复杂优化常表现为高维、非线性、多模态、黑箱、不可导和计算昂贵。\n• 标准 GA 全局性较强，但局部开发弱，后期收敛慢，且容易破坏长距离优良图式。\n• 全员局部搜索会消耗大量函数评估次数，在昂贵仿真环境下不可接受。\n• 本研究构建从单目标到多目标、从无约束到有约束均可扩展的混合进化框架。","textPreview":"• 复杂优化常表现为高维、非线性、多模态、黑箱、不可导和计算昂贵。 | • 标准 GA 全局性较强，但局部开发弱，后期收敛慢，且容易破坏长距离优良图式。 | • 全员局部搜索会消耗大量函数评估次数，在昂贵仿真环境下不可接受。 | • 本研究构建从单目标到多目标、从无约束到有...","textChars":145,"textLines":4,"bbox":[83,535,485,280]}
+{"kind":"shape","id":"sh/3m94fu18","slide":1,"name":"formula-通用形式","bbox":[82,840,484,170]}
+{"kind":"textbox","id":"sh/s72x4nap","slide":1,"text":"通用形式","textPreview":"通用形式","textChars":4,"textLines":1,"bbox":[100,852,448,28]}
+{"kind":"textbox","id":"sh/lszqtcj6","slide":1,"text":"min / max   F(x)\ns.t.   gⱼ(x) ≤ 0,   hₖ(x)=0\nx ∈ Ω,   F(x) may be black-box","textPreview":"min / max   F(x) | s.t.   gⱼ(x) ≤ 0,   hₖ(x)=0 | x ∈ Ω,   F(x) may be black-box","textChars":75,"textLines":3,"bbox":[100,894,448,94]}
+{"kind":"shape","id":"sh/a1gvy90j","slide":1,"name":"panel-算法总体框架","bbox":[625,425,550,620]}
+{"kind":"shape","id":"sh/zidonyd0","slide":1,"bbox":[625,425,10,620]}
+{"kind":"textbox","id":"sh/val87ed8","slide":1,"text":"算法总体框架","textPreview":"算法总体框架","textChars":6,"textLines":1,"bbox":[653,441,494,34]}
+{"kind":"textbox","id":"sh/6psfil0r","slide":1,"text":"Lamarckian learning + population evolution","textPreview":"Lamarckian learning + population evolution","textChars":42,"textLines":1,"bbox":[653,477,494,26]}
+{"kind":"shape","id":"sh/dcbulwva","slide":1,"bbox":[653,513,494,0]}
+{"kind":"shape","id":"sh/kre1w7mp","slide":1,"bbox":[667,550,132,112]}
+{"kind":"textbox","id":"sh/vixczed8","slide":1,"text":"P_t","textPreview":"P_t","textChars":3,"textLines":1,"bbox":[681,562,104,28]}
+{"kind":"textbox","id":"sh/2x4nap4r","slide":1,"text":"初始化/保留精英","textPreview":"初始化/保留精英","textChars":8,"textLines":1,"bbox":[681,598,104,58]}
+{"kind":"shape","id":"sh/donyd0z6","slide":1,"bbox":[807,592,54,28]}
+{"kind":"shape","id":"sh/k3q5o7qp","slide":1,"bbox":[867,550,132,112]}
+{"kind":"textbox","id":"sh/vu9knih4","slide":1,"text":"聚类","textPreview":"聚类","textChars":2,"textLines":1,"bbox":[881,562,104,28]}
+{"kind":"textbox","id":"sh/29gr2p8n","slide":1,"text":"识别局部盆地","textPreview":"识别局部盆地","textChars":6,"textLines":1,"bbox":[881,598,104,58]}
+{"kind":"shape","id":"sh/cfa9w3m9","slide":1,"bbox":[1007,592,54,28]}
+{"kind":"shape","id":"sh/1032lszq","slide":1,"bbox":[1067,550,132,112]}
+{"kind":"textbox","id":"sh/u9knih4b","slide":1,"text":"局部搜索","textPreview":"局部搜索","textChars":4,"textLines":1,"bbox":[1081,562,104,28]}
+{"kind":"textbox","id":"sh/judg7ads","slide":1,"text":"代表个体后天学习","textPreview":"代表个体后天学习","textChars":8,"textLines":1,"bbox":[1081,598,104,58]}
+{"kind":"shape","id":"sh/c7u54zid","slide":1,"bbox":[667,735,132,112]}
+{"kind":"textbox","id":"sh/1orytsvu","slide":1,"text":"回写","textPreview":"回写","textChars":2,"textLines":1,"bbox":[681,747,104,28]}
+{"kind":"textbox","id":"sh/u18jqh0f","slide":1,"text":"x' 替换 x","textPreview":"x' 替换 x","textChars":7,"textLines":1,"bbox":[681,783,104,58]}
+{"kind":"shape","id":"sh/jm1cfa9w","slide":1,"bbox":[807,777,54,28]}
+{"kind":"shape","id":"sh/cvixczed","slide":1,"bbox":[867,735,132,112]}
+{"kind":"textbox","id":"sh/5gbq1ory","slide":1,"text":"交叉池","textPreview":"交叉池","textChars":3,"textLines":1,"bbox":[881,747,104,28]}
+{"kind":"textbox","id":"sh/xc3ylc7u","slide":1,"text":"SBX/多父代/DE","textPreview":"SBX/多父代/DE","textChars":10,"textLines":1,"bbox":[881,783,104,58]}
+{"kind":"shape","id":"sh/4r65wjud","slide":1,"bbox":[1007,777,54,28]}
+{"kind":"shape","id":"sh/f6dcbulw","slide":1,"bbox":[1067,735,132,112]}
+{"kind":"textbox","id":"sh/mlkjm1cf","slide":1,"text":"选择","textPreview":"选择","textChars":2,"textLines":1,"bbox":[1081,747,104,28]}
+{"kind":"textbox","id":"sh/xkf6dcbu","slide":1,"text":"约束优先+精英保留","textPreview":"约束优先+精英保留","textChars":9,"textLines":1,"bbox":[1081,783,104,58]}
+{"kind":"textbox","id":"sh/4zidonyd","slide":1,"text":"核心思想：学习结果不是只改变适应度评价，而是以 Lamarckian 方式回写到染色体，直接改变下一代可继承信息。聚类控制“在哪里学”，交叉池控制“如何重组”。","textPreview":"核心思想：学习结果不是只改变适应度评价，而是以 Lamarckian 方式回写到染色体，直接改变下一代可继承信息。聚类控制“在哪里学”，交叉池控制“如何重组”。","textChars":80,"textLines":1,"bbox":[663,892,486,105]}
+{"kind":"shape","id":"sh/fepkzupw","slide":1,"name":"panel-聚类自适应局部搜索","bbox":[1202,425,550,620]}
+{"kind":"shape","id":"sh/mtwra5gb","slide":1,"bbox":[1202,425,10,620]}
+{"kind":"textbox","id":"sh/xobm58z2","slide":1,"text":"聚类自适应局部搜索","textPreview":"聚类自适应局部搜索","textChars":9,"textLines":1,"bbox":[1230,441,494,34]}
+{"kind":"textbox","id":"sh/83itgfml","slide":1,"text":"本课题重点强调机制","textPreview":"本课题重点强调机制","textChars":9,"textLines":1,"bbox":[1230,477,494,26]}
+{"kind":"shape","id":"sh/i5sneloj","slide":1,"bbox":[1230,513,494,0]}
+{"kind":"textbox","id":"sh/7qpg3ex0","slide":1,"text":"• 在决策空间进行 K-means / MeanShift / DBSCAN 聚类，兼容固定簇数与密度自适应场景。\n• 每 5 代周期触发，或连续 3 代无改进触发；停滞时加深搜索深度。\n• 每簇只选择约束优先意义下的代表个体；簇数过多时保留最有潜力的 niche_num 个代表。\n• 改进后才回写，避免局部搜索噪声污染种群。","textPreview":"• 在决策空间进行 K-means / MeanShift / DBSCAN 聚类，兼容固定簇数与密度自适应场景。 | • 每 5 代周期触发，或连续 3 代无改进触发；停滞时加深搜索深度。 | • 每簇只选择约束优先意义下的代表个体；簇数过多时保留最有潜力的 niche_...","textChars":164,"textLines":4,"bbox":[1237,535,485,300]}
+{"kind":"shape","id":"sh/0bi9s36h","slide":1,"name":"formula-触发与代表","bbox":[1236,858,484,152]}
+{"kind":"textbox","id":"sh/pwb2hwfy","slide":1,"text":"触发与代表","textPreview":"触发与代表","textChars":5,"textLines":1,"bbox":[1254,870,448,28]}
+{"kind":"textbox","id":"sh/ed8v6psf","slide":1,"text":"trigger ⇔ (t mod 5 = 0) ∨ (s ≥ 3)\nr_c = arg best_{i∈C_c}(CV_i, f_i)\ndepth = 10 if stagnant else 3","textPreview":"trigger ⇔ (t mod 5 = 0) ∨ (s ≥ 3) | r_c = arg best_{i∈C_c}(CV_i, f_i) | depth = 10 if stagnant else 3","textChars":97,"textLines":3,"bbox":[1254,912,448,76]}
+{"kind":"shape","id":"sh/7y1kre1w","slide":1,"name":"panel-局部代理与伪梯度","bbox":[48,1085,550,690]}
+{"kind":"shape","id":"sh/wjudg7ad","slide":1,"bbox":[48,1085,10,690]}
+{"kind":"textbox","id":"sh/p4r65wju","slide":1,"text":"局部代理与伪梯度","textPreview":"局部代理与伪梯度","textChars":8,"textLines":1,"bbox":[76,1101,494,34]}
+{"kind":"textbox","id":"sh/ih4byhgn","slide":1,"text":"面向小样本昂贵黑箱","textPreview":"面向小样本昂贵黑箱","textChars":9,"textLines":1,"bbox":[76,1137,494,26]}
+{"kind":"shape","id":"sh/72x4nap4","slide":1,"bbox":[76,1173,494,0]}
+{"kind":"textbox","id":"sh/ji5snelo","slide":1,"text":"局部搜索并不假设真实目标可导。算法复用簇内邻域和历史样本，构建局部 RBF/GP 近似，获得低代价的搜索方向；当样本不足或代理不可靠时，回退到直接搜索/原始解。","textPreview":"局部搜索并不假设真实目标可导。算法复用簇内邻域和历史样本，构建局部 RBF/GP 近似，获得低代价的搜索方向；当样本不足或代理不可靠时，回退到直接搜索/原始解。","textChars":80,"textLines":1,"bbox":[83,1195,480,145]}
+{"kind":"shape","id":"sh/uxc3ylc7","slide":1,"name":"formula-代理模型目标","bbox":[82,1368,484,240]}
+{"kind":"textbox","id":"sh/1kre1w7m","slide":1,"text":"代理模型目标","textPreview":"代理模型目标","textChars":6,"textLines":1,"bbox":[100,1380,448,28]}
+{"kind":"textbox","id":"sh/c3ylc7u5","slide":1,"text":"ŷ(x) = Σᵢ λᵢ φ(‖x − xᵢ‖) + p(x)\nx_next = arg min_x [ μ(x) − κσ(x) ]\ny = F + α·CV,    α ≈ 10·mean(|F|)","textPreview":"ŷ(x) = Σᵢ λᵢ φ(‖x − xᵢ‖) + p(x) | x_next = arg min_x [ μ(x) − κσ(x) ] | y = F + α·CV,    α ≈ 10·mean(|F|)","textChars":101,"textLines":3,"bbox":[100,1422,448,164]}
+{"kind":"textbox","id":"sh/j6tovaho","slide":1,"text":"小样本场景的关键不是全局代理处处准确，而是在候选盆地内快速变准。","textPreview":"小样本场景的关键不是全局代理处处准确，而是在候选盆地内快速变准。","textChars":32,"textLines":1,"bbox":[100,1556,448,42]}
+{"kind":"textbox","id":"sh/ulwval87","slide":1,"text":"工程仿真闭环只作为验证场景之一：参数 → 仿真响应 → 代理更新 → HA 候选 → 真实回评。","textPreview":"工程仿真闭环只作为验证场景之一：参数 → 仿真响应 → 代理更新 → HA 候选 → 真实回评。","textChars":48,"textLines":1,"bbox":[83,1632,480,65]}
+{"kind":"shape","id":"sh/1cfa9w3m","slide":1,"name":"panel-混合交叉池","bbox":[625,1085,550,690]}
+{"kind":"shape","id":"sh/crmhk3q5","slide":1,"bbox":[625,1085,10,690]}
+{"kind":"textbox","id":"sh/j2t83itg","slide":1,"text":"混合交叉池","textPreview":"混合交叉池","textChars":5,"textLines":1,"bbox":[653,1101,494,34]}
+{"kind":"textbox","id":"sh/qh0fepkz","slide":1,"text":"显式比例 + 隐性选择压力","textPreview":"显式比例 + 隐性选择压力","textChars":13,"textLines":1,"bbox":[653,1137,494,26]}
+{"kind":"shape","id":"sh/4byhgn29","slide":1,"bbox":[653,1173,494,0]}
+{"kind":"shape","id":"sh/twra5gbq","slide":1,"name":"formula-三类重组算子","bbox":[659,1195,484,270]}
+{"kind":"textbox","id":"sh/m58z25kb","slide":1,"text":"三类重组算子","textPreview":"三类重组算子","textChars":6,"textLines":1,"bbox":[677,1207,448,28]}
+{"kind":"textbox","id":"sh/bq1oryts","slide":1,"text":"SBX 60%:   β = (2u)^{1/(η+1)},    u ≤ 0.5\n          β = [1/(2(1−u))]^{1/(η+1)},    u > 0.5\nMulti-parent 25%:   x_c = Σᵢ ωᵢ xᵢ + ε\nDE 15%:   v = x + F₁(x_best−x) + F₂(x_r1−x_r2)","textPreview":"SBX 60%:   β = (2u)^{1/(η+1)},    u ≤ 0.5 |           β = [1/(2(1−u))]^{1/(η+1)},    u > 0.5 | Multi-parent 25%:   x_c = Σᵢ ωᵢ xᵢ + ε | D...","textChars":176,"textLines":4,"bbox":[677,1249,448,194]}
+{"kind":"textbox","id":"sh/4nap4r65","slide":1,"text":"设计理由：SBX 保证稳定遗传，多父代融合群体统计信息，DE/current-to-best 提供方向性开发。三者共同缓解“纯随机缺方向”和“单一算子易失效”的问题。","textPreview":"设计理由：SBX 保证稳定遗传，多父代融合群体统计信息，DE/current-to-best 提供方向性开发。三者共同缓解“纯随机缺方向”和“单一算子易失效”的问题。","textChars":83,"textLines":1,"bbox":[660,1488,480,95]}
+{"kind":"shape","id":"sh/t83itgfm","slide":1,"name":"formula-多项式变异","bbox":[659,1610,484,128]}
+{"kind":"textbox","id":"sh/mhk3q5o7","slide":1,"text":"多项式变异","textPreview":"多项式变异","textChars":5,"textLines":1,"bbox":[677,1622,448,28]}
+{"kind":"textbox","id":"sh/b2hwfyxo","slide":1,"text":"p_m = 1/d,    η_m = 20 + 80·min(1,t/50)\nstagnant ⇒ η_m ↓,   mutation radius ↑","textPreview":"p_m = 1/d,    η_m = 20 + 80·min(1,t/50) | stagnant ⇒ η_m ↓,   mutation radius ↑","textChars":77,"textLines":2,"bbox":[677,1664,448,52]}
+{"kind":"shape","id":"sh/4vmtwra5","slide":1,"name":"panel-多臂老虎机自适应策略选择","bbox":[1202,1085,550,690]}
+{"kind":"shape","id":"sh/tgfmlkjm","slide":1,"bbox":[1202,1085,10,690]}
+{"kind":"textbox","id":"sh/9gr2p8nq","slide":1,"text":"多臂老虎机自适应策略选择","textPreview":"多臂老虎机自适应策略选择","textChars":12,"textLines":1,"bbox":[1230,1101,494,34]}
+{"kind":"textbox","id":"sh/gvy90je9","slide":1,"text":"让搜索器选择随阶段改变","textPreview":"让搜索器选择随阶段改变","textChars":11,"textLines":1,"bbox":[1230,1137,494,26]}
+{"kind":"shape","id":"sh/ra5gbq1o","slide":1,"bbox":[1230,1173,494,0]}
+{"kind":"shape","id":"sh/2p8nqxs7","slide":1,"name":"formula-QL / UCB 更新","bbox":[1236,1195,484,320]}
+{"kind":"textbox","id":"sh/94fu18jq","slide":1,"text":"QL / UCB 更新","textPreview":"QL / UCB 更新","textChars":11,"textLines":1,"bbox":[1254,1207,448,28]}
+{"kind":"textbox","id":"sh/kjm1cfa9","slide":1,"text":"ε-greedy:   a ∼ Uniform(A),   if p < ε\n             a = arg max_a Q(a),   otherwise\nR_t = max(0, f_before − f_after)\nQ(a) ← Q(a) + (1/n_a)[R_t − Q(a)]\nUCB(a) = Q(a) + c √(log t / n_a)","textPreview":"ε-greedy:   a ∼ Uniform(A),   if p < ε |              a = arg max_a Q(a),   otherwise | R_t = max(0, f_before − f_after) | Q(a) ← Q(a) + ...","textChars":183,"textLines":5,"bbox":[1254,1249,448,244]}
+{"kind":"textbox","id":"sh/r2p8nqxs","slide":1,"text":"将局部搜索器视作“臂”，用真实改进量学习当前阶段最值得调用的搜索方式。","textPreview":"将局部搜索器视作“臂”，用真实改进量学习当前阶段最值得调用的搜索方式。","textChars":35,"textLines":1,"bbox":[1254,1463,448,42]}
+{"kind":"textbox","id":"sh/2hwfyxob","slide":1,"text":"双选择器思想：全局最优个体偏深度开发，普通精英个体偏代理/探索，避免一种经验支配所有个体。","textPreview":"双选择器思想：全局最优个体偏深度开发，普通精英个体偏代理/探索，避免一种经验支配所有个体。","textChars":45,"textLines":1,"bbox":[1237,1545,480,78]}
+{"kind":"shape","id":"sh/9w3m94fu","slide":1,"name":"panel-约束处理与多样性维护","bbox":[48,1818,550,757]}
+{"kind":"shape","id":"sh/kb6xkf6d","slide":1,"bbox":[48,1818,10,757]}
+{"kind":"textbox","id":"sh/u9knih4b","slide":1,"text":"约束处理与多样性维护","textPreview":"约束处理与多样性维护","textChars":10,"textLines":1,"bbox":[76,1834,494,34]}
+{"kind":"textbox","id":"sh/judg7ads","slide":1,"text":"防止不可行和早熟收敛","textPreview":"防止不可行和早熟收敛","textChars":10,"textLines":1,"bbox":[76,1870,494,26]}
+{"kind":"shape","id":"sh/cfa9w3m9","slide":1,"bbox":[76,1906,494,0]}
+{"kind":"textbox","id":"sh/1032lszq","slide":1,"text":"• 约束排序采用可行解优先思想：可行解优于不可行解；同可行比较目标，同不可行比较违反度。\n• 标量局部搜索统一叠加约束惩罚，使无约束局部搜索器也能感知可行性。\n• 重复个体过多时注入随机个体并重置步长，维持后期探索能力。\n• 工程仿真异常、网格失败或无效响应返回大罚值，保证算法流程不断裂。","textPreview":"• 约束排序采用可行解优先思想：可行解优于不可行解；同可行比较目标，同不可行比较违反度。 | • 标量局部搜索统一叠加约束惩罚，使无约束局部搜索器也能感知可行性。 | • 重复个体过多时注入随机个体并重置步长，维持后期探索能力。 | • 工程仿真异常、网格失败或无效响应返回...","textChars":145,"textLines":4,"bbox":[83,1930,485,305]}
+{"kind":"shape","id":"sh/u18jqh0f","slide":1,"name":"formula-约束惩罚","bbox":[82,2308,484,230]}
+{"kind":"textbox","id":"sh/jm1cfa9w","slide":1,"text":"约束惩罚","textPreview":"约束惩罚","textChars":4,"textLines":1,"bbox":[100,2320,448,28]}
+{"kind":"textbox","id":"sh/c7u54zid","slide":1,"text":"g(x) = value(x) + α·CV(x)\nα = 10|value(x)| + 1\nCV(x) = Σⱼ max(0, gⱼ(x))","textPreview":"g(x) = value(x) + α·CV(x) | α = 10|value(x)| + 1 | CV(x) = Σⱼ max(0, gⱼ(x))","textChars":71,"textLines":3,"bbox":[100,2362,448,154]}
+{"kind":"textbox","id":"sh/1orytsvu","slide":1,"text":"与 Deb 可行性规则共同工作：选择时重可行性，局部搜索时用连续惩罚引导方向。","textPreview":"与 Deb 可行性规则共同工作：选择时重可行性，局部搜索时用连续惩罚引导方向。","textChars":39,"textLines":1,"bbox":[100,2486,448,42]}
+{"kind":"shape","id":"sh/upwb2hwf","slide":1,"name":"panel-多目标扩展：NSHA","bbox":[625,1818,550,757]}
+{"kind":"shape","id":"sh/nap4r65w","slide":1,"bbox":[625,1818,10,757]}
+{"kind":"textbox","id":"sh/8nqxs72x","slide":1,"text":"多目标扩展：NSHA","textPreview":"多目标扩展：NSHA","textChars":10,"textLines":1,"bbox":[653,1834,494,34]}
+{"kind":"textbox","id":"sh/18jqh0fe","slide":1,"text":"局部搜索与 Pareto 前沿相容","textPreview":"局部搜索与 Pareto 前沿相容","textChars":17,"textLines":1,"bbox":[653,1870,494,26]}
+{"kind":"shape","id":"sh/qh0fepkz","slide":1,"bbox":[653,1906,494,0]}
+{"kind":"textbox","id":"sh/j2t83itg","slide":1,"text":"NSHA 将多目标问题沿 NSGA-III 参考方向分解。每个 niche 选择代表个体，并用对应参考方向构造标量化目标；局部改进后回到多目标选择框架中维护前沿分布。","textPreview":"NSHA 将多目标问题沿 NSGA-III 参考方向分解。每个 niche 选择代表个体，并用对应参考方向构造标量化目标；局部改进后回到多目标选择框架中维护前沿分布。","textChars":83,"textLines":1,"bbox":[660,1930,480,145]}
+{"kind":"shape","id":"sh/8bat47y1","slide":1,"name":"formula-标量化公式","bbox":[659,2110,484,348]}
+{"kind":"textbox","id":"sh/1w7mp0bi","slide":1,"text":"标量化公式","textPreview":"标量化公式","textChars":5,"textLines":1,"bbox":[677,2122,448,28]}
+{"kind":"textbox","id":"sh/q5o7qpg3","slide":1,"text":"F_s = F(x) − z*,    ŵ = w / ‖w‖\nd₁ = ⟨F_s, ŵ⟩,    d₂ = ‖F_s − d₁ŵ‖\ng_PBI = d₁ + θd₂\ng_TCH = max_i  w_i |f_i − z_i*|\ng_ASF = max_i  (f_i − z_i*) / w_i","textPreview":"F_s = F(x) − z*,    ŵ = w / ‖w‖ | d₁ = ⟨F_s, ŵ⟩,    d₂ = ‖F_s − d₁ŵ‖ | g_PBI = d₁ + θd₂ | g_TCH = max_i  w_i |f_i − z_i*| | g_ASF = max_i...","textChars":149,"textLines":5,"bbox":[677,2164,448,272]}
+{"kind":"textbox","id":"sh/jqh0fepk","slide":1,"text":"所有 scalarizer 叠加 value+αCV；ZDT2/ZDT3 暴露了凹/不连续前沿下进一步改进 θ 和 nadir 的必要性。","textPreview":"所有 scalarizer 叠加 value+αCV；ZDT2/ZDT3 暴露了凹/不连续前沿下进一步改进 θ 和 nadir 的必要性。","textChars":69,"textLines":1,"bbox":[677,2406,448,42]}
+{"kind":"shape","id":"sh/c3ylc7u5","slide":1,"name":"panel-理论解释与验证路径","bbox":[1202,1818,550,757]}
+{"kind":"shape","id":"sh/1kre1w7m","slide":1,"bbox":[1202,1818,10,757]}
+{"kind":"textbox","id":"sh/re1w7mp0","slide":1,"text":"理论解释与验证路径","textPreview":"理论解释与验证路径","textChars":9,"textLines":1,"bbox":[1230,1834,494,34]}
+{"kind":"textbox","id":"sh/2t83itgf","slide":1,"text":"为什么它有研究价值","textPreview":"为什么它有研究价值","textChars":9,"textLines":1,"bbox":[1230,1870,494,26]}
+{"kind":"shape","id":"sh/9knih4by","slide":1,"bbox":[1230,1906,494,0]}
+{"kind":"textbox","id":"sh/kzupwb2h","slide":1,"text":"• 图式定理扩展：多父代概率采样降低长定义距图式被交叉破坏的概率。\n• 马尔可夫链收敛：精英保留使状态转移满足收敛分析所需的单调保优条件。\n• 消融实验：Full HA / 去聚类 / 去局部搜索 / 标准交叉 / 标准 GA。\n• 统计检验：CEC/ZDT 上结合 IGD、HV、最优值、FEs 与 Wilcoxon 秩和检验。","textPreview":"• 图式定理扩展：多父代概率采样降低长定义距图式被交叉破坏的概率。 | • 马尔可夫链收敛：精英保留使状态转移满足收敛分析所需的单调保优条件。 | • 消融实验：Full HA / 去聚类 / 去局部搜索 / 标准交叉 / 标准 GA。 | • 统计检验：CEC/ZDT 上...","textChars":165,"textLines":4,"bbox":[1237,1930,485,270]}
+{"kind":"shape","id":"sh/rqd4vmtw","slide":1,"name":"formula-图式与收敛表达","bbox":[1236,2260,484,278]}
+{"kind":"textbox","id":"sh/25kb6xkf","slide":1,"text":"图式与收敛表达","textPreview":"图式与收敛表达","textChars":7,"textLines":1,"bbox":[1254,2272,448,28]}
+{"kind":"textbox","id":"sh/9w3m94fu","slide":1,"text":"E[m(H,t+1)] ≥ m(H,t) · f(H)/f̄ · (1−p_d)\nElitism:   best(P_{t+1}) ≤ best(P_t)\nP{ lim_{t→∞} P_t ∩ X* ≠ ∅ } = 1","textPreview":"E[m(H,t+1)] ≥ m(H,t) · f(H)/f̄ · (1−p_d) | Elitism:   best(P_{t+1}) ≤ best(P_t) | P{ lim_{t→∞} P_t ∩ X* ≠ ∅ } = 1","textChars":109,"textLines":3,"bbox":[1254,2314,448,202]}
+{"kind":"textbox","id":"sh/kb6xkf6d","slide":1,"text":"海报中只给核心表达，完整证明应放论文正文。","textPreview":"海报中只给核心表达，完整证明应放论文正文。","textChars":21,"textLines":1,"bbox":[1254,2486,448,42]}
+{"kind":"shape","id":"sh/r2p8nqxs","slide":1,"name":"panel-阶段实验：ZDT 多目标验证（算法通用性的一部分）","bbox":[48,2618,1704,817]}
+{"kind":"shape","id":"sh/2hwfyxob","slide":1,"bbox":[48,2618,10,817]}
+{"kind":"textbox","id":"sh/q1orytsv","slide":1,"text":"阶段实验：ZDT 多目标验证（算法通用性的一部分）","textPreview":"阶段实验：ZDT 多目标验证（算法通用性的一部分）","textChars":25,"textLines":1,"bbox":[76,2634,1648,34]}
+{"kind":"textbox","id":"sh/fmlkjm1c","slide":1,"text":"图示为 NSGA-III 与 HA-RBF-PBI 的 Pareto 前沿对比","textPreview":"图示为 NSGA-III 与 HA-RBF-PBI 的 Pareto 前沿对比","textChars":39,"textLines":1,"bbox":[76,2670,1648,26]}
+{"kind":"shape","id":"sh/87ed8bat","slide":1,"bbox":[76,2706,1648,0]}
+{"kind":"shape","id":"sh/qtcj6tov","slide":1,"bbox":[92,2748,502,427]}
+{"kind":"shape","id":"sh/8z25kb6x","slide":1,"bbox":[650,2748,502,427]}
+{"kind":"shape","id":"sh/qpg3ex0n","slide":1,"bbox":[1208,2748,502,427]}
+{"kind":"textbox","id":"sh/fa9w3m94","slide":1,"text":"结果解读：ZDT1 上 HA-RBF-PBI 的 IGD=6.04e-02，优于 NSGA-III 的 1.21e-01，说明聚类局部搜索能够提升部分前沿逼近。ZDT2/ZDT3 上表现不稳定，反映当前 PBI 局部搜索对凹前沿和不连续前沿仍敏感。该结果不是失败，而是明确指出下一步：动态 nadir、θ 自适应、支配式局部搜索与标量化消融。","textPreview":"结果解读：ZDT1 上 HA-RBF-PBI 的 IGD=6.04e-02，优于 NSGA-III 的 1.21e-01，说明聚类局部搜索能够提升部分前沿逼近。ZDT2/ZDT3 上表现不稳定，反映当前 PBI 局部搜索对凹前沿和不连续前沿仍敏感。该结果不是失败，而是明确指...","textChars":171,"textLines":1,"bbox":[92,3210,1580,80]}
+{"kind":"textbox","id":"sh/58z25kb6","slide":1,"text":"工程案例定位：SolidWorks/CAE 只作为昂贵黑箱验证场景，用于检验小样本代理、异常惩罚、真实回评和算法接口的可用性；不作为算法研究对象本身。","textPreview":"工程案例定位：SolidWorks/CAE 只作为昂贵黑箱验证场景，用于检验小样本代理、异常惩罚、真实回评和算法接口的可用性；不作为算法研究对象本身。","textChars":75,"textLines":1,"bbox":[92,3322,1580,55]}
+{"kind":"shape","id":"sh/gn29gr2p","slide":1,"name":"panel-已完成工作","bbox":[48,3478,839,912]}
+{"kind":"shape","id":"sh/n29gr2p8","slide":1,"bbox":[48,3478,10,912]}
+{"kind":"textbox","id":"sh/yhgn29gr","slide":1,"text":"已完成工作","textPreview":"已完成工作","textChars":5,"textLines":1,"bbox":[76,3494,783,34]}
+{"kind":"textbox","id":"sh/5wjudg7a","slide":1,"text":"从算法原型到扩展验证","textPreview":"从算法原型到扩展验证","textChars":10,"textLines":1,"bbox":[76,3530,783,26]}
+{"kind":"shape","id":"sh/gbq1oryt","slide":1,"bbox":[76,3566,783,0]}
+{"kind":"textbox","id":"sh/nuxc3ylc","slide":1,"text":"• 实现单目标 HA：聚类局部搜索、混合交叉池、自适应多项式变异与多样性维护。\n• 实现多臂老虎机版本：QL/UCB 根据真实改进量动态选择局部搜索器。\n• 实现 NSHA：参考方向 niche、PBI/Tchebycheff/WS/ASF/AASF/IPBI 标量化接口。\n• 搭建小样本验证流程：LHS 初始采样、GP/KAN-GP 代理、CEI 采集、top-k 真实回评。\n• 整理 ZDT 与工程仿真初步结果，形成下一步消融和统计检验方向。","textPreview":"• 实现单目标 HA：聚类局部搜索、混合交叉池、自适应多项式变异与多样性维护。 | • 实现多臂老虎机版本：QL/UCB 根据真实改进量动态选择局部搜索器。 | • 实现 NSHA：参考方向 niche、PBI/Tchebycheff/WS/ASF/AASF/IPBI 标量...","textChars":225,"textLines":5,"bbox":[88,3588,760,265]}
+{"kind":"shape","id":"sh/y90je9cv","slide":1,"name":"formula-当前代码能力","bbox":[88,3892,762,438]}
+{"kind":"textbox","id":"sh/5sneloj2","slide":1,"text":"当前代码能力","textPreview":"当前代码能力","textChars":6,"textLines":1,"bbox":[106,3904,726,28]}
+{"kind":"textbox","id":"sh/cbulwval","slide":1,"text":"HA: single-objective + constraints\nNSHA: ref-dir niching + scalarizers\nBandit: QL / UCB local-search selector\nSurrogate: GP / KAN-GP + CEI acquisition","textPreview":"HA: single-objective + constraints | NSHA: ref-dir niching + scalarizers | Bandit: QL / UCB local-search selector | Surrogate: GP / KAN-G...","textChars":150,"textLines":4,"bbox":[106,3946,726,362]}
+{"kind":"textbox","id":"sh/0je9cvix","slide":1,"text":"这些模块共同服务于通用算法框架；工程案例只承担黑箱昂贵评估验证。","textPreview":"这些模块共同服务于通用算法框架；工程案例只承担黑箱昂贵评估验证。","textChars":32,"textLines":1,"bbox":[106,4278,726,42]}
+{"kind":"shape","id":"sh/t47y1kre","slide":1,"name":"panel-下一步研究重点","bbox":[913,3478,839,912]}
+{"kind":"shape","id":"sh/idonyd0z","slide":1,"bbox":[913,3478,10,912]}
+{"kind":"textbox","id":"sh/byhgn29g","slide":1,"text":"下一步研究重点","textPreview":"下一步研究重点","textChars":7,"textLines":1,"bbox":[941,3494,783,34]}
+{"kind":"textbox","id":"sh/0rqd4vmt","slide":1,"text":"让算法故事闭环","textPreview":"让算法故事闭环","textChars":7,"textLines":1,"bbox":[941,3530,783,26]}
+{"kind":"shape","id":"sh/tcj6tova","slide":1,"bbox":[941,3566,783,0]}
+{"kind":"textbox","id":"sh/il0rqd4v","slide":1,"text":"• 聚类自适应：比较 K-means、MeanShift、DBSCAN 在多峰/高维/噪声场景下的收益与开销。\n• 交叉池自适应：由固定 60/25/15 走向基于反馈的算子概率更新。\n• 多目标局部搜索：改进 PBI 参数、动态理想/最差点、Pareto-Nelder-Mead 和共同下降方向。\n• 理论证明：补全多亲概率采样图式传播模型与精英马尔可夫链收敛条件。\n• 验证体系：CEC + ZDT + 一个工程黑箱案例，主次清晰地证明通用算法能力。","textPreview":"• 聚类自适应：比较 K-means、MeanShift、DBSCAN 在多峰/高维/噪声场景下的收益与开销。 | • 交叉池自适应：由固定 60/25/15 走向基于反馈的算子概率更新。 | • 多目标局部搜索：改进 PBI 参数、动态理想/最差点、Pareto-Neld...","textChars":227,"textLines":5,"bbox":[953,3588,760,285]}
+{"kind":"shape","id":"sh/b6xkf6dc","slide":1,"name":"formula-论文实验矩阵","bbox":[953,3892,762,438]}
+{"kind":"textbox","id":"sh/032lszqt","slide":1,"text":"论文实验矩阵","textPreview":"论文实验矩阵","textChars":6,"textLines":1,"bbox":[971,3904,726,28]}
+{"kind":"textbox","id":"sh/tovahoza","slide":1,"text":"Benchmark: CEC + ZDT + engineering black-box\nAblation: Full / no-cluster / no-LS / no-pool\nMetrics: best, FEs, IGD, HV, feasibility rate\nStatistics: Wilcoxon rank-sum test","textPreview":"Benchmark: CEC + ZDT + engineering black-box | Ablation: Full / no-cluster / no-LS / no-pool | Metrics: best, FEs, IGD, HV, feasibility r...","textChars":171,"textLines":4,"bbox":[971,3946,726,362]}
+{"kind":"textbox","id":"sh/z61032ls","slide":1,"text":"主结论应证明通用算法能力，而不是某个具体零件调参成功。","textPreview":"主结论应证明通用算法能力，而不是某个具体零件调参成功。","textChars":27,"textLines":1,"bbox":[971,4278,726,42]}
+{"kind":"shape","id":"sh/al87ed8b","slide":1,"bbox":[58,4410,1684,0]}
+{"kind":"textbox","id":"sh/hcrmhk3q","slide":1,"text":"HA / NSHA  |  Clustering Adaptive Local Search  |  Hybrid Crossover Pool  |  Bandit Local Search Selection","textPreview":"HA / NSHA  |  Clustering Adaptive Local Search  |  Hybrid Crossover Pool  |  Bandit Local Search Selection","textChars":106,"textLines":1,"bbox":[62,4430,1180,32]}
+{"kind":"textbox","id":"sh/orytsvu9","slide":1,"text":"2026 Academic Poster","textPreview":"2026 Academic Poster","textChars":20,"textLines":1,"bbox":[1260,4430,300,32]}
+{"kind":"image","id":"im/1w7mp0bi","slide":1,"name":"","alt":"abstract algorithm background","bbox":[0,0,1800,4500]}
+{"kind":"image","id":"im/w7mp0bi9","slide":1,"name":"","alt":"ZDT1 Pareto front comparison","bbox":[92,2748,502,427]}
+{"kind":"image","id":"im/epkzupwb","slide":1,"name":"","alt":"ZDT2 Pareto front comparison","bbox":[650,2748,502,427]}
+{"kind":"image","id":"im/wval87ed","slide":1,"name":"","alt":"ZDT3 Pareto front comparison","bbox":[1208,2748,502,427]}
+{"kind":"notes","id":"nt/s52c7r","slide":1,"text":""}
