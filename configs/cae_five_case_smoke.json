@@ -1,0 +1,18 @@
+{
+  "problems": [
+    "mapdl_cantilever_beam",
+    "mapdl_simply_supported_beam",
+    "mapdl_portal_frame",
+    "mapdl_two_bar_truss",
+    "mapdl_plane_stress_plate"
+  ],
+  "include_expensive": true,
+  "algorithms": ["nsga2"],
+  "seeds": [1],
+  "pop_size": 6,
+  "n_gen": 2,
+  "save_every": 1,
+  "output_root": "experiments_results/moea_benchmark_cae_five_case_smoke",
+  "verbose": false
+}
+

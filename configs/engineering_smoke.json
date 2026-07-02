@@ -1,0 +1,10 @@
+{
+  "problems": ["welded_beam", "truss2d", "carside"],
+  "algorithms": ["nsga2", "nsga3", "sms-emoa"],
+  "seeds": [1, 2, 3],
+  "pop_size": 80,
+  "n_gen": 80,
+  "save_every": 1,
+  "output_root": "experiments_results/moea_benchmark_engineering",
+  "verbose": false
+}

@@ -1,0 +1,11 @@
+{
+  "problems": ["zdt1", "dtlz2"],
+  "algorithms": ["nsga2", "nsga3"],
+  "seeds": [1],
+  "pop_size": 24,
+  "n_gen": 4,
+  "save_every": 1,
+  "output_root": "experiments_results/moea_benchmark_smoke",
+  "verbose": false
+}
+

@@ -1,0 +1,32 @@
+{
+  "problems": [
+    "zdt1",
+    "zdt2",
+    "zdt3",
+    "zdt4",
+    "zdt6",
+    "dtlz1",
+    "dtlz2",
+    "dtlz3",
+    "dtlz4",
+    "bnh",
+    "tnk",
+    "osy",
+    "welded_beam",
+    "truss2d",
+    "carside",
+    "mapdl_cantilever_beam",
+    "mapdl_simply_supported_beam",
+    "mapdl_portal_frame",
+    "mapdl_two_bar_truss",
+    "mapdl_plane_stress_plate"
+  ],
+  "include_expensive": true,
+  "algorithms": ["nsga2", "nsga3", "unsga3", "moead", "sms-emoa", "ha-nsga3"],
+  "seeds": [2026, 2027, 2028, 2029, 2030],
+  "pop_size": 100,
+  "n_gen": 200,
+  "save_every": 1,
+  "output_root": "experiments_results/moea_benchmark_full",
+  "verbose": false
+}
